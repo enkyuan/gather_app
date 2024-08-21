@@ -1,4 +1,4 @@
-# gather version ii
+# (re)gather
 
 <p id="badges" align="center">
   <a href="https://expo.dev/"><img src="https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white" alt="Expo" /></a>
