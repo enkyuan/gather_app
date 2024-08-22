@@ -23,7 +23,7 @@ export default function Login() {
         </Text>
         <TextInput
           style={tw`border-2
-          rounded-lg
+          rounded-xl
           w-92
           h-16
           pl-4
@@ -34,11 +34,12 @@ export default function Login() {
           placeholder="Email"
           value={email}
           placeholderTextColor="gray"
+          autoCapitalize="none"
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
           style={tw`border-2
-          rounded-lg
+          rounded-xl
           w-92
           h-16
           pl-4
@@ -50,11 +51,12 @@ export default function Login() {
           secureTextEntry={true}
           value={password}
           placeholderTextColor="gray"
+          autoCapitalize="none"
           onChangeText={(text) => setPassword(text)}
         />
         <Text style={tw`text-xl mb-76 font-semibold`}>
           New?
-          <Link href={"./app/routes/auth/SignUp"} style={tw`text-blue-500`}>
+          <Link href={"/routes/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}
             Register{" "}
           </Link>
@@ -65,7 +67,7 @@ export default function Login() {
             h-20
             justify-center
             items-center
-            rounded-lg`}
+            rounded-full`}
           onPress={() => authProvider.handleSignIn(email, password)}
         >
           <Text style={tw`text-white text-center text-2xl font-bold`}>

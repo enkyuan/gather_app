@@ -4,7 +4,9 @@ import { useRouter } from "expo-router";
 const AuthProvider = () => {
   const router = useRouter();
   const nameRegex = new RegExp("/^[a-zA-Z][0-9]{7}/");
-  const emailRegex = new RegExp("^[a-zA-Z][0-9]{7}@students.katyisd.org$");
+  const emailRegex = new RegExp(
+    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+  );
 
   function isValidEmail(email: string) {
     if (emailRegex.test(email) === true) {
@@ -62,20 +64,20 @@ const AuthProvider = () => {
       const authData = await pb
         .collection("users")
         .authWithPassword(email, password);
-      router.navigate("./app/routes/events/");
+      router.navigate("/routes/events/Events");
       return authData;
     } catch (error: any) {
       alert(error.message);
 
       if (error.message.toString() === "Failed to authenticate.") {
-        router.navigate("./app/routes/auth/SignUp");
+        router.navigate("/routes/auth/Login");
       }
     }
   }
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("./app/routes/auth/Login");
+    router.navigate("/routes/auth/Login");
   }
 
   return {

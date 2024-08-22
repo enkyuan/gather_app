@@ -1,4 +1,4 @@
-// import tw from "twrnc";
+import tw from "twrnc";
 import React from "react";
 import { SafeAreaView, View, Text } from "react-native";
 import SplitButton from "@/components/SplitButton";

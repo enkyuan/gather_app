@@ -14,7 +14,7 @@ export default function SignUp() {
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
         <Text
-          style={tw`text-4xl 
+          style={tw`text-4xl
           font-bold
           pt-20
           pb-20`}
@@ -22,23 +22,24 @@ export default function SignUp() {
           Sign Up
         </Text>
         <TextInput
-          style={tw`border-2 
-          rounded-lg 
+          style={tw`border-2
+          rounded-xl
           w-92
-          h-16 
+          h-16
           pl-4
           mb-4
           text-xl`}
           placeholder="Email"
           value={email}
           placeholderTextColor="gray"
+          autoCapitalize="none"
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
-          style={tw`border-2 
-          rounded-lg 
-          w-92 
-          h-16 
+          style={tw`border-2
+          rounded-xl
+          w-92
+          h-16
           pl-4
           mb-4
           text-xl`}
@@ -46,25 +47,27 @@ export default function SignUp() {
           secureTextEntry={true}
           value={password}
           placeholderTextColor="gray"
+          autoCapitalize="none"
           onChangeText={(text) => setPassword(text)}
         />
         <TextInput
-          style={tw`border-2 
-          rounded-lg 
+          style={tw`border-2
+          rounded-xl
           w-92
-          h-16 
+          h-16
           pl-4
-          mb-4 
+          mb-4
           text-xl`}
           placeholder="Confirm Password"
           secureTextEntry={true}
           value={passwordConfirm}
           placeholderTextColor="gray"
+          autoCapitalize="none"
           onChangeText={(text) => setPasswordConfirm(text)}
         />
         <Text style={tw`text-xl mb-76 font-semibold`}>
           Have an account?
-          <Link href={"./app/routes/auth/Login.tsx"} style={tw`text-blue-500`}>
+          <Link href="/routes/auth/Login" style={tw`text-blue-500`}>
             {" "}
             Login{" "}
           </Link>

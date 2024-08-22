@@ -1,13 +1,17 @@
-import React from 'react'
+// TODOs: Add merchant identifier & stripe key
+
+import React from "react";
 import tw from "twrnc";
-import Login from './routes/auth/Login';
+import { StripeProvider } from "@stripe/stripe-react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import Auth from './routes/auth';
+import Auth from "./routes/auth";
 
 export default function App() {
   return (
-    <GestureHandlerRootView style={tw`flex-1`}>
-      <Auth />
-    </GestureHandlerRootView>
-  )
+    <StripeProvider merchantIdentifier=" " publishableKey="">
+      <GestureHandlerRootView style={tw`flex-1`}>
+        <Auth />
+      </GestureHandlerRootView>
+    </StripeProvider>
+  );
 }
