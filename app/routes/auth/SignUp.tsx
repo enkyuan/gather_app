@@ -13,7 +13,7 @@ import tw from "twrnc";
 
 export default function SignUp() {
   const authProvider = AuthProvider();
-  const [username, setUsername] = useState("");
+  const [alias, setAlias] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordConfirm, setPasswordConfirm] = useState("");
@@ -40,11 +40,11 @@ export default function SignUp() {
           mb-4
           text-xl`}
           placeholder="Username"
-          value={username}
+          value={alias}
           placeholderTextColor="gray"
           autoCapitalize="none"
           autoCorrect={false}
-          onChangeText={(text) => setUsername(text)}
+          onChangeText={(text) => setAlias(text)}
         />
         <TextInput
           style={tw`border-2
@@ -108,7 +108,7 @@ export default function SignUp() {
           items-center
           rounded-full`}
           onPress={() =>
-            authProvider.handleSignUp(email, password, passwordConfirm)
+            authProvider.handleSignUp(alias, email, password, passwordConfirm)
           }
         >
           <Text style={tw`text-white text-center text-2xl font-bold`}>

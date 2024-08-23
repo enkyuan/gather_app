@@ -1,3 +1,6 @@
+// TODO: check if routes/events is valid
+// TODO: check if username, password auth is valid
+
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
 
@@ -42,7 +45,7 @@ const AuthProvider = () => {
   }
 
   async function handleSignUp(
-    username: string,
+    alias: string,
     email: string,
     password: string,
     passwordConfirm: string,
@@ -50,8 +53,8 @@ const AuthProvider = () => {
     const match = nameRegex.exec(email);
     // TODO: obtain username from regex
     const data = {
+      alias: alias,
       email: email,
-      name: username,
       password: password,
       passwordConfirm: passwordConfirm,
     };
@@ -65,7 +68,7 @@ const AuthProvider = () => {
       }
     }
 
-    console.log(username, data);
+    console.log(alias, data);
   }
 
   async function handleSignIn(input: string, password: string) {

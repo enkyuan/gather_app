@@ -1,3 +1,5 @@
+// TODO: render events from pb on this route
+
 import tw from "twrnc";
 import React from "react";
 import { SafeAreaView, View, Text, Pressable } from "react-native";
@@ -5,7 +7,6 @@ import { useRouter } from "expo-router";
 import AuthProvider from "@/providers/auth.provider";
 
 export default function Events() {
-  const router = useRouter();
   const authProvider = AuthProvider();
 
   return (
