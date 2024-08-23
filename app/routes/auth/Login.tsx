@@ -11,22 +11,27 @@ import {
 import tw from "twrnc";
 import { Link } from "expo-router";
 import AuthProvider from "@/providers/auth.provider";
+import { Image } from "react-native";
 
 export default function Login() {
   const authProvider = AuthProvider();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [username, setUsername] = useState("");
 
   return (
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
+        <View style={tw`py-4`}>
+          <Image source={require("@/assets/images/wordmark.jpg")} />
+        </View>
         <Text
-          style={tw`text-4xl
-          font-bold
-          pt-20
-          pb-40`}
+          style={tw`text-3xl
+          font-semibold
+          pt-16
+          py-12`}
         >
-          Sign In
+          Welcome back
         </Text>
         <TextInput
           style={tw`border-2
@@ -38,8 +43,8 @@ export default function Login() {
           text-xl
           `}
           maxLength={28}
-          placeholder="Email"
-          value={email}
+          placeholder="Username or Email"
+          value={email || username}
           placeholderTextColor="gray"
           autoCapitalize="none"
           autoCorrect={false}
@@ -63,7 +68,7 @@ export default function Login() {
           autoCorrect
           onChangeText={(text) => setPassword(text)}
         />
-        <Text style={tw`text-xl mb-56 font-semibold`}>
+        <Text style={tw`text-xl mb-74 font-semibold`}>
           New?
           <Link href={"/routes/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}
@@ -88,7 +93,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   text: {
-    fontSize: 20,
+    fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
     color: "white",

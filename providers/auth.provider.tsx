@@ -1,6 +1,5 @@
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
-import AppOnboarding from "@/app/routes/auth/AppOnboarding";
 
 const AuthProvider = () => {
   const router = useRouter();
@@ -8,6 +7,15 @@ const AuthProvider = () => {
   const emailRegex = new RegExp(
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   );
+
+  async function isValidUsername(username: string) {
+    const collection = "users";
+    const filter = `name="${username}"`;
+
+    const records = await pb.collection(collection).getList(1, 1, { filter });
+
+    return records.totalItems === 0;
+  }
 
   function isValidEmail(email: string) {
     if (emailRegex.test(email) === true) {
@@ -34,16 +42,16 @@ const AuthProvider = () => {
   }
 
   async function handleSignUp(
+    username: string,
     email: string,
     password: string,
     passwordConfirm: string,
   ) {
     const match = nameRegex.exec(email);
     // TODO: obtain username from regex
-    const username = match ? match[1] : "";
     const data = {
       email: email,
-      username: username,
+      name: username,
       password: password,
       passwordConfirm: passwordConfirm,
     };
@@ -60,11 +68,28 @@ const AuthProvider = () => {
     console.log(username, data);
   }
 
-  async function handleSignIn(email: string, password: string) {
+  async function handleSignIn(input: string, password: string) {
     try {
-      const authData = await pb
-        .collection("users")
-        .authWithPassword(email, password);
+      let authData;
+
+      if (isValidEmail(input)) {
+        authData = await pb
+          .collection("users")
+          .authWithPassword(input, password);
+      } else {
+        const filter = `username="${input}"`;
+        const records = await pb.collection("users").getList(1, 1, { filter });
+
+        if (records.totalItems === 0) {
+          throw new Error("Invalid username or email.");
+        }
+
+        const user = records.items[0];
+        authData = await pb
+          .collection("users")
+          .authWithPassword(user.email, password);
+      }
+
       router.navigate("/routes/events");
       return authData;
     } catch (error: any) {
@@ -82,6 +107,7 @@ const AuthProvider = () => {
   }
 
   return {
+    isValidUsername,
     isValidEmail,
     isValidPassword,
     handleSignUp,
