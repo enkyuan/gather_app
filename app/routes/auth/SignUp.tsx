@@ -6,13 +6,16 @@ import {
   TextInput,
   View,
   Image,
+  StyleSheet,
 } from "react-native";
-import { Link } from "expo-router";
+import { Link, useRouter } from "expo-router";
 import AuthProvider from "@/providers/auth.provider";
 import tw from "twrnc";
 
 export default function SignUp() {
+  const router = useRouter();
   const authProvider = AuthProvider();
+
   const [alias, setAlias] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -20,17 +23,12 @@ export default function SignUp() {
 
   return (
     <SafeAreaView>
-      <View style={tw`flex flex-row justify-center items-center`}>
-        <View style={tw`py-4`}>
+      <View style={tw`flex flex-col justify-center items-center`}>
+        <View style={tw`flex-row justify-between items-center gap-4 py-16`}>
           <Image source={require("@/assets/images/wordmark.jpg")} />
+          <Text style={styles.title}>Create account</Text>
         </View>
-        <Text
-          style={tw`text-3xl
-          font-semibold
-          py-8`}
-        >
-          Create account
-        </Text>
+
         <TextInput
           style={tw`border-2
           rounded-xl
@@ -119,3 +117,12 @@ export default function SignUp() {
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "black",
+  },
+});

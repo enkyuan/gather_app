@@ -1,4 +1,4 @@
-// TODOs: Add merchant identifier & stripe key
+// TODOs: add merchant identifier & stripe key
 
 import React, { useState, useEffect } from "react";
 import tw from "twrnc";

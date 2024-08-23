@@ -21,18 +21,11 @@ export default function Login() {
 
   return (
     <SafeAreaView>
-      <View style={tw`flex flex-row justify-center items-center`}>
-        <View style={tw`py-4`}>
+      <View style={tw`flex flex-col justify-center items-center`}>
+        <View style={tw`flex-row justify-center items-center gap-4 py-20`}>
           <Image source={require("@/assets/images/wordmark.jpg")} />
+          <Text style={styles.title}>Welcome back</Text>
         </View>
-        <Text
-          style={tw`text-3xl
-          font-semibold
-          pt-16
-          py-12`}
-        >
-          Welcome back
-        </Text>
         <TextInput
           style={tw`border-2
           rounded-xl
@@ -92,6 +85,12 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "black",
+  },
   text: {
     fontSize: 24,
     fontWeight: "bold",

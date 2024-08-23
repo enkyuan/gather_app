@@ -11,13 +11,13 @@ export default function SplitButton() {
     <View style={tw`flex-row justify-center gap-4 py-28`}>
       <Pressable
         style={tw`bg-gray-300 py-6 w-40 h-20 rounded-full`}
-        onPress={() => router.navigate("/routes/auth/SignUp")}
+        onPress={() => router.navigate("/routes/auth/Options")}
       >
         <Text style={styles.text}>Sign Up</Text>
       </Pressable>
       <Pressable
         style={tw`bg-blue-300 py-6 w-48 h-20 rounded-full`}
-        onPress={() => router.navigate("/routes/auth/Login")}
+        onPress={() => router.navigate("/routes/auth/Options")}
       >
         <Text style={styles.text}>Log In</Text>
       </Pressable>
