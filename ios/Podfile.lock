@@ -1229,6 +1229,29 @@ PODS:
     - React-logger (= 0.74.5)
     - React-perflogger (= 0.74.5)
     - React-utils (= 0.74.5)
+  - ReactNativePerformance (4.1.2):
+    - React-Core
+  - RNFlashList (1.7.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Codegen
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNGestureHandler (2.16.2):
     - DoubleConversion
     - glog
@@ -1293,43 +1316,9 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
-  - SocketRocket (0.7.0)
-  - Stripe (23.28.1):
-    - StripeApplePay (= 23.28.1)
-    - StripeCore (= 23.28.1)
-    - StripePayments (= 23.28.1)
-    - StripePaymentsUI (= 23.28.1)
-    - StripeUICore (= 23.28.1)
-  - stripe-react-native (0.38.4):
+  - RNSVG (15.6.0):
     - React-Core
-    - Stripe (~> 23.28.0)
-    - StripeApplePay (~> 23.28.0)
-    - StripeFinancialConnections (~> 23.28.0)
-    - StripePayments (~> 23.28.0)
-    - StripePaymentSheet (~> 23.28.0)
-    - StripePaymentsUI (~> 23.28.0)
-  - StripeApplePay (23.28.1):
-    - StripeCore (= 23.28.1)
-  - StripeCore (23.28.1)
-  - StripeFinancialConnections (23.28.1):
-    - StripeCore (= 23.28.1)
-    - StripeUICore (= 23.28.1)
-  - StripePayments (23.28.1):
-    - StripeCore (= 23.28.1)
-    - StripePayments/Stripe3DS2 (= 23.28.1)
-  - StripePayments/Stripe3DS2 (23.28.1):
-    - StripeCore (= 23.28.1)
-  - StripePaymentSheet (23.28.1):
-    - StripeApplePay (= 23.28.1)
-    - StripeCore (= 23.28.1)
-    - StripePayments (= 23.28.1)
-    - StripePaymentsUI (= 23.28.1)
-  - StripePaymentsUI (23.28.1):
-    - StripeCore (= 23.28.1)
-    - StripePayments (= 23.28.1)
-    - StripeUICore (= 23.28.1)
-  - StripeUICore (23.28.1):
-    - StripeCore (= 23.28.1)
+  - SocketRocket (0.7.0)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
@@ -1400,23 +1389,17 @@ DEPENDENCIES:
   - React-runtimescheduler (from `../node_modules/react-native/ReactCommon/react/renderer/runtimescheduler`)
   - React-utils (from `../node_modules/react-native/ReactCommon/react/utils`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "ReactNativePerformance (from `../node_modules/@shopify/react-native-performance`)"
+  - "RNFlashList (from `../node_modules/@shopify/flash-list`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
-  - "stripe-react-native (from `../node_modules/@stripe/stripe-react-native`)"
+  - RNSVG (from `../node_modules/react-native-svg`)
   - Yoga (from `../node_modules/react-native/ReactCommon/yoga`)
 
 SPEC REPOS:
   trunk:
     - SocketRocket
-    - Stripe
-    - StripeApplePay
-    - StripeCore
-    - StripeFinancialConnections
-    - StripePayments
-    - StripePaymentSheet
-    - StripePaymentsUI
-    - StripeUICore
 
 EXTERNAL SOURCES:
   boost:
@@ -1550,14 +1533,18 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/react/utils"
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  ReactNativePerformance:
+    :path: "../node_modules/@shopify/react-native-performance"
+  RNFlashList:
+    :path: "../node_modules/@shopify/flash-list"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
     :path: "../node_modules/react-native-reanimated"
   RNScreens:
     :path: "../node_modules/react-native-screens"
-  stripe-react-native:
-    :path: "../node_modules/@stripe/stripe-react-native"
+  RNSVG:
+    :path: "../node_modules/react-native-svg"
   Yoga:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
@@ -1627,19 +1614,13 @@ SPEC CHECKSUMS:
   React-runtimescheduler: cfbe85c3510c541ec6dc815c7729b41304b67961
   React-utils: f242eb7e7889419d979ca0e1c02ccc0ea6e43b29
   ReactCommon: f7da14a8827b72704169a48c929bcde802698361
+  ReactNativePerformance: ab7dee4c4862623d72c1530a9fc71b55458edf71
+  RNFlashList: e9c5b8fe1b84f9c198cb550eb4cc0c45569fbf42
   RNGestureHandler: 2282cfbcf86c360d29f44ace393203afd5c6cff7
   RNReanimated: 35f9ac9c3ac42d0497ebd1cce5c39d7687a8493e
   RNScreens: b32a9ff15bea7fcdbe5dff6477bc503f792b1208
+  RNSVG: 5da7a24f31968ec74f0b091e3440080f347e279b
   SocketRocket: abac6f5de4d4d62d24e11868d7a2f427e0ef940d
-  Stripe: 20e24971647daa5750e7764faa1e8aefe4917243
-  stripe-react-native: 3479d62b758ac162b4465cb0aed313b525a575f3
-  StripeApplePay: 5b098a0ba6136f4b587e03f5a3776461b4f20dd4
-  StripeCore: 880a68482cf78d4745c5213c2fd3446efc73574b
-  StripeFinancialConnections: 49a19ca17dbb3055a8b559a1e3adfe769784a8f8
-  StripePayments: 3af5b03fa1831c301a4d1621eb0e790280dccb46
-  StripePaymentSheet: 8321efebb6d104add8fce929286d414545913114
-  StripePaymentsUI: 4c35e12ebcd4bd9bd21e379f03f730bee097250d
-  StripeUICore: 22b314dc9f7ea8814d0f9eeba0ddb5e4b77f34f3
   Yoga: 950bbfd7e6f04790fdb51149ed51df41f329fcc8
 
 PODFILE CHECKSUM: 6c169d79db0ac84a673729350f8a322320b4b62c
