@@ -1,5 +1,6 @@
 // TODO: check if routes/events is valid
 // TODO: check if username, password auth is valid
+// TODO: implement 3rd-party auth w facbook & google
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";

@@ -20,7 +20,7 @@ export default function SignUp() {
 
   return (
     <SafeAreaView>
-      <View style={tw`flex flex-col justify-center items-center`}>
+      <View style={tw`flex flex-row justify-center items-center`}>
         <View style={tw`py-4`}>
           <Image source={require("@/assets/images/wordmark.jpg")} />
         </View>
