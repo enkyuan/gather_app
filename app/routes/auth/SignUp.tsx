@@ -33,6 +33,7 @@ export default function SignUp() {
           value={email}
           placeholderTextColor="gray"
           autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
@@ -48,6 +49,7 @@ export default function SignUp() {
           value={password}
           placeholderTextColor="gray"
           autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={(text) => setPassword(text)}
         />
         <TextInput
@@ -63,9 +65,10 @@ export default function SignUp() {
           value={passwordConfirm}
           placeholderTextColor="gray"
           autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={(text) => setPasswordConfirm(text)}
         />
-        <Text style={tw`text-xl mb-76 font-semibold`}>
+        <Text style={tw`text-xl mb-56 font-semibold`}>
           Have an account?
           <Link href="/routes/auth/Login" style={tw`text-blue-500`}>
             {" "}

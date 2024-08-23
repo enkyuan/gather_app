@@ -1,6 +1,13 @@
 import React from "react";
 import { useState } from "react";
-import { SafeAreaView, View, Text, TextInput, Pressable } from "react-native";
+import {
+  SafeAreaView,
+  View,
+  Text,
+  TextInput,
+  Pressable,
+  StyleSheet,
+} from "react-native";
 import tw from "twrnc";
 import { Link } from "expo-router";
 import AuthProvider from "@/providers/auth.provider";
@@ -35,6 +42,7 @@ export default function Login() {
           value={email}
           placeholderTextColor="gray"
           autoCapitalize="none"
+          autoCorrect={false}
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
@@ -52,9 +60,10 @@ export default function Login() {
           value={password}
           placeholderTextColor="gray"
           autoCapitalize="none"
+          autoCorrect
           onChangeText={(text) => setPassword(text)}
         />
-        <Text style={tw`text-xl mb-76 font-semibold`}>
+        <Text style={tw`text-xl mb-56 font-semibold`}>
           New?
           <Link href={"/routes/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}
@@ -70,11 +79,18 @@ export default function Login() {
             rounded-full`}
           onPress={() => authProvider.handleSignIn(email, password)}
         >
-          <Text style={tw`text-white text-center text-2xl font-bold`}>
-            Continue
-          </Text>
+          <Text style={styles.text}>Continue</Text>
         </Pressable>
       </View>
     </SafeAreaView>
   );
 }
+
+const styles = StyleSheet.create({
+  text: {
+    fontSize: 20,
+    fontWeight: "bold",
+    textAlign: "center",
+    color: "white",
+  },
+});

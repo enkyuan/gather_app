@@ -1,10 +1,10 @@
 import tw from "twrnc";
 import React from "react";
-import { Text, View, Image } from "react-native";
+import { View, Image } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { useRouter } from "expo-router";
 
-export default function OnboardingScreens() {
+export default function AppOnboarding() {
   const router = useRouter();
 
   return (
@@ -15,7 +15,7 @@ export default function OnboardingScreens() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/hangout.jpg")}
+                source={require("../../../assets/images/onboarding/hangout.jpg")}
               />
             ),
             title: "Gather is the place to be for all your events on campus",
@@ -26,7 +26,7 @@ export default function OnboardingScreens() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/balloon.jpg")}
+                source={require("../../../assets/images/onboarding/balloon.jpg")}
               />
             ),
             title: "Find what floats your boat...",
@@ -37,7 +37,7 @@ export default function OnboardingScreens() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/dancers.jpg")}
+                source={require("../../../assets/images/onboarding/dancers.jpg")}
               />
             ),
             title: "or fits your groove...",
@@ -48,7 +48,7 @@ export default function OnboardingScreens() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/people.jpg")}
+                source={require("../../../assets/images/onboarding/people.jpg")}
               />
             ),
             title: "either way, you're bound to have some fun. Enjoy!",

@@ -30,6 +30,7 @@
     "expo-status-bar": "~1.12.1",
     "expo-system-ui": "~3.0.7",
     "expo-web-browser": "~13.0.3",
+    "phosphor-react-native": "^2.2.1",
     "pocketbase": "^0.21.4",
     "react": "18.2.0",
     "react-dom": "^18.3.1",

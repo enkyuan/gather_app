@@ -1,5 +1,6 @@
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
+import AppOnboarding from "@/app/routes/auth/AppOnboarding";
 
 const AuthProvider = () => {
   const router = useRouter();
@@ -50,7 +51,7 @@ const AuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("..");
+        router.navigate("/routes/auth/AppOnboarding");
       } catch (error: any) {
         alert(error.message);
       }
@@ -64,7 +65,7 @@ const AuthProvider = () => {
       const authData = await pb
         .collection("users")
         .authWithPassword(email, password);
-      router.navigate("/routes/events/Events");
+      router.navigate("/routes/events");
       return authData;
     } catch (error: any) {
       alert(error.message);

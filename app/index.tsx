@@ -7,6 +7,7 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { fetchPublishableKey } from "@/helpers";
 import Auth from "./routes/auth";
 import Navigator from "@/components/navigation/Navigator";
+import { StatusBar } from "react-native";
 
 export default function App() {
   const [publishableKey, setPublishableKey] = useState("");
@@ -21,7 +22,7 @@ export default function App() {
   }, []);
 
   return (
-    <GestureHandlerRootView style={tw`flex-1`}>
+    <GestureHandlerRootView style={tw`flex-1 bg-white`}>
       <Navigator />
     </GestureHandlerRootView>
   );

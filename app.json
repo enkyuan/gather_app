@@ -16,12 +16,20 @@
       "supportsTablet": true,
       "bundleIdentifier": "com.ios.gather-v2"
     },
+    "iosStatusBar": {
+      "backgroundColor": "",
+      "translucent": true
+    },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.anonymous.gather_v2"
+    },
+    "androidStatusBar": {
+      "backgroundColor": "",
+      "translucent": true
     },
     "web": {
       "bundler": "metro",
