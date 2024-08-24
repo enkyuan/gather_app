@@ -17,4 +17,9 @@
   <a href="https://stripe.com/"><img src="https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white" alt="Stripe" /></a>
 </>
 
+## tested using
+<p id="badges" align="start">
+  <a href="https://www.jenkins.io/"><img src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white" /></a>
+</>
+
 ** not following semantic versioning, this is simply a reimplementation :)
