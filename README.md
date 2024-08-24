@@ -19,7 +19,7 @@
 
 ## tested using
 <p id="badges" align="start">
-  <a href="https://www.jenkins.io/"><img src="https://img.shields.io/badge/jenkins-%232C5263.svg?style=for-the-badge&logo=jenkins&logoColor=white" /></a>
+  <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
 </>
 
 ** not following semantic versioning, this is simply a reimplementation :)
