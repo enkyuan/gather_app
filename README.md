@@ -1,7 +1,7 @@
 # (re)gather
 
 ## available on
-<p id="badges align="center">
+<p id="badges" align="center">
   <a href="https://www.android.com/"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" /></a>
   <a href="https://www.apple.com/ios/ios-17/"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" /></a>
 </>
