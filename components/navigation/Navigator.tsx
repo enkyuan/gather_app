@@ -1,11 +1,13 @@
+// TODO: find a use for this file
+
 import React, { useEffect, useState } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AppOnboarding from "@/app/routes/auth/AppOnboarding";
-import Events from "@/app/routes/events/";
-import SignUp from "@/app/routes/auth/SignUp";
-import Auth from "@/app/routes/auth";
-import Login from "@/app/routes/auth/Login";
+import AppOnboarding from "@/app/auth/AppOnboarding";
+import Events from "@/app/events/";
+import SignUp from "@/app/auth/SignUp";
+import Auth from "@/app/auth";
+import Login from "@/app/auth/Login";
 
 export default function Navigator() {
   const Stack = createNativeStackNavigator();

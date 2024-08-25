@@ -63,7 +63,7 @@ export default function Login() {
         />
         <Text style={tw`text-xl mb-74 font-semibold`}>
           New?
-          <Link href={"/routes/auth/SignUp"} style={tw`text-blue-500`}>
+          <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}
             Register{" "}
           </Link>

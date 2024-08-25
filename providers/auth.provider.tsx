@@ -1,6 +1,6 @@
-// TODO: check if routes/events is valid
 // TODO: check if username, password auth is valid
-// TODO: implement 3rd-party auth w facbook & google
+// TODO: implement 3rd-party auth w google & facebook (for now)
+// TODO: implement forgot password & email verification
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -63,7 +63,7 @@ const AuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/routes/auth/AppOnboarding");
+        router.navigate("/auth/AppOnboarding");
       } catch (error: any) {
         alert(error.message);
       }
@@ -94,20 +94,60 @@ const AuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/routes/events");
+      router.navigate("/events");
       return authData;
     } catch (error: any) {
       alert(error.message);
 
       if (error.message.toString() === "Failed to authenticate.") {
-        router.navigate("/routes/auth/Login");
+        router.navigate("/auth/Login");
       }
+    }
+  }
+
+  async function handleFacebookSignIn() {
+    try {
+      const authData = await pb.collection("users").authWithOAuth2({
+        provider: "facebook",
+      });
+      router.navigate("/events");
+      return authData;
+    } catch (error: any) {
+      alert(error.message);
+    }
+  }
+
+  async function handleGoogleSignIn() {
+    try {
+      const authData = await pb.collection("users").authWithOAuth2({
+        provider: "google",
+      });
+      router.navigate("/events");
+      return authData;
+    } catch (error: any) {
+      alert(error.message);
     }
   }
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("/routes/auth/Login");
+    router.navigate("/auth/Login");
+  }
+
+  async function forgotPassword(email: string) {
+    try {
+      await pb.collection("users").requestPasswordReset(email);
+    } catch (error: any) {
+      alert(error.message);
+    }
+  }
+
+  async function verifyEmail(email: string) {
+    try {
+      await pb.collection("users").requestVerification(email);
+    } catch (error: any) {
+      alert(error.message);
+    }
   }
 
   return {

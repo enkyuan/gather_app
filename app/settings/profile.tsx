@@ -1,13 +1,13 @@
-// TODO: implement top bar to navigate between parts of app
+// TODO: implement user profile page
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View } from "react-native";
 
-export default function Header() {
+export default function Profile() {
   return (
     <SafeAreaView>
       <View>
-        <Text>Header</Text>
+        <Text>Profile</Text>
       </View>
     </SafeAreaView>
   );

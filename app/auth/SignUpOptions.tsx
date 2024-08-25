@@ -6,46 +6,40 @@ import tw from "twrnc";
 import { useRouter } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 
-export default function Options() {
+const Options = (selection: string) => {
   const router = useRouter();
 
   return (
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center gap-4 py-8`}>
+        <View style={tw`flex-row justify-center items-center mt-18 mb-10`}>
           <Text style={styles.title}>Continue with</Text>
         </View>
-        <Pressable style={styles.pressable}>
+        <Pressable
+          style={styles.pressable}
+          onPress={() => router.navigate("/auth/SignUp")}
+        >
           <Envelope size={32} color="black" style={styles.icon} />
           <Text style={styles.text}>Email</Text>
         </Pressable>
         <Pressable style={styles.pressable}>
           <Image
-            source={require("../../../assets/images/facebook-icon.jpg")}
-            style={styles.image}
-          />
-          <Text style={styles.text}>Facebook</Text>
-        </Pressable>
-        <Pressable style={styles.pressable}>
-          <Image
-            source={require("../../../assets/images/google-icon.jpg")}
+            source={require("../../assets/images/google-icon.jpg")}
             style={styles.image}
           />
           <Text style={styles.text}>Google</Text>
         </Pressable>
         <Pressable
-          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-54`}
-          onPress={() => router.navigate("/routes/auth")}
+          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-74`}
+          onPress={() => router.navigate("/auth")}
         >
-          <CaretLeft size={32} color="white" style={styles.icon} />
-          <Text style={tw`text-white text-2xl font-semibold text-center`}>
-            Return
-          </Text>
+          <CaretLeft size={32} color="white" style={styles.caretLeft} />
+          <Text style={tw`text-white text-2xl font-semibold`}>Return</Text>
         </Pressable>
       </View>
     </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   title: {
@@ -79,4 +73,11 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginHorizontal: 30,
   },
+  caretLeft: {
+    alignItems: "center",
+    justifyContent: "center",
+    marginHorizontal: 56,
+  },
 });
+
+export default Options;
