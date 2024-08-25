@@ -1,3 +1,5 @@
+// TODO: adjust styling of text input to match pressables on options page
+
 import React, { useState } from "react";
 import {
   Pressable,
