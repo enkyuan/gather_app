@@ -12,7 +12,7 @@ const Options = (selection: string) => {
   return (
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center mt-18 mb-10`}>
+        <View style={tw`flex-row justify-center items-center mt-16 mb-8`}>
           <Text style={styles.title}>Continue with</Text>
         </View>
         <Pressable
@@ -30,7 +30,7 @@ const Options = (selection: string) => {
           <Text style={styles.text}>Google</Text>
         </Pressable>
         <Pressable
-          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-74`}
+          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-78`}
           onPress={() => router.navigate("/auth")}
         >
           <CaretLeft size={32} color="white" style={styles.caretLeft} />
