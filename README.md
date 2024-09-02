@@ -1,5 +1,9 @@
 # (re)gather
 
+## about
+
+reimplementation of Gather's mobile app in Expo & React Native
+
 ## available on
 <p id="badges" align="start">
   <a href="https://www.android.com/"><img src="https://img.shields.io/badge/Android-3DDC84?style=for-the-badge&logo=android&logoColor=white" /></a>
@@ -22,4 +26,4 @@
   <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
 </>
 
-** not following semantic versioning, this is simply a reimplementation :)
+
