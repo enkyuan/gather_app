@@ -51,7 +51,7 @@ const AuthProvider = () => {
     password: string,
     passwordConfirm: string,
   ) {
-    const match = nameRegex.exec(email);
+    // const match = nameRegex.exec(email);
     // TODO: obtain username from regex
     const data = {
       alias: alias,
