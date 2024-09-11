@@ -1,3 +1,5 @@
+// TODO: configure developer account & implement this provider
+
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as WebBrowser from 'expo-web-browser';
