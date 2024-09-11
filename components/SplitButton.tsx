@@ -1,5 +1,5 @@
 import tw from "twrnc";
-import React, { useState, useRef } from "react";
+import React from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 

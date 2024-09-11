@@ -1,13 +1,14 @@
 // TODO: check if username, password auth is valid
-// TODO: implement 3rd-party auth w google & facebook (for now)
+// TODO: implement oauth w google (for now)
 // TODO: implement forgot password & email verification
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
 
-const AuthProvider = () => {
+const EmailAuthProvider = () => {
   const router = useRouter();
-  const nameRegex = new RegExp("/^[a-zA-Z][0-9]{7}/");
+
+  // const nameRegex = new RegExp("/^[a-zA-Z][0-9]{7}/");
   const emailRegex = new RegExp(
     /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
   );
@@ -104,7 +105,8 @@ const AuthProvider = () => {
       }
     }
   }
-
+  
+  /*
   async function handleFacebookSignIn() {
     try {
       const authData = await pb.collection("users").authWithOAuth2({
@@ -116,22 +118,11 @@ const AuthProvider = () => {
       alert(error.message);
     }
   }
-
-  async function handleGoogleSignIn() {
-    try {
-      const authData = await pb.collection("users").authWithOAuth2({
-        provider: "google",
-      });
-      router.navigate("/events");
-      return authData;
-    } catch (error: any) {
-      alert(error.message);
-    }
-  }
+  */
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("/auth/Login");
+    router.navigate("/auth");
   }
 
   async function forgotPassword(email: string) {
@@ -157,7 +148,9 @@ const AuthProvider = () => {
     handleSignUp,
     handleSignIn,
     handleSignOut,
+    forgotPassword,
+    verifyEmail
   };
 };
 
-export default AuthProvider;
+export default EmailAuthProvider;

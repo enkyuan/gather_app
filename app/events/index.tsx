@@ -3,11 +3,10 @@
 import tw from "twrnc";
 import React from "react";
 import { SafeAreaView, View, Text, Pressable } from "react-native";
-import { useRouter } from "expo-router";
-import AuthProvider from "@/providers/auth.provider";
+import EmailAuthProvider from "@/providers/auth/email.provider";
 
 export default function Events() {
-  const authProvider = AuthProvider();
+  const emailAuthProvider = EmailAuthProvider();
 
   return (
     <SafeAreaView>
@@ -16,7 +15,7 @@ export default function Events() {
         <View style={tw`flex-row items-center`}>
           <Pressable
             style={tw`bg-red-500 w-92 h-20 rounded-full pt-6`}
-            onPress={() => authProvider.handleSignOut()}
+            onPress={() => emailAuthProvider.handleSignOut()}
           >
             <Text style={tw`text-white text-2xl text-center font-semibold`}>
               Sign Out

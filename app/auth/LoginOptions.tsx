@@ -1,13 +1,16 @@
-// TODO: route login/signup screen to here & add 3rd-party auth options
+// TODO: add 3rd-party auth options
 
-import { View, Text, StyleSheet, Image, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { useRouter } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
+import GoogleAuthProvider from "@/providers/auth/google.provider";
+import FacebookAuthProvider from "@/providers/auth/facebook.provider";
+import AppleAuthProvider from "@/providers/auth/apple.provider";
 
 export default function Options() {
-  const router = useRouter();
+  const router = useRouter(); 
 
   return (
     <SafeAreaView>
@@ -22,33 +25,23 @@ export default function Options() {
           <Envelope size={32} color="black" style={styles.icon} />
           <Text style={styles.text}>Email</Text>
         </Pressable>
-        <Pressable style={styles.pressable}>
-          <Image
-            source={require("../../assets/images/facebook-icon.jpg")}
-            style={styles.image}
-          />
-          <Text style={styles.text}>Facebook</Text>
-        </Pressable>
-        <Pressable style={styles.pressable}>
-          <Image
-            source={require("../../assets/images/google-icon.jpg")}
-            style={styles.image}
-          />
-          <Text style={styles.text}>Google</Text>
-        </Pressable>
-        <Pressable style={styles.pressable}>
-          <Image
-            source={require("../../assets/images/apple-icon.jpg")}
-            style={styles.image}
-          />
-          <Text style={styles.text}>Apple</Text>
-        </Pressable>
+        <FacebookAuthProvider />
+        <GoogleAuthProvider />
+        <AppleAuthProvider />
+        <Text style={tw`text-lg font-semibold`}>
+          Need an account?{" "}
+          <Text
+            style={tw`text-blue-500`}
+            onPress={() => router.navigate("/auth/SignUp")}>
+            Sign up
+          </Text>
+        </Text>
         <Pressable
-          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-20`}
+          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-12`}
           onPress={() => router.navigate("/auth")}
         >
           <CaretLeft size={32} color="white" style={styles.caretLeft} />
-          <Text style={tw`text-white text-2xl font-semibold`}>Return</Text>
+          <Text style={tw`text-white text-2xl font-semibold`}>Back to options</Text>
         </Pressable>
       </View>
     </SafeAreaView>
@@ -90,6 +83,6 @@ const styles = StyleSheet.create({
   caretLeft: {
     alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: 56,
+    marginHorizontal: 32,
   },
 });

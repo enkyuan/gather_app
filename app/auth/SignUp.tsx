@@ -10,13 +10,12 @@ import {
   Image,
   StyleSheet,
 } from "react-native";
-import { Link, useRouter } from "expo-router";
-import AuthProvider from "@/providers/auth.provider";
+import { Link } from "expo-router";
+import EmailAuthProvider from "@/providers/auth/email.provider";
 import tw from "twrnc";
 
 export default function SignUp() {
-  const router = useRouter();
-  const authProvider = AuthProvider();
+  const emailAuthProvider = EmailAuthProvider();
 
   const [alias, setAlias] = useState("");
   const [email, setEmail] = useState("");
@@ -108,7 +107,7 @@ export default function SignUp() {
           items-center
           rounded-full`}
           onPress={() =>
-            authProvider.handleSignUp(alias, email, password, passwordConfirm)
+            emailAuthProvider.handleSignUp(alias, email, password, passwordConfirm)
           }
         >
           <Text style={tw`text-white text-center text-2xl font-bold`}>

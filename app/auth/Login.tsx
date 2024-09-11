@@ -12,14 +12,15 @@ import {
 } from "react-native";
 import tw from "twrnc";
 import { Link } from "expo-router";
-import AuthProvider from "@/providers/auth.provider";
+import EmailAuthProvider from "@/providers/auth/email.provider";
 import { Image } from "react-native";
 
 export default function Login() {
-  const authProvider = AuthProvider();
+  const emailAuthProvider = EmailAuthProvider();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [username, setUsername] = useState("");
+  const [userInfo, setUserInfo] = useState("");
 
   return (
     <SafeAreaView>
@@ -77,7 +78,7 @@ export default function Login() {
             justify-center
             items-center
             rounded-full`}
-          onPress={() => authProvider.handleSignIn(email, password)}
+          onPress={() => emailAuthProvider.handleSignIn(email, password)}
         >
           <Text style={styles.text}>Continue</Text>
         </Pressable>
