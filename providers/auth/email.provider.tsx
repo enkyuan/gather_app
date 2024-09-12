@@ -64,7 +64,7 @@ const EmailAuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/auth/AppOnboarding");
+        router.navigate("/auth/Intro");
       } catch (error: any) {
         alert(error.message);
       }

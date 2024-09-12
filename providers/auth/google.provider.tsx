@@ -9,7 +9,7 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as WebBrowser from 'expo-web-browser';
 import { useRouter } from 'expo-router';
 import tw from 'twrnc';
-import pb from '@/pb.config';
+// import pb from '@/pb.config';
 import useStore from '../../hooks/useStore';
 
 
@@ -45,7 +45,7 @@ export default function GoogleAuthProvider() {
         try {
           // await pb.collection("users").create(data);
           if (isSignUp === true) {
-            router.navigate("/auth/AppOnboarding");
+            router.navigate("/auth/Intro");
           }
           else {
             router.navigate("/events");

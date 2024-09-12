@@ -4,7 +4,7 @@ import { View, Image } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { useRouter } from "expo-router";
 
-export default function AppOnboarding() {
+export default function Intro() {
   const router = useRouter();
 
   return (

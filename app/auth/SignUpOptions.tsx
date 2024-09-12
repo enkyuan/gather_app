@@ -31,7 +31,7 @@ const Options = (selection: string) => {
           Already have an account?{" "}
           <Text
             style={tw`text-blue-500`}
-            onPress={() => router.navigate("/auth/Login")}>
+            onPress={() => router.navigate("/auth/LoginOptions")}>
             Log in
           </Text>
         </Text>

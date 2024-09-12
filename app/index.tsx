@@ -1,26 +1,19 @@
-// TODOs: add merchant identifier & stripe key
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import tw from "twrnc";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
-import { fetchPublishableKey } from "@/helpers";
 import Navigator from "@/components/navigation/Navigator";
+import { StripeProvider } from '@stripe/stripe-react-native';
+
 
 export default function App() {
-  const [publishableKey, setPublishableKey] = useState("");
-
-  useEffect(() => {
-    async function init() {
-      const key = await fetchPublishableKey();
-      if (publishableKey) {
-        setPublishableKey(key);
-      }
-    }
-  }, []);
-
   return (
     <GestureHandlerRootView style={tw`flex-1 bg-white`}>
-      <Navigator />
+      <StripeProvider 
+        publishableKey={process.env.EXPO_PUBLIC_STRIPE_PK}
+        merchantIdentifier={process.env.EXPO_PUBLIC_MERCHANT_ID}
+      >
+        <Navigator />
+      </StripeProvider>
     </GestureHandlerRootView>
   );
 }

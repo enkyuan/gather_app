@@ -1,9 +1,9 @@
 // TODO: find a use for this file
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import AppOnboarding from "@/app/auth/AppOnboarding";
+import Intro from "@/app/auth/Intro";
 import Events from "@/app/events/";
 import SignUp from "@/app/auth/SignUp";
 import Auth from "@/app/auth";
@@ -31,9 +31,9 @@ export default function Navigator() {
           component={SignUp}
         />
         <Stack.Screen
-          name="AppOnboarding"
+          name="Intro"
           options={{ headerShown: false }}
-          component={AppOnboarding}
+          component={Intro}
         />
         <Stack.Screen
           name="Events"

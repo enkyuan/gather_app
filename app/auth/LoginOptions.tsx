@@ -26,14 +26,14 @@ export default function Options() {
           <Envelope size={32} color="black" style={styles.icon} />
           <Text style={styles.text}>Email</Text>
         </Pressable>
-        <FacebookAuthProvider />
         <GoogleAuthProvider />
+        <FacebookAuthProvider />
         <AppleAuthProvider />
         <Text style={tw`text-lg font-semibold`}>
           Need an account?{" "}
           <Text
             style={tw`text-blue-500`}
-            onPress={() => router.navigate("/auth/SignUp")}>
+            onPress={() => router.navigate("/auth/SignUpOptions")}>
             Sign up
           </Text>
         </Text>
