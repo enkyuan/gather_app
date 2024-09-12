@@ -56,8 +56,8 @@ export default function AppOnboarding() {
             titleStyles: tw`text-2xl font-semibold text-center`,
           },
         ]}
-        onDone={() => router.navigate("/routes/events/Events")}
-        onSkip={() => router.navigate("/routes/events/Events")}
+        onDone={() => router.navigate("/events/")}
+        onSkip={() => router.navigate("/events/")}
         bottomBarHighlight={false}
       />
     </View>

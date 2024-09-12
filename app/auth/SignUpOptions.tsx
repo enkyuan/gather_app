@@ -6,9 +6,12 @@ import tw from "twrnc";
 import { useRouter } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
+import useStore from "../../hooks/useStore";
 
 const Options = (selection: string) => {
   const router = useRouter();
+  const setIsSignUp = useStore((state) => state.setIsSignUp);
+  const isSignUp = useStore((state) => state.isSignUp);
 
   return (
     <SafeAreaView>
@@ -34,7 +37,13 @@ const Options = (selection: string) => {
         </Text>
         <Pressable
           style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-70`}
-          onPress={() => router.navigate("/auth")}
+          onPress={() => {
+              router.navigate("/auth")
+              setIsSignUp(!isSignUp);
+
+              console.log("isSignUp", isSignUp);
+            }
+          }
         >
           <CaretLeft size={32} color="white" style={styles.caretLeft} />
           <Text style={tw`text-white text-2xl font-semibold`}>Back to options</Text>

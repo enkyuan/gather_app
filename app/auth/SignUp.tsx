@@ -26,7 +26,7 @@ export default function SignUp() {
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
         <View style={tw`flex-row justify-between items-center gap-4 py-16`}>
-          <Image source={require("@/assets/images/wordmark.jpg")} />
+          <Image source={require("@/assets/images/wordmark.png")} />
           <Text style={styles.title}>Create account</Text>
         </View>
 
@@ -94,7 +94,7 @@ export default function SignUp() {
         />
         <Text style={tw`text-xl mb-42 font-semibold`}>
           Have an account?
-          <Link href="/routes/auth/Login" style={tw`text-blue-500`}>
+          <Link href="/auth/Login" style={tw`text-blue-500`}>
             {" "}
             Login{" "}
           </Link>

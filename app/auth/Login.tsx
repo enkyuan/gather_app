@@ -25,7 +25,7 @@ export default function Login() {
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
         <View style={tw`flex-row justify-center items-center gap-4 py-20`}>
-          <Image source={require("@/assets/images/wordmark.jpg")} />
+          <Image source={require("@/assets/images/wordmark.png")} />
           <Text style={styles.title}>Welcome back</Text>
         </View>
         <TextInput

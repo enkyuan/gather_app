@@ -8,9 +8,10 @@ import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
 import FacebookAuthProvider from "@/providers/auth/facebook.provider";
 import AppleAuthProvider from "@/providers/auth/apple.provider";
+import useStore from "../../hooks/useStore";
 
 export default function Options() {
-  const router = useRouter(); 
+  const router = useRouter();
 
   return (
     <SafeAreaView>

@@ -1,4 +1,6 @@
 // TODO: write user data to pocketbase
+// TODO: convert handleToken to async function after fetching user info
+// TODO: convert alert into a toast
 
 import { useEffect } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
@@ -7,11 +9,23 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as WebBrowser from 'expo-web-browser';
 import { useRouter } from 'expo-router';
 import tw from 'twrnc';
+import pb from '@/pb.config';
+import useStore from '../../hooks/useStore';
+
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleAuthProvider() {
   const router = useRouter();
+  const isSignUp = useStore(state => state.isSignUp);
+  
+  /*
+  const data = {
+      alias: alias,
+      email: email,
+      password:
+  };
+  */
 
   const config = {
     webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
@@ -25,9 +39,22 @@ export default function GoogleAuthProvider() {
       if (response?.type === "success") {
         const { authentication } = response;
         const token = authentication?.accessToken;
+
         console.log("access token", token);
-        router.navigate("/events");
-      }
+        
+        try {
+          // await pb.collection("users").create(data);
+          if (isSignUp === true) {
+            router.navigate("/auth/AppOnboarding");
+          }
+          else {
+            router.navigate("/events");
+          }
+        } catch (error) {
+          alert("There was an error authenticating with Google. Please try again.");
+          console.log(error.message);
+        }
+    }   
   }
 
   useEffect(() => {
