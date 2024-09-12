@@ -23,10 +23,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginVertical: 8,
     width: "92%",
-    height: 100,
+    height: 88,
     alignItems: "center",
     borderRadius: 8,
-    borderWidth: 2,
+    borderWidth: 1,
     flexDirection: "row",
   },
   text: {

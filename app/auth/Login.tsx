@@ -1,4 +1,5 @@
 // TODO: adjust styling of text input to match pressables on options page
+// TODO: add caret to redirect back to options page
 
 import React from "react";
 import { useState } from "react";
@@ -24,19 +25,11 @@ export default function Login() {
   return (
     <SafeAreaView>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center gap-4 py-20`}>
-          <Image source={require("@/assets/images/wordmark.png")} />
+        <View style={tw`flex-row justify-center items-center gap-4 py-14`}>
           <Text style={styles.title}>Welcome back</Text>
         </View>
         <TextInput
-          style={tw`border-2
-          rounded-xl
-          w-92
-          h-16
-          pl-4
-          mb-4
-          text-xl
-          `}
+          style={styles.textInput}
           maxLength={28}
           placeholder="Username or Email"
           value={email || username}
@@ -46,14 +39,7 @@ export default function Login() {
           onChangeText={(text) => setEmail(text)}
         />
         <TextInput
-          style={tw`border-2
-          rounded-xl
-          w-92
-          h-16
-          pl-4
-          mb-4
-          text-xl
-          align-middle`}
+          style={styles.textInput}
           maxLength={12}
           placeholder="Password"
           secureTextEntry={true}
@@ -63,7 +49,7 @@ export default function Login() {
           autoCorrect
           onChangeText={(text) => setPassword(text)}
         />
-        <Text style={tw`text-xl mb-74 font-semibold`}>
+        <Text style={tw`text-xl mb-84 font-semibold`}>
           New?
           <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}
@@ -88,7 +74,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   title: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: "bold",
     textAlign: "center",
     color: "black",
@@ -99,4 +85,15 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "white",
   },
+  textInput: {
+    fontSize: 20,
+    borderRadius: 8,
+    fontWeight: "semibold",
+    backgroundColor: "#f3f4f6",
+    color: "black",
+    width: "94%",
+    height: "10%",
+    paddingLeft: "8%",
+    marginVertical: 8,
+  }
 });

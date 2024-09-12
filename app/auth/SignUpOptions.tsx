@@ -1,4 +1,4 @@
-// TODO: route login/signup screen to here & add 3rd-party auth options
+// TODO: add 3rd-party auth options
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -15,10 +15,21 @@ const Options = (selection: string) => {
 
   return (
     <SafeAreaView>
+      <View style={styles.header}>
+          <Pressable
+            onPress={() => {
+                router.navigate("/auth")
+                setIsSignUp(!isSignUp);
+
+                console.log("isSignUp", isSignUp);
+              }
+            } 
+          >
+            <CaretLeft size={32} color="black" style={styles.caretLeft} />
+          </Pressable>            
+          <Text style={styles.title}>Let's get started</Text>
+      </View>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center mt-16 mb-8`}>
-          <Text style={styles.title}>Continue with</Text>
-        </View>
         <Pressable
           style={styles.pressable}
           onPress={() => router.navigate("/auth/SignUp")}
@@ -35,19 +46,6 @@ const Options = (selection: string) => {
             Log in
           </Text>
         </Text>
-        <Pressable
-          style={tw`flex-row bg-blue-300 py-6 w-11/12 h-20 rounded-full my-70`}
-          onPress={() => {
-              router.navigate("/auth")
-              setIsSignUp(!isSignUp);
-
-              console.log("isSignUp", isSignUp);
-            }
-          }
-        >
-          <CaretLeft size={32} color="white" style={styles.caretLeft} />
-          <Text style={tw`text-white text-2xl font-semibold`}>Back to options</Text>
-        </Pressable> 
       </View>
     </SafeAreaView>
   );
@@ -60,6 +58,12 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
   },
+  header: {
+    flexDirection: "row",
+    justifyContent: "start",
+    alignItems: "start",
+    marginVertical: 20,
+  },
   text: {
     fontSize: 24,
     fontWeight: "bold",
@@ -69,10 +73,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     marginVertical: 8,
     width: "92%",
-    height: 100,
+    height: 88,
     alignItems: "center",
     borderRadius: 8,
-    borderWidth: 2,
+    borderWidth: 1,
     flexDirection: "row",
   },
   icon: {
@@ -88,7 +92,7 @@ const styles = StyleSheet.create({
   caretLeft: {
     alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: 32,
+    marginHorizontal: 36,
   },
 });
 
