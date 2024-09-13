@@ -1,5 +1,6 @@
 // TODO: adjust styling of text input to match pressables on options page
 // TODO: add caret to redirect back to options page
+// TODO: add checkbox for terms of service
 
 import React from "react";
 import { useState } from "react";
@@ -49,7 +50,7 @@ export default function Login() {
           autoCorrect
           onChangeText={(text) => setPassword(text)}
         />
-        <Text style={tw`text-xl mb-84 font-semibold`}>
+        <Text style={tw`text-xl mb-78 font-semibold`}>
           New?
           <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
             {" "}

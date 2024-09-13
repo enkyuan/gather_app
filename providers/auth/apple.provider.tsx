@@ -4,18 +4,28 @@ import { View, Text, Pressable, StyleSheet } from 'react-native';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as WebBrowser from 'expo-web-browser';
 import tw from 'twrnc';
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function AppleAuthProvider() {
-  return (
-   <View style={tw`flex-row justify-center items-center`}> 
-      <Pressable style={styles.pressable}>
-          <FontAwesome6 name="apple" size={36} color="black" style={styles.icon} />
-          <Text style={styles.text}>Apple</Text>
-      </Pressable> 
-    </View>
-  );
+    let [fontsLoaded] = useFonts({
+        Poppins_500Medium,
+        Poppins_600SemiBold,
+    });
+
+    if (!fontsLoaded) {
+        return null;
+    }
+
+    return (
+    <View style={tw`flex-row justify-center items-center`}> 
+        <Pressable style={styles.pressable}>
+            <FontAwesome6 name="apple" size={36} color="black" style={styles.icon} />
+            <Text style={styles.text}>Apple</Text>
+        </Pressable> 
+        </View>
+    );
 }
 
 const styles = StyleSheet.create({
@@ -31,7 +41,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_600SemiBold",
     color: "black",
   },
   icon: {

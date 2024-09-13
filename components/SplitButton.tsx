@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, SafeAreaView } from "react-native";
 import { useRouter } from "expo-router";
 import useStore from "../hooks/useStore";
 
@@ -10,7 +10,7 @@ export default function SplitButton() {
   const isSignUp = useStore(state => state.isSignUp);
 
   return (
-    <View style={tw`flex-row justify-center gap-4 py-28`}>
+    <View style={styles.container}>
       <Pressable
         style={tw`bg-gray-300 py-6 w-48 h-20 rounded-full`}
         onPress={() => {
@@ -22,17 +22,17 @@ export default function SplitButton() {
         }
       >
         <Text style={styles.text}>Sign Up</Text>
-      </Pressable>
-      <Pressable
-        style={tw`bg-blue-300 py-6 w-40 h-20 rounded-full`}
-        onPress={() => {
-            router.navigate("/auth/LoginOptions")
+        </Pressable>
+        <Pressable
+          style={tw`bg-blue-300 py-6 w-40 h-20 rounded-full`}
+          onPress={() => {
+              router.navigate("/auth/LoginOptions")
+            }
           }
-        }
-      >
-        <Text style={styles.text}>Login</Text>
-      </Pressable>
-    </View>
+        >
+          <Text style={styles.text}>Login</Text>
+        </Pressable>
+      </View>
   );
 }
 
@@ -44,4 +44,9 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     color: "white",
   },
+  container: {
+    flexDirection: "row",
+    justifyContent: "center",
+    gap: 12,
+  }
 });

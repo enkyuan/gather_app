@@ -9,9 +9,19 @@ import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
 import FacebookAuthProvider from "@/providers/auth/facebook.provider";
 import AppleAuthProvider from "@/providers/auth/apple.provider";
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
 export default function Options() {
   const router = useRouter();
+
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <SafeAreaView>
@@ -34,7 +44,7 @@ export default function Options() {
         <GoogleAuthProvider />
         <FacebookAuthProvider />
         <AppleAuthProvider />
-        <Text style={tw`text-lg font-semibold`}>
+        <Text style={tw`text-xl font-semibold`}>
           Need an account?{" "}
           <Text
             style={tw`text-blue-500`}
@@ -50,7 +60,7 @@ export default function Options() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_500Medium",
     textAlign: "start",
     justifyContent: "center",
     color: "black",
@@ -63,7 +73,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_600SemiBold",
     color: "black",
   },
   pressable: {

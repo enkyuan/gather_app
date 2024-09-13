@@ -1,3 +1,5 @@
+// TODO: add dark mode to app (can be changed in settings)
+
 import React from "react";
 import tw from "twrnc";
 import { GestureHandlerRootView } from "react-native-gesture-handler";

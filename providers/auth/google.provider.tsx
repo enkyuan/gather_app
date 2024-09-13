@@ -5,19 +5,20 @@
 import { useEffect } from 'react';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import * as Google from 'expo-auth-session/providers/google';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import * as WebBrowser from 'expo-web-browser';
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useRouter } from 'expo-router';
 import tw from 'twrnc';
 // import pb from '@/pb.config';
 import useStore from '../../hooks/useStore';
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleAuthProvider() {
   const router = useRouter();
-  const isSignUp = useStore(state => state.isSignUp);
+  const isSignUp = useStore(state => state.isSignUp); 
   
   /*
   const data = {
@@ -61,6 +62,15 @@ export default function GoogleAuthProvider() {
      handleToken();    
   }, [response]);
 
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
    <View style={tw`flex-row justify-center items-center`}> 
       <Pressable style={styles.pressable} onPress={() => promptAsync()}>
@@ -84,7 +94,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_600SemiBold",
     color: "black",
   },
   icon: {

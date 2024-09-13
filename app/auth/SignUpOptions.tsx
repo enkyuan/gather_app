@@ -7,11 +7,21 @@ import { useRouter } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
 import useStore from "../../hooks/useStore";
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
 const Options = (selection: string) => {
   const router = useRouter();
   const setIsSignUp = useStore((state) => state.setIsSignUp);
   const isSignUp = useStore((state) => state.isSignUp);
+
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
     <SafeAreaView>
@@ -38,7 +48,7 @@ const Options = (selection: string) => {
           <Text style={styles.text}>Email</Text>
         </Pressable>
         <GoogleAuthProvider /> 
-        <Text style={tw`text-lg font-semibold`}>
+        <Text style={tw`text-xl font-semibold`}>
           Already have an account?{" "}
           <Text
             style={tw`text-blue-500`}
@@ -54,7 +64,7 @@ const Options = (selection: string) => {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_500Medium",
     textAlign: "center",
     color: "black",
   },
@@ -66,7 +76,7 @@ const styles = StyleSheet.create({
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: "Poppins_600SemiBold",
     color: "black",
   },
   pressable: {

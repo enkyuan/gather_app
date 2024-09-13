@@ -44,13 +44,31 @@
         "output": "static",
         "favicon": "./assets/images/favicon.png"
     },
+    "packagerOpts": {
+      "config": "metro.config.js",
+      "sourceExts": [
+        "expo.ts",
+        "expo.tsx",
+        "expo.js",
+        "expo.jsx",
+        "ts",
+        "tsx",
+        "js",
+        "jsx",
+        "json",
+        "wasm",
+        "svg"
+      ]
+    },
     "plugins": [
         ["expo-router"],
         [
             "expo-font",
             {
                 "fonts": [
-                    "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf"
+                    "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf",
+                    "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
+                    "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf"
                 ]
             }
         ],

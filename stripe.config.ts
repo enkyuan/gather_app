@@ -1,3 +1,5 @@
+// TODO: find a use for this file
+
 import { Platform } from "react-native";
 
 export const API_URL =
