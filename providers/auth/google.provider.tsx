@@ -1,33 +1,27 @@
-// TODO: write user data to pocketbase
+// TODO: write oauth data to pb
 // TODO: convert handleToken to async function after fetching user info
 // TODO: convert alert into a toast
+// TODO: issue with oauth--modify handleToken to resolve response issue
 
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useRouter } from 'expo-router';
-import tw from 'twrnc';
-// import pb from '@/pb.config';
 import useStore from '../../hooks/useStore';
-import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import tw from 'twrnc';
+import pb from '@/pb.config';
 
 WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleAuthProvider() {
   const router = useRouter();
-  const isSignUp = useStore(state => state.isSignUp); 
+  const isSignUp = useStore(state => state.isSignUp);
+  const [userInfo, setUserInfo] = useState(null);
   
-  /*
-  const data = {
-      alias: alias,
-      email: email,
-      password:
-  };
-  */
-
   const config = {
     webClientId: process.env.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID,
     androidClientId: process.env.EXPO_PUBLIC_GOOGLE_ANDROID_CLIENT_ID,
@@ -35,16 +29,38 @@ export default function GoogleAuthProvider() {
   }
 
   const [request, response, promptAsync] = Google.useAuthRequest(config); 
+  
+  useEffect(() => {
+     handleToken();    
+  }, [response]);
 
-  const handleToken = () => {
+  /*
+  const handleToken = async() => {
+    const user = await AsyncStorage.getItem("@user");
+
+    if (!user) {
       if (response?.type === "success") {
-        const { authentication } = response;
-        const token = authentication?.accessToken;
+        const token = response.authentication.accessToken;
+        await getUserInfo(token);
 
-        console.log("access token", token);
-        
+        console.log("access token", token); 
+        console.log("user info", JSON.stringify(userInfo));
+
+        if (!userInfo) {
+          console.log("userInfo is null");
+          return;
+        }
+
         try {
-          // await pb.collection("users").create(data);
+          const data = {
+            name: userInfo.name,
+            email: userInfo.email,
+            password: userInfo.id,
+            password_confirmation: userInfo.id,
+          }
+
+          await pb.collection("users").create(data);
+
           if (isSignUp === true) {
             router.navigate("/auth/Intro");
           }
@@ -55,12 +71,53 @@ export default function GoogleAuthProvider() {
           alert("There was an error authenticating with Google. Please try again.");
           console.log(error.message);
         }
+      } 
+    } else {
+      setUserInfo(JSON.parse(user));
     }   
   }
+  */
 
-  useEffect(() => {
-     handleToken();    
-  }, [response]);
+    const handleToken = () => {
+        if (response?.type === "success") {
+            const { authentication } = response;
+            const token = authentication?.accessToken;
+
+            console.log("access token", token);
+            
+            try {
+                // await pb.collection("users").create(data);
+                if (isSignUp === true) {
+                router.navigate("/auth/Intro");
+                }
+                else {
+                router.navigate("/events");
+                }
+            } catch (error) {
+                alert("There was an error authenticating with Google. Please try again.");
+                console.log(error.message);
+            }
+        }   
+    }
+
+  const getUserInfo = async (token) => {
+    if (!token) return;
+    try {
+      const response = await fetch("https://www.googleapis.com/userinfo/v2/me", {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+
+      const user = await response.json();
+      await AsyncStorage.setItem("@user", JSON.stringify(user));
+
+      setUserInfo(user);
+    } catch (error) {
+      alert("There was an error fetching your Google account info. Please try again.");
+      console.log(error.message);
+    }
+  } 
 
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,

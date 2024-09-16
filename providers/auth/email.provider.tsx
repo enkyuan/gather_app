@@ -1,8 +1,9 @@
 // TODO: check if username, password auth is valid
-// TODO: implement OTP verification via email
+// TODO: implement email OTP verification
 // TODO: implement phone authentication (optional)
 // TODO: implement forgot password & email verification
-// TODO: improve error handling
+// TODO: update error handling
+// TODO: (maybe) replace password auth with  email OTP
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -107,20 +108,6 @@ const EmailAuthProvider = () => {
       }
     }
   }
-  
-  /*
-  async function handleFacebookSignIn() {
-    try {
-      const authData = await pb.collection("users").authWithOAuth2({
-        provider: "facebook",
-      });
-      router.navigate("/events");
-      return authData;
-    } catch (error: any) {
-      alert(error.message);
-    }
-  }
-  */
 
   async function handleSignOut() {
     pb.authStore.clear();

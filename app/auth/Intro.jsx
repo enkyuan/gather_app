@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import React from "react";
-import { View, Image } from "react-native";
+import { View, Image, SafeAreaView } from "react-native";
 import Onboarding from "react-native-onboarding-swiper";
 import { useRouter } from "expo-router";
 
@@ -8,14 +8,14 @@ export default function Intro() {
   const router = useRouter();
 
   return (
-    <View style={tw`flex-1 bg-white`}>
+    <SafeAreaView style={tw`flex-1 bg-white`}>
       <Onboarding
         pages={[
           {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/hangout.jpg")}
+                source={require("../../assets/images/onboarding/hangout.png")}
               />
             ),
             title: "Gather is the place to be for all your events on campus",
@@ -26,7 +26,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/balloon.jpg")}
+                source={require("../../assets/images/onboarding/balloon.png")}
               />
             ),
             title: "Find what floats your boat...",
@@ -37,7 +37,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/dancers.jpg")}
+                source={require("../../assets/images/onboarding/dancers.png")}
               />
             ),
             title: "or fits your groove...",
@@ -48,7 +48,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/people.jpg")}
+                source={require("../../assets/images/onboarding/people.png")}
               />
             ),
             title: "either way, you're bound to have some fun. Enjoy!",
@@ -60,6 +60,6 @@ export default function Intro() {
         onSkip={() => router.navigate("/events/")}
         bottomBarHighlight={false}
       />
-    </View>
+    </SafeAreaView>
   );
 }

@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import React from "react";
-import { View, Text, StyleSheet, Pressable, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import useStore from "../hooks/useStore";
 

@@ -1,5 +1,7 @@
 # (re)gather
 
+[//]: # (TODO: document all of this code prior to completion)
+
 ## about
 
 reimplementation of Gather's mobile app in Expo & React Native

@@ -68,7 +68,7 @@ export default function SignUp() {
           autoCorrect={false}
           onChangeText={(text) => setPasswordConfirm(text)}
         />
-        <Text style={tw`text-xl mb-28 font-semibold`}>
+        <Text style={tw`text-xl mb-30 font-semibold`}>
           Have an account?
           <Link href="/auth/Login" style={tw`text-blue-500`}>
             {" "}
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     borderRadius: 8,
     fontWeight: "semibold",
-    backgroundColor: "#f3f4f6",
+    backgroundColor: "#e5e7eb",
     color: "black",
     width: "94%",
     height: "10%",

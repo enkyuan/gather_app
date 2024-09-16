@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
   caretLeft: {
     alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: 36,
+    marginHorizontal: 38,
   },
 });
 

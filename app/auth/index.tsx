@@ -1,6 +1,6 @@
 import tw from "twrnc";
 import React from "react";
-import { View, Text, Image, StyleSheet, Platform } from "react-native";
+import { View, Text, Image, StyleSheet } from "react-native";
 import SplitButton from "@/components/SplitButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {  useFonts, Poppins_500Medium } from '@expo-google-fonts/poppins';
