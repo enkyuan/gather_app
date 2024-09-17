@@ -1,6 +1,10 @@
+// TODO: add image placeholder for loading issues, etc.
+// TODO: migrate to expo-image for better performance
+
 import tw from "twrnc";
 import React from "react";
-import { View, Text, Image, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+// import { Image } from "expo-image";
 import SplitButton from "@/components/SplitButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 import {  useFonts, Poppins_500Medium } from '@expo-google-fonts/poppins';

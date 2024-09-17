@@ -1,6 +1,7 @@
 // TODO: adjust styling of text input to match pressables on options page
 // TODO: add caret to redirect back to options page
 // TODO: add checkbox for terms of service
+// TODO: use setUsername hook for alt auth method
 
 import React from "react";
 import { useState } from "react";
@@ -15,7 +16,6 @@ import {
 import tw from "twrnc";
 import { Link } from "expo-router";
 import EmailAuthProvider from "@/providers/auth/email.provider";
-import { Image } from "react-native";
 
 export default function Login() {
   const emailAuthProvider = EmailAuthProvider();

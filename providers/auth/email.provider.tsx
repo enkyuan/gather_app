@@ -4,6 +4,7 @@
 // TODO: implement forgot password & email verification
 // TODO: update error handling
 // TODO: (maybe) replace password auth with  email OTP
+// TODO: obtain username from regex
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -56,7 +57,6 @@ const EmailAuthProvider = () => {
     passwordConfirm: string,
   ) {
     // const match = nameRegex.exec(email);
-    // TODO: obtain username from regex
     const data = {
       alias: alias,
       email: email,

@@ -1,6 +1,10 @@
+// TODO: add image placeholder for loading issues, etc. 
+// TODO: migrate to expo-image for better performance
+
 import tw from "twrnc";
 import React from "react";
-import { View, Image, SafeAreaView } from "react-native";
+import { SafeAreaView, Image } from "react-native";
+// import { Image } from 'expo-image';
 import Onboarding from "react-native-onboarding-swiper";
 import { useRouter } from "expo-router";
 
