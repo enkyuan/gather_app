@@ -1,4 +1,5 @@
-# TODO: configure base image to hold admin credentials use environment variables
+# TODO: configure base image to hold admin credentials using environment variables
+# TODO: move port to 8090
 
 FROM alpine:latest
 
@@ -17,7 +18,7 @@ COPY ./pb_migrations /pb/pb_migrations
 # COPY ./pb_hooks /pb/pb_hooks
 
 VOLUME /pb/pb_data
-EXPOSE 8080
+EXPOSE 8090
 
 # start PocketBase
-CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8080"]
+CMD ["/pb/pocketbase", "serve", "--http=0.0.0.0:8090"]

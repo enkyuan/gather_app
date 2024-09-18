@@ -37,6 +37,7 @@
     "@shopify/react-native-performance": "^4.1.2",
     "@shopify/restyle": "^2.4.4",
     "@stripe/stripe-react-native": "^0.38.6",
+    "dripsy": "^4.3.5",
     "expo": "^51.0.32",
     "expo-auth-session": "^5.5.2",
     "expo-constants": "~16.0.2",
@@ -68,6 +69,7 @@
     "react-native-svg": "15.2.0",
     "react-native-svg-transformer": "0.20.0",
     "react-native-web": "^0.19.12",
+    "solito": "^4.2.2",
     "twrnc": "^4.5.0",
     "upgrade": "^1.1.0",
     "zustand": "^4.5.5"

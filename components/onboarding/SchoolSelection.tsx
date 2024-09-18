@@ -3,12 +3,14 @@
 
 import tw from "twrnc";
 import React, { useState } from "react";
-import { SafeAreaView, View, Text, StyleSheet } from "react-native";
+import { SafeAreaView, View, Text, StyleSheet, Pressable } from "react-native";
+import { useRouter } from "expo-router";
 import { SelectList } from "react-native-dropdown-select-list";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
 export default function SchoolSelection() {
   const [selectedSchool, setSelected] = useState("");
+  const router = useRouter();
 
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,
@@ -27,15 +29,25 @@ export default function SchoolSelection() {
   return (
     <SafeAreaView>
       <View style={tw`items-center`}>
-        <Text style={tw`text-2xl text-center font-bold pb-164`}>Select the school you currently attend</Text>
-
+        <Text style={tw`text-2xl text-center font-bold py-40`}>Select the school you currently attend</Text>
         <SelectList
           data={schools}
           search="false"
           save="value"
           placeholder="College/University"
-          setSelected={() => setSelected(val)} 
+          setSelected={() => setSelected(val)}
         />
+        <Pressable
+          style={tw`bg-blue-300
+            w-92
+            h-20
+            justify-center
+            items-center
+            rounded-full`}
+          onPress={() => router.navigate("/events")}
+        >
+          <Text style={styles.text}>Continue</Text>
+        </Pressable>
       </View>
     </SafeAreaView>
   );
