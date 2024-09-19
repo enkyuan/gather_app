@@ -1,6 +1,6 @@
-// TODO: implement component to retrieve user role, i.e., 'coordinator', 'student', 'other'
-// TODO: implement admin role to access user-specific dashboard
-// TODO: implement other role to access overall dashboard for institute
+// TODO: component to retrieve user role, i.e., 'coordinator', 'student', 'other'
+// TODO: admin role to access user-specific dashboard
+// TODO: other role to access overall dashboard for institute
 // TODO: write name to pocketbase under 'role' field
 
 import tw from "twrnc";

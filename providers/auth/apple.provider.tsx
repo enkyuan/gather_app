@@ -1,4 +1,4 @@
-// TODO: implement provider prior to deplyoyment
+// TODO: add backend logic for this provider 
 
 import { View, Text, Pressable, StyleSheet } from 'react-native';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';

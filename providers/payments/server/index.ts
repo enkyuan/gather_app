@@ -1,4 +1,4 @@
-// TODO: implement server-side code for accepting stripe payments
+// TODO: server-side code for accepting stripe payments
 
 const express = require('express');
 

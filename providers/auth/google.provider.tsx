@@ -1,8 +1,6 @@
 // TODO: write oauth data to pb
 // TODO: convert alert into a toast
-// TODO: convert handleToken to async function after fetching user info
-// TODO: issue with oauth--modify handleToken to resolve response issue
-// TODO: configure pb instance w google auth after each docker run (fix this issue)
+// FIXME: issue with oauth--modify handleToken to resolve response issue
 
 import { useEffect, useState } from 'react';
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from '@expo-google-fonts/poppins';

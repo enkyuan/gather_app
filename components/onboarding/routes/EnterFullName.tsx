@@ -1,5 +1,5 @@
-// TODO: implement component to retrieve user name
-// TODO: write name to pocketbase under 'alias' field
+// TODO: component to retrieve user name
+// TODO: write name val to pocketbase under 'alias' field
 
 import tw from "twrnc";
 import React from "react";

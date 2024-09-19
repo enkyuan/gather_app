@@ -1,5 +1,4 @@
 // TODO: adjust styling of text input to match pressables on options page
-// TODO: add caret to redirect back to options page
 // TODO: add checkbox for terms of service
 // TODO: use setUsername hook for alt auth method
 

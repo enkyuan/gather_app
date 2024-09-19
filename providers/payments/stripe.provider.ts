@@ -1,1 +1,1 @@
-// TODO: (if applicable) implement stripe payment functions
+// TODO: (if applicable) stripe payment functions

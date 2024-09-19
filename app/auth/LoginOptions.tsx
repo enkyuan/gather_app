@@ -1,5 +1,4 @@
-// TODO: add 3rd-party auth options
-// TODO: move left caret to left side of text
+// TODO: facebook & apple oauth
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

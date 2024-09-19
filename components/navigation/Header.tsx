@@ -1,4 +1,4 @@
-// TODO: implement top bar to navigate between parts of app
+// TODO: top bar to navigate between parts of app
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View } from "react-native";

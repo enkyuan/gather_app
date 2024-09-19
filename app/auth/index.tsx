@@ -1,5 +1,5 @@
-// TODO: add image placeholder for loading issues, etc.
-// TODO: migrate to expo-image for better performance
+// TODO: image placeholder for loading issues, etc.
+// FIXME: migrate to expo-image for better performance
 
 import tw from "twrnc";
 import React from "react";

@@ -1,10 +1,8 @@
-// TODO: check if username, password auth is valid
-// TODO: implement email OTP verification
-// TODO: implement phone authentication (optional)
-// TODO: implement forgot password & email verification
-// TODO: update error handling
-// TODO: (maybe) replace password auth with  email OTP
-// TODO: obtain username from regex
+// TODO: email OTP verification
+// TODO: phone auth (optional)
+// TODO: forgot password & email verification
+// TEST: if username, password auth is valid
+// FIXME: update error handling
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";

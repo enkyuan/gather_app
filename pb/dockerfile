@@ -1,5 +1,4 @@
-# TODO: configure base image to hold admin credentials using environment variables
-# TODO: move port to 8090
+# FIXME: configure base image to hold admin credentials using environment variables
 
 FROM alpine:latest
 
