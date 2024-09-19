@@ -1,3 +1,5 @@
+// FIXME: replace data with values to be rendered
+
 export interface OnboardingData {
   id: number;
   text: string;
