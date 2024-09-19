@@ -3,9 +3,11 @@
 // TODO: forgot password & email verification
 // TEST: if username, password auth is valid
 // FIXME: update error handling
+// FIXME: add github issue related to toast not showing
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
+import { toast } from 'sonner-native';
 
 const EmailAuthProvider = () => {
   const router = useRouter();
@@ -29,18 +31,26 @@ const EmailAuthProvider = () => {
       return true;
     }
 
-    alert("Invalid email");
+    toast.error('Invalid email', {
+      onAutoClose: () => console.log('Auto-closed!'),
+      onDismiss: () => console.log('Manually dismissed!'),
+      richColors: true,
+    });
     console.log(email);
 
     return false;
   }
 
-  function isValidPassword(password: string, passwordConfirm: string) {
-    if (password !== passwordConfirm) {
-      alert("Passwords do not match");
+  function isValidPassword(password: string, passwordconfirm: string) {
+    if (password !== passwordconfirm) {
+      toast.error('Passwords do not match', {
+        onAutoClose: () => console.log('Auto-closed!'),
+        onDismiss: () => console.log('Manually dismissed!'),
+        richColors: true,
+      });
       return false;
     } else if (password.length < 8) {
-      alert("Password must be at least 8 characters");
+      toast.error('Password must be at least 8 characters');
       return false;
     }
     console.log(password, passwordConfirm);
@@ -67,7 +77,11 @@ const EmailAuthProvider = () => {
         await pb.collection("users").create(data);
         router.navigate("/auth/Intro");
       } catch (error: any) {
-        alert(error.message);
+        toast.error(error.message, {
+          onAutoClose: () => console.log('Auto-closed!'),
+          onDismiss: () => console.log('Manually dismissed!'),
+          richColors: true,
+        });
       }
     }
 
@@ -99,9 +113,10 @@ const EmailAuthProvider = () => {
       router.navigate("/events");
       return authData;
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
 
       if (error.message.toString() === "Failed to authenticate.") {
+        toast.error(error.message.toString());
         router.navigate("/auth/Login");
       }
     }
@@ -116,7 +131,7 @@ const EmailAuthProvider = () => {
     try {
       await pb.collection("users").requestPasswordReset(email);
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
     }
   }
 
@@ -124,7 +139,7 @@ const EmailAuthProvider = () => {
     try {
       await pb.collection("users").requestVerification(email);
     } catch (error: any) {
-      alert(error.message);
+      toast.error(error.message);
     }
   }
 

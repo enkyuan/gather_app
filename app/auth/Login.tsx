@@ -43,6 +43,7 @@ export default function Login() {
           maxLength={12}
           placeholder="Password"
           secureTextEntry={true}
+          textContentType="none"
           value={password}
           placeholderTextColor="gray"
           autoCapitalize="none"

@@ -52,6 +52,7 @@ export default function SignUp() {
           style={styles.textInput}
           placeholder="Password"
           secureTextEntry={true}
+          textContentType="none"
           value={password}
           placeholderTextColor="gray"
           autoCapitalize="none"
@@ -62,6 +63,7 @@ export default function SignUp() {
           style={styles.textInput}
           placeholder="Confirm Password"
           secureTextEntry={true}
+          textContentType="none"
           value={passwordConfirm}
           placeholderTextColor="gray"
           autoCapitalize="none"

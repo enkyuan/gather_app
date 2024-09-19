@@ -16,11 +16,9 @@
         "supportsTablet": false,
         "bundleIdentifier": "com.ios.gather-v2",
         "infoPlist": {
-        "CFBundleURLTypes": [
-            {
-                "CFBundleURLSchemes": ["com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"]
-            }
-        ]
+        "CFBundleURLTypes": [{
+            "CFBundleURLSchemes": ["com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"]
+        }]
     }
       
     },

@@ -1,5 +1,6 @@
 // TODO: add image placeholder for loading issues, etc. 
 // TODO: migrate to expo-image for better performance
+// FIXME: migrate to react-native-flatboard for onboarding component (add data.ts file for this)
 
 import tw from "twrnc";
 import React from "react";

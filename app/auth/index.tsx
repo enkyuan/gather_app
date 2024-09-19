@@ -19,14 +19,16 @@ export default function Auth() {
   }
 
   return (
-    <SafeAreaView style={tw`flex-1 bg-white items-center`}>
-      <View style={tw`flex-row gap-2 items-center pt-4 pb-16`}>
-        <Image source={require("@/assets/images/wordmark.png")} />
-        <Text style={styles.title}>Gather</Text>
-      </View>
-      <Image source={require("@/assets/images/iconspill.jpg")} />
-      <View style={tw`py-34`}>
-        <SplitButton />
+    <SafeAreaView>
+      <View style={tw`items-center bg-white py-16`}>
+        <View style={tw`flex-row gap-2 items-center pt-4 pb-16`}>
+          <Image source={require("@/assets/images/wordmark.png")} />
+          <Text style={styles.title}>Gather</Text>
+        </View>
+        <Image source={require("@/assets/images/iconspill.jpg")} />
+        <View style={tw`py-34`}>
+          <SplitButton />
+        </View>
       </View>
     </SafeAreaView>
   );
