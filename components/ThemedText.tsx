@@ -45,8 +45,8 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    fontFamily: 'Poppins_700Bold',
+    lineHeight: 40,
   },
   subtitle: {
     fontSize: 20,
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
   },
   link: {
     lineHeight: 30,
-    fontSize: 16,
+    fontSize: 24,
     color: '#4299e1',
     fontFamily: 'Poppins_600SemiBold',
   },

@@ -105,7 +105,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/tabs/events");
+      router.navigate("/events");
       return authData;
     } catch (error: any) {
       toast.error(error.message);

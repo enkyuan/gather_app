@@ -1,3 +1,5 @@
+// TODO: alt screen for authenticated users to return to root page of navigator
+
 import { Link, Stack } from 'expo-router';
 import { StyleSheet } from 'react-native';
 

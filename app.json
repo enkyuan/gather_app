@@ -22,10 +22,7 @@
     }
       
     },
-    "iosStatusBar": {
-        "backgroundColor": "",
-        "translucent": true
-    },
+    "iosStatusBar": {},
     "android": {
         "adaptiveIcon": {
             "foregroundImage": "./assets/images/adaptive-icon.png",
@@ -66,7 +63,8 @@
                 "fonts": [
                     "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf",
                     "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
-                    "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf"
+                    "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf",
+                    "node_modules/@expo-google-fonts/poppins/Poppins_700Bold.ttf"
                 ]
             }
         ],
