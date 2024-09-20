@@ -4,11 +4,9 @@
 import React, { useState } from "react";
 import {
   Pressable,
-  SafeAreaView,
   Text,
   TextInput,
   View,
-  Image,
   StyleSheet,
 } from "react-native";
 import { Link } from "expo-router";
@@ -50,7 +48,7 @@ export default function SignUp() {
         style={styles.textInput}
         placeholder="Password"
         secureTextEntry={true}
-        textContentType="none"
+        textContentType="oneTimeCode"
         value={password}
         placeholderTextColor="gray"
         autoCapitalize="none"
@@ -61,7 +59,7 @@ export default function SignUp() {
         style={styles.textInput}
         placeholder="Confirm Password"
         secureTextEntry={true}
-        textContentType="none"
+        textContentType="oneTimeCode"
         value={passwordConfirm}
         placeholderTextColor="gray"
         autoCapitalize="none"

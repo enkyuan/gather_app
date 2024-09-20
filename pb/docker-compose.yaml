@@ -5,4 +5,4 @@ services:
         ports:
             - 8090:8090
         volumes:
-            - "./pocketbase-data:/pb/pb_data"  # Attaches pb_data to a volume named 'pocketbase-data' on your current directory
+            - "./pb_test:/pb/pb_data"  # Attaches pb_data to a volume named 'pocketbase-data' on your current directory

@@ -5,7 +5,6 @@
 import React from "react";
 import { useState } from "react";
 import {
-  SafeAreaView,
   View,
   Text,
   TextInput,
@@ -15,7 +14,6 @@ import {
 import tw from "twrnc";
 import { Link } from "expo-router";
 import EmailAuthProvider from "@/providers/auth/email.provider";
-import { toast } from "sonner-native";
 
 export default function Login() {
   const emailAuthProvider = EmailAuthProvider();
@@ -43,7 +41,7 @@ export default function Login() {
         maxLength={12}
         placeholder="Password"
         secureTextEntry={true}
-        textContentType="none"
+        textContentType="oneTimeCode"
         value={password}
         placeholderTextColor="gray"
         autoCapitalize="none"

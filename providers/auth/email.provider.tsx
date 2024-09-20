@@ -1,7 +1,10 @@
 // TODO: email OTP verification
-// TODO: phone auth (optional)
-// TODO: forgot password & email verification
+// TODO: phone auth w sinch
+// TODO: forgot password & email verification w mailgun
+// TODO: configure SMTP w pocketbase for mailgun usage
 // TEST: if username, password auth is valid
+// FIXME: replace action button on toast with custom styling
+// FIXME: email handling with pocketbase & stmp configuration
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -38,8 +41,8 @@ const EmailAuthProvider = () => {
     return false;
   }
 
-  function isValidPassword(password: string, passwordconfirm: string) {
-    if (password !== passwordconfirm) {
+  function isValidPassword(password: string, passwordConfirm: string) {
+    if (password !== passwordConfirm) {
       toast.error("Passwords don't match", {
         onAutoClose: () => console.log('Auto-closed!'),
         onDismiss: () => console.log('Manually dismissed!'),
@@ -59,12 +62,7 @@ const EmailAuthProvider = () => {
     return true;
   }
 
-  async function handleSignUp(
-    alias: string,
-    email: string,
-    password: string,
-    passwordConfirm: string,
-  ) {
+  async function handleSignUp(alias: string, email: string, password: string, passwordConfirm: string) {
     // const match = nameRegex.exec(email);
     const data = {
       alias: alias,
@@ -78,7 +76,7 @@ const EmailAuthProvider = () => {
         await pb.collection("users").create(data);
         router.navigate("/auth/Intro");
       } catch (error: any) {
-        toast.error(error.message.toString(), {
+        toast.error(error.message.toString(), { 
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
         });
@@ -116,7 +114,12 @@ const EmailAuthProvider = () => {
       toast.error(error.message);
 
       if (error.message.toString() === "Failed to authenticate.") {
-        toast.error("Credentials are invalid. Try again!", {
+        toast("Invalid credentials", {
+          description: "If you forgot your password, click the button below to reset it.",
+          action: {
+            label: "Reset password",
+            onClick: () => router.navigate("/auth/ResetPassword"),
+          },
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
         });
