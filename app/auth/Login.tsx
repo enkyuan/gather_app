@@ -15,61 +15,60 @@ import {
 import tw from "twrnc";
 import { Link } from "expo-router";
 import EmailAuthProvider from "@/providers/auth/email.provider";
+import { toast } from "sonner-native";
 
 export default function Login() {
   const emailAuthProvider = EmailAuthProvider();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [username, setUsername] = useState("");
+  // const [username, setUsername] = useState("");
 
   return (
-    <SafeAreaView>
-      <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center gap-4 py-14`}>
-          <Text style={styles.title}>Welcome back</Text>
-        </View>
-        <TextInput
-          style={styles.textInput}
-          maxLength={28}
-          placeholder="Username or Email"
-          value={email || username}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          style={styles.textInput}
-          maxLength={12}
-          placeholder="Password"
-          secureTextEntry={true}
-          textContentType="none"
-          value={password}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect
-          onChangeText={(text) => setPassword(text)}
-        />
-        <Text style={tw`text-xl mb-80 font-semibold`}>
-          New?
-          <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
-            {" "}
-            Register{" "}
-          </Link>
-        </Text>
-        <Pressable
-          style={tw`bg-blue-300
-            w-92
-            h-20
-            justify-center
-            items-center
-            rounded-full`}
-          onPress={() => emailAuthProvider.handleSignIn(email, password)}
-        >
-          <Text style={styles.text}>Continue</Text>
-        </Pressable>
+    <View style={tw`flex flex-col justify-center items-center py-16`}>
+      <View style={tw`flex-row justify-center items-center gap-4 py-16`}>
+        <Text style={styles.title}>Welcome back</Text>
       </View>
-    </SafeAreaView>
+      <TextInput
+        style={styles.textInput}
+        maxLength={28}
+        placeholder="Username or Email"
+        value={email}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={(text) => setEmail(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        maxLength={12}
+        placeholder="Password"
+        secureTextEntry={true}
+        textContentType="none"
+        value={password}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect
+        onChangeText={(text) => setPassword(text)}
+      />
+      <Text style={tw`text-xl mb-78 font-semibold`}>
+        New?
+        <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
+          {" "}
+          Register{" "}
+        </Link>
+      </Text>
+      <Pressable
+        style={tw`bg-blue-300
+          w-92
+          h-20
+          justify-center
+          items-center
+          rounded-full`}
+        onPress={() => emailAuthProvider.handleSignIn(email, password)}
+      >
+        <Text style={styles.text}>Continue</Text>
+      </Pressable>
+    </View>
   );
 }
 

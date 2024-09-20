@@ -24,33 +24,37 @@ export default function Options() {
 
   return (
     <SafeAreaView>
-      <View style={styles.header}>
+      <View style={tw`py-16`}>
+        <View style={styles.header}>
+            <Pressable
+              onPress={() => router.navigate("/auth")}
+            >
+              <CaretLeft size={32} color="black" style={styles.caretLeft} />
+            </Pressable>            
+            <Text style={styles.title}>Continue with</Text>
+        </View>
+        <View style={tw`flex flex-col justify-center items-center`}> 
           <Pressable
-            onPress={() => router.navigate("/auth")}
+            style={styles.pressable}
+            onPress={() => router.navigate("/auth/Login")}
           >
-            <CaretLeft size={32} color="black" style={styles.caretLeft} />
-          </Pressable>            
-          <Text style={styles.title}>Continue with</Text>
-      </View>
-      <View style={tw`flex flex-col justify-center items-center`}> 
-        <Pressable
-          style={styles.pressable}
-          onPress={() => router.navigate("/auth/Login")}
-        >
-          <Envelope size={32} color="black" style={styles.icon} />
-          <Text style={styles.text}>Email</Text>
-        </Pressable>
-        <GoogleAuthProvider />
-        <FacebookAuthProvider />
-        <AppleAuthProvider />
-        <Text style={tw`text-xl font-semibold`}>
-          Need an account?{" "}
-          <Text
-            style={tw`text-blue-500`}
-            onPress={() => router.navigate("/auth/SignUpOptions")}>
-            Sign up
-          </Text>
-        </Text>
+            <Envelope size={32} color="black" style={styles.icon} />
+            <Text style={styles.text}>Email</Text>
+          </Pressable>
+          <GoogleAuthProvider />
+          <FacebookAuthProvider />
+          <AppleAuthProvider />
+          <View style={tw`py-2`}>
+            <Text style={tw`text-xl font-semibold`}>
+              Need an account?{" "}
+              <Text
+                style={tw`text-blue-500`}
+                onPress={() => router.navigate("/auth/SignUpOptions")}>
+                Sign up
+              </Text>
+            </Text>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );

@@ -5,7 +5,6 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigator from "@/components/navigation/Navigator";
 import { StripeProvider } from '@stripe/stripe-react-native';
-import { Toaster } from 'sonner-native';
 
 export default function App() {
   return (
@@ -16,24 +15,7 @@ export default function App() {
           merchantIdentifier={process.env.EXPO_PUBLIC_MERCHANT_ID}
         > 
           <Navigator />
-        </StripeProvider>
-        <Toaster
-            position="top-center"
-            offset={100}
-            duration={3000}
-            swipeToDismissDirection="up"
-            visibleToasts={2}
-            closeButton
-            autoWiggleOnUpdate="toast-change"
-            theme="system"
-            toastOptions={{
-              actionButtonStyle: {
-                paddingHorizontal: 20,
-                paddingVertical: 32,
-              },
-            }}
-            pauseWhenPageIsHidden
-        />
+        </StripeProvider>    
       </GestureHandlerRootView>
     </SafeAreaProvider>
   );

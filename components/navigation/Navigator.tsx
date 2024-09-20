@@ -4,7 +4,7 @@ import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Intro from "@/app/auth/Intro";
-import Events from "@/app/events/";
+import Events from "@/app/events";
 import SignUp from "@/app/auth/SignUp";
 import Auth from "@/app/auth";
 import Login from "@/app/auth/Login";

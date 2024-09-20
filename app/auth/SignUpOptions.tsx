@@ -7,55 +7,49 @@ import { useRouter } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
 import useStore from "../../hooks/useStore";
-import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
 const Options = (selection: string) => {
   const router = useRouter();
   const setIsSignUp = useStore((state) => state.setIsSignUp);
   const isSignUp = useStore((state) => state.isSignUp);
 
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <SafeAreaView>
-      <View style={styles.header}>
-          <Pressable
-            onPress={() => {
-                router.navigate("/auth")
-                setIsSignUp(!isSignUp);
+      <View style={tw`py-16`}>
+        <View style={styles.header}>
+            <Pressable
+              onPress={() => {
+                  router.navigate("/auth")
+                  setIsSignUp(!isSignUp);
 
-                console.log("isSignUp", isSignUp);
-              }
-            } 
+                  console.log("isSignUp", isSignUp);
+                }
+              } 
+            >
+              <CaretLeft size={32} color="black" style={styles.caretLeft} />
+            </Pressable>            
+            <Text style={styles.title}>Let's get started</Text>
+        </View>
+        <View style={tw`flex flex-col justify-center items-center`}>
+          <Pressable
+            style={styles.pressable}
+            onPress={() => router.navigate("/auth/SignUp")}
           >
-            <CaretLeft size={32} color="black" style={styles.caretLeft} />
-          </Pressable>            
-          <Text style={styles.title}>Let's get started</Text>
-      </View>
-      <View style={tw`flex flex-col justify-center items-center`}>
-        <Pressable
-          style={styles.pressable}
-          onPress={() => router.navigate("/auth/SignUp")}
-        >
-          <Envelope size={32} color="black" style={styles.icon} />
-          <Text style={styles.text}>Email</Text>
-        </Pressable>
-        <GoogleAuthProvider /> 
-        <Text style={tw`text-xl font-semibold`}>
-          Already have an account?{" "}
-          <Text
-            style={tw`text-blue-500`}
-            onPress={() => router.navigate("/auth/LoginOptions")}>
-            Log in
-          </Text>
-        </Text>
+            <Envelope size={32} color="black" style={styles.icon} />
+            <Text style={styles.text}>Email</Text>
+          </Pressable>
+          <GoogleAuthProvider />
+          <View style={tw`py-2`}>
+            <Text style={tw`text-xl font-semibold`}>
+              Already have an account?{" "}
+              <Text
+                style={tw`text-blue-500`}
+                onPress={() => router.navigate("/auth/LoginOptions")}>
+                Log in
+              </Text>
+            </Text>
+          </View>
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -72,7 +66,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "start",
     alignItems: "start",
-    marginVertical: 20,
+    marginVertical: 40,
   },
   text: {
     fontSize: 24,

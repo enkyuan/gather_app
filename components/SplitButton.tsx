@@ -1,5 +1,5 @@
 import tw from "twrnc";
-import React from "react";
+import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useRouter } from "expo-router";
 import useStore from "../hooks/useStore";
@@ -7,7 +7,7 @@ import useStore from "../hooks/useStore";
 export default function SplitButton() {
   const router = useRouter();
   const setIsSignUp = useStore(state => state.setIsSignUp);
-  const isSignUp = useStore(state => state.isSignUp);
+  const isSignUp = useStore(state => state.isSignUp); 
 
   return (
     <View style={styles.container}>

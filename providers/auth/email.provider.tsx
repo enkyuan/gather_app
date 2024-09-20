@@ -2,8 +2,6 @@
 // TODO: phone auth (optional)
 // TODO: forgot password & email verification
 // TEST: if username, password auth is valid
-// FIXME: update error handling
-// FIXME: add github issue related to toast not showing
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -31,10 +29,9 @@ const EmailAuthProvider = () => {
       return true;
     }
 
-    toast.error('Invalid email', {
+    toast.error("Your email's invalid. Try again!", {
       onAutoClose: () => console.log('Auto-closed!'),
       onDismiss: () => console.log('Manually dismissed!'),
-      richColors: true,
     });
     console.log(email);
 
@@ -43,16 +40,20 @@ const EmailAuthProvider = () => {
 
   function isValidPassword(password: string, passwordconfirm: string) {
     if (password !== passwordconfirm) {
-      toast.error('Passwords do not match', {
+      toast.error("Passwords don't match", {
         onAutoClose: () => console.log('Auto-closed!'),
         onDismiss: () => console.log('Manually dismissed!'),
-        richColors: true,
       });
       return false;
     } else if (password.length < 8) {
-      toast.error('Password must be at least 8 characters');
+      toast.error("Password must be at least 8 characters", {
+        onAutoClose: () => console.log('Auto-closed!'),
+        onDismiss: () => console.log('Manually dismissed!'),
+      });
+
       return false;
     }
+
     console.log(password, passwordConfirm);
 
     return true;
@@ -77,10 +78,9 @@ const EmailAuthProvider = () => {
         await pb.collection("users").create(data);
         router.navigate("/auth/Intro");
       } catch (error: any) {
-        toast.error(error.message, {
+        toast.error(error.message.toString(), {
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
-          richColors: true,
         });
       }
     }
@@ -101,7 +101,7 @@ const EmailAuthProvider = () => {
         const records = await pb.collection("users").getList(1, 1, { filter });
 
         if (records.totalItems === 0) {
-          throw new Error("Invalid username or email.");
+          throw new Error("Username or Email is invalid.");
         }
 
         const user = records.items[0];
@@ -116,7 +116,10 @@ const EmailAuthProvider = () => {
       toast.error(error.message);
 
       if (error.message.toString() === "Failed to authenticate.") {
-        toast.error(error.message.toString());
+        toast.error("Credentials are invalid. Try again!", {
+          onAutoClose: () => console.log('Auto-closed!'),
+          onDismiss: () => console.log('Manually dismissed!'),
+        });
         router.navigate("/auth/Login");
       }
     }
@@ -131,7 +134,10 @@ const EmailAuthProvider = () => {
     try {
       await pb.collection("users").requestPasswordReset(email);
     } catch (error: any) {
-      toast.error(error.message);
+      toast.error(error.message.toString(), {
+        onAutoClose: () => console.log('Auto-closed!'),
+        onDismiss: () => console.log('Manually dismissed!'),
+      });     
     }
   }
 
@@ -139,7 +145,10 @@ const EmailAuthProvider = () => {
     try {
       await pb.collection("users").requestVerification(email);
     } catch (error: any) {
-      toast.error(error.message);
+      toast.error(error.message.toString(), {
+        onAutoClose: () => console.log('Auto-closed!'),
+        onDismiss: () => console.log('Manually dismissed!'),
+      }); 
     }
   }
 

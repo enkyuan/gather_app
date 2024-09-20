@@ -24,76 +24,73 @@ export default function SignUp() {
   const [passwordConfirm, setPasswordConfirm] = useState("");
 
   return (
-    <SafeAreaView>
-      <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-between items-center gap-4 py-16`}>
-          <Text style={styles.title}>Create account</Text>
-        </View>
-
-        <TextInput
-          style={styles.textInput}
-          placeholder="Username"
-          value={alias}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setAlias(text)}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Email"
-          value={email}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Password"
-          secureTextEntry={true}
-          textContentType="none"
-          value={password}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setPassword(text)}
-        />
-        <TextInput
-          style={styles.textInput}
-          placeholder="Confirm Password"
-          secureTextEntry={true}
-          textContentType="none"
-          value={passwordConfirm}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setPasswordConfirm(text)}
-        />
-        <Text style={tw`text-xl mb-30 font-semibold`}>
-          Have an account?
-          <Link href="/auth/Login" style={tw`text-blue-500`}>
-            {" "}
-            Login{" "}
-          </Link>
-        </Text>
-        <Pressable
-          style={tw`bg-blue-300
-          w-92
-          h-20
-          justify-center
-          items-center
-          rounded-full`}
-          onPress={() =>
-            emailAuthProvider.handleSignUp(alias, email, password, passwordConfirm)
-          }
-        >
-          <Text style={tw`text-white text-center text-2xl font-bold`}>
-            Continue
-          </Text>
-        </Pressable>
+    <View style={tw`flex flex-col justify-center items-center py-16`}>
+      <View style={tw`flex-row justify-between items-center gap-4 py-16`}>
+        <Text style={styles.title}>Create account</Text>
       </View>
-    </SafeAreaView>
+      <TextInput
+        style={styles.textInput}
+        placeholder="Username"
+        value={alias}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={(text) => setAlias(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        placeholder="Email"
+        value={email}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={(text) => setEmail(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        placeholder="Password"
+        secureTextEntry={true}
+        textContentType="none"
+        value={password}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={(text) => setPassword(text)}
+      />
+      <TextInput
+        style={styles.textInput}
+        placeholder="Confirm Password"
+        secureTextEntry={true}
+        textContentType="none"
+        value={passwordConfirm}
+        placeholderTextColor="gray"
+        autoCapitalize="none"
+        autoCorrect={false}
+        onChangeText={(text) => setPasswordConfirm(text)}
+      />
+      <Text style={tw`text-xl mb-34 font-semibold`}>
+        Have an account?
+        <Link href="/auth/Login" style={tw`text-blue-500`}>
+          {" "}
+          Login{" "}
+        </Link>
+      </Text>
+      <Pressable
+        style={tw`bg-blue-300
+        w-92
+        h-20
+        justify-center
+        items-center
+        rounded-full`}
+        onPress={() =>
+          emailAuthProvider.handleSignUp(alias, email, password, passwordConfirm)
+        }
+      >
+        <Text style={tw`text-white text-center text-2xl font-bold`}>
+          Continue
+        </Text>
+      </Pressable>
+    </View>
   );
 }
 
