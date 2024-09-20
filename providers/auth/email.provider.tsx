@@ -12,11 +12,8 @@ import { toast } from 'sonner-native';
 
 const EmailAuthProvider = () => {
   const router = useRouter();
-
-  // const nameRegex = new RegExp("/^[a-zA-Z][0-9]{7}/");
-  const emailRegex = new RegExp(
-    /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-  );
+  
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;;
 
   async function isValidUsername(username: string) {
     const collection = "users";
@@ -83,7 +80,7 @@ const EmailAuthProvider = () => {
       }
     }
 
-    console.log(alias, data);
+    console.log(data);
   }
 
   async function handleSignIn(input: string, password: string) {
@@ -108,7 +105,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/events");
+      router.navigate("/tabs/events");
       return authData;
     } catch (error: any) {
       toast.error(error.message);
@@ -122,6 +119,7 @@ const EmailAuthProvider = () => {
           },
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
+          richColors: false
         });
         router.navigate("/auth/Login");
       }
