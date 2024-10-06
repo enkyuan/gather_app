@@ -2,7 +2,7 @@ import tw from "twrnc";
 import React, { useEffect } from "react";
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { useRouter } from "expo-router";
-import useStore from "../hooks/useStore";
+import useStore from "@/hooks/useStore";
 
 export default function SplitButton() {
   const router = useRouter();
@@ -14,7 +14,7 @@ export default function SplitButton() {
       <Pressable
         style={tw`bg-gray-300 py-6 w-48 h-20 rounded-full`}
         onPress={() => {
-            router.navigate("/auth/SignUpOptions")
+            router.push("/(auth)/(onboarding)/SignUpOptions")
             setIsSignUp(!isSignUp);
 
             console.log("isSignUp", isSignUp);
@@ -26,7 +26,7 @@ export default function SplitButton() {
         <Pressable
           style={tw`bg-blue-300 py-6 w-40 h-20 rounded-full`}
           onPress={() => {
-              router.navigate("/auth/LoginOptions")
+              router.push("/(auth)/(onboarding)/LoginOptions")
             }
           }
         >

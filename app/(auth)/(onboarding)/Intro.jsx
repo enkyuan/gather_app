@@ -13,14 +13,14 @@ export default function Intro() {
   const router = useRouter();
 
   return (
-    <SafeAreaView style={tw`flex-1 bg-white`}>
+    <SafeAreaView style={tw`flex-1`}>
       <Onboarding
         pages={[
           {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/hangout.png")}
+                source={require("@/assets/images/onboarding/hangout.png")}
               />
             ),
             title: "Gather is the place to be for all your events on campus",
@@ -31,7 +31,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/balloon.png")}
+                source={require("@/assets/images/onboarding/balloon.png")}
               />
             ),
             title: "Find what floats your boat...",
@@ -42,7 +42,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/dancers.png")}
+                source={require("@/assets/images/onboarding/dancers.png")}
               />
             ),
             title: "or fits your groove...",
@@ -53,7 +53,7 @@ export default function Intro() {
             backgroundColor: "#fff",
             image: (
               <Image
-                source={require("../../assets/images/onboarding/people.png")}
+                source={require("@/assets/images/onboarding/people.png")}
               />
             ),
             title: "either way, you're bound to have some fun. Enjoy!",
@@ -61,8 +61,8 @@ export default function Intro() {
             titleStyles: tw`text-2xl font-semibold text-center`,
           },
         ]}
-        onDone={() => router.navigate("/events/")}
-        onSkip={() => router.navigate("/events/")}
+        onDone={() => router.navigate("/(protected)/")}
+        onSkip={() => router.navigate("/(protected)/")}
         bottomBarHighlight={false}
       />
     </SafeAreaView>

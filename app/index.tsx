@@ -5,18 +5,12 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
 import Navigator from "@/components/navigation/Navigator";
 import { StripeProvider } from '@stripe/stripe-react-native';
+import tw from "twrnc";
+
+import Auth from '@/app/(auth)/'
 
 export default function App() {
   return (
-    <SafeAreaProvider>
-      <GestureHandlerRootView>
-        <StripeProvider 
-          publishableKey={process.env.EXPO_PUBLIC_STRIPE_PK}
-          merchantIdentifier={process.env.EXPO_PUBLIC_MERCHANT_ID}
-        > 
-          <Navigator />
-        </StripeProvider>    
-      </GestureHandlerRootView>
-    </SafeAreaProvider>
+      <Navigator />
   );
 }

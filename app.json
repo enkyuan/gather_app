@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
+    "userInterfaceStyle": "light",
     "splash": {
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
@@ -28,7 +28,7 @@
             "foregroundImage": "./assets/images/adaptive-icon.png",
             "backgroundColor": "#ffffff"
         },
-        "package": "com.anonymous.gather_v2"
+        "package": "com.anonymous.gather_v2",
     },
     "androidStatusBar": {
         "backgroundColor": "",
@@ -57,9 +57,7 @@
     },
     "plugins": [
         ["expo-router"],
-        [
-            "expo-font",
-            {
+        ["expo-font", {
                 "fonts": [
                     "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf",
                     "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
@@ -68,26 +66,10 @@
                 ]
             }
         ],
-        [
-                "@react-native-google-signin/google-signin",
-                {
-                    "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
-                }
-        ],
-        [ 
-            "react-native-radar",
-            {
-                "iosFraud": true,
-                "iosNSLocationWhenInUseUsageDescription": "Your location permission prompt",
-                "iosNSLocationAlwaysAndWhenInUseUsageDescription": "Your location permission prompt",
-                "iosBackgroundMode": true,
-                "androidFraud": true,
-                "androidBackgroundPermission": true,
-                "androidFineLocationPermission": true,
-                "addRadarSDKMotion":true           
+        ["@react-native-google-signin/google-signin", {
+                "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
             }
-      ],
-      ["@maplibre/maplibre-react-native"]
+        ]    
     ],
     "experiments": {
         "typedRoutes": true

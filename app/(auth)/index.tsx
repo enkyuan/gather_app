@@ -5,23 +5,21 @@ import tw from "twrnc";
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 // import { Image } from "expo-image";
-import SplitButton from "@/components/SplitButton";
+import SplitButton from "@/components/navigation/SplitButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Auth() {
   return (
-    <SafeAreaView>
-      <View style={tw`items-center bg-white`}>
-        <View style={tw`flex-row gap-2 items-center py-22`}>
-          <Image source={require("@/assets/images/wordmark.png")} />
-          <Text style={styles.title}>Gather</Text>
-        </View>
-        <Image source={require("@/assets/images/iconspill.jpg")} />
-        <View style={tw`py-26`}>
-          <SplitButton />
-        </View>
+    <View style={tw`items-center py-12`}>
+      <View style={tw`flex-row gap-2 items-center py-24`}>
+        <Image source={require("@/assets/images/wordmark.png")} />
+        <Text style={styles.title}>Gather</Text>
       </View>
-    </SafeAreaView>
+      <Image source={require("@/assets/images/onboarding/iconspill.png")} />
+      <View style={tw`py-36`}>
+        <SplitButton />
+      </View>
+    </View>
   );
 }
 

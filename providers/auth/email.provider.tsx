@@ -1,7 +1,7 @@
 // TODO: email OTP verification
-// TODO: phone auth w sinch
-// TODO: forgot password & email verification w mailgun
-// TODO: configure SMTP w pocketbase for mailgun usage
+// TODO: phone auth w sinch sms
+// TODO: configure SMTP w pocketbase & onesignal
+// TODO: add react router authenticated flow (render routes if authToken is valid)
 // TEST: if username, password auth is valid
 // FIXME: replace action button on toast with custom styling
 // FIXME: email handling with pocketbase & stmp configuration
@@ -59,10 +59,9 @@ const EmailAuthProvider = () => {
     return true;
   }
 
-  async function handleSignUp(alias: string, email: string, password: string, passwordConfirm: string) {
+  async function handleSignUp(email: string, password: string, passwordConfirm: string) {
     // const match = nameRegex.exec(email);
     const data = {
-      alias: alias,
       email: email,
       password: password,
       passwordConfirm: passwordConfirm,
@@ -71,7 +70,7 @@ const EmailAuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/auth/Intro");
+        router.navigate("/(auth)/(onboarding)/Orientation");
       } catch (error: any) {
         toast.error(error.message.toString(), { 
           onAutoClose: () => console.log('Auto-closed!'),
@@ -105,7 +104,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/events");
+      router.navigate("(protected)/");
       return authData;
     } catch (error: any) {
       toast.error(error.message);
@@ -115,20 +114,20 @@ const EmailAuthProvider = () => {
           description: "If you forgot your password, click the button below to reset it.",
           action: {
             label: "Reset password",
-            onClick: () => router.navigate("/auth/ResetPassword"),
+            onClick: () => router.navigate("/(auth)/ResetPassword"),
           },
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
           richColors: false
         });
-        router.navigate("/auth/Login");
+        router.navigate("/(auth)/Login");
       }
     }
   }
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("/auth");
+    router.navigate("/(auth)/");
   }
 
   async function forgotPassword(email: string) {

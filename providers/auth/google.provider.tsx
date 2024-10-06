@@ -1,5 +1,6 @@
 // TODO: write oauth data to pb
 // TODO: convert alert into a toast
+// TODO: remove getUserInfo()
 // FIXME: issue with oauth--modify handleToken to resolve response issue
 
 import { useEffect, useState } from 'react';
@@ -9,7 +10,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useRouter } from 'expo-router';
-import useStore from '../../hooks/useStore';
+import useStore from '@/hooks/useStore';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import tw from 'twrnc';
 import pb from '@/pb.config';
@@ -87,10 +88,10 @@ export default function GoogleAuthProvider() {
             try {
                 // await pb.collection("users").create(data);
                 if (isSignUp === true) {
-                router.navigate("/auth/Intro");
+                router.navigate("/(auth)/(onboarding)/Intro");
                 }
                 else {
-                router.navigate("/events");
+                router.navigate("/(events)/");
                 }
             } catch (error) {
                 alert("There was an error authenticating with Google. Please try again.");

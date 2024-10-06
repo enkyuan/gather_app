@@ -3,6 +3,9 @@
  * https://docs.expo.dev/guides/color-schemes/
  */
 
+// FIXME: modify this hook to handle dark mode with custom color scheme
+
+
 import { useColorScheme } from 'react-native';
 
 import { Colors } from '../constants/Colors';

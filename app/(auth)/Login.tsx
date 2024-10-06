@@ -48,9 +48,9 @@ export default function Login() {
         autoCorrect
         onChangeText={(text) => setPassword(text)}
       />
-      <Text style={tw`text-xl mb-78 font-semibold`}>
+      <Text style={tw`text-xl mb-80 font-semibold`}>
         New?
-        <Link href={"/auth/SignUp"} style={tw`text-blue-500`}>
+        <Link href={"/(auth)/SignUp"} style={tw`text-blue-500`}>
           {" "}
           Register{" "}
         </Link>

@@ -1,13 +1,13 @@
-// TODO: user notification preferences
+// TODO: user preferences page
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Notifications() {
+export default function Settings() {
   return (
     <SafeAreaView>
       <View>
-        <Text style={styles.title}>Notifications</Text>
+        <Text style={styles.title}>Settings</Text>
       </View>
     </SafeAreaView>
   );

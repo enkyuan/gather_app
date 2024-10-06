@@ -1,15 +1,15 @@
-// TODO: implement user profile page
+// TODO: timeline page
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Account() {
+import Header from '@/components/Header'
+
+export default function Timeline() {
   return (
-    <SafeAreaView>
-      <View>
-        <Text style={styles.title}>Profile</Text>
-      </View>
-    </SafeAreaView>
+    <View>
+      <Header />
+    </View>
   );
 }
 

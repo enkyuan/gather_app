@@ -1,14 +1,31 @@
-import tw from "twrnc";
-import React from "react";
-import { SafeAreaView, View, Text, Pressable } from "react-native";
+import { StyleSheet, View } from 'react-native';
+import React from 'react';
+import { SharedValue } from 'react-native-reanimated';
+import { OnboardingData } from '../data';
+import Dot from './Dot';
 
-export default function Pagination() {
+type Props = {
+    data: OnboardingData[];
+    x: SharedValue<number>;
+};
 
-  return (
-    <SafeAreaView>
-      <View style={tw`items-center`}>
-        <Text style={tw`text-2xl text-center font-bold pb-164`}>${PAGE_NAME}</Text>
-      </View>
-    </SafeAreaView>
-  );
-}
+const Pagination = ({data, x}: Props) => {
+    return (
+        <View style={styles.paginationContainer}>
+            {data.map((_, index) => {
+                return <Dot index={index} x={x} key={index} />;
+            })}
+        </View>
+    );
+};
+
+export default Pagination;
+
+const styles = StyleSheet.create({
+  paginationContainer: {
+    flexDirection: 'row',
+    height: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+});

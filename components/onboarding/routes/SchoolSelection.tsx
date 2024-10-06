@@ -1,5 +1,6 @@
 // TODO: implement component to retrieve school user attends
 // TODO: write name to pocketbase under 'institution' field
+// TODO: add school parameter to zustand store & write to pb
 
 import tw from "twrnc";
 import React, { useState } from "react";
@@ -28,8 +29,19 @@ export default function SchoolSelection() {
 
   return (
     <SafeAreaView>
-      <View style={tw`items-center`}>
-        <Text style={tw`text-2xl text-center font-bold py-40`}>Select the school you currently attend</Text>
+        <View style={tw`items-center`}>
+            <View style={tw`flex-col justify-between items-center gap-4 py-16`}>
+                <Text style={styles.title}>
+                    Select your school from the options below so we you never miss a beat.
+                </Text>
+                <Text style={styles.text}>
+                    If your school is not listed, let us know via 
+                    <Link href="mailto:gather.connect.mobile@gmail.com" style={tw`text-blue-500`}>
+                    {" "}
+                    email{" "}
+                    </Link>
+                </Text>
+            </View> 
         <SelectList
           data={schools}
           search="false"
@@ -46,9 +58,9 @@ export default function SchoolSelection() {
             rounded-full`}
           onPress={() => router.navigate("/events")}
         >
-          <Text style={styles.text}>Continue</Text>
+            <Text style={styles.text}>Continue</Text>
         </Pressable>
-      </View>
+        </View>
     </SafeAreaView>
   );
 }

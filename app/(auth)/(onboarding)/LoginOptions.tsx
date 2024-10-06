@@ -1,72 +1,78 @@
-// TODO: add 3rd-party auth options
+// TODO: facebook & apple oauth
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
-import { useRouter } from "expo-router";
+import { useRouter, Link, Stack } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
-import useStore from "../../hooks/useStore";
+import FacebookAuthProvider from "@/providers/auth/facebook.provider";
+import AppleAuthProvider from "@/providers/auth/apple.provider";
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-const Options = (selection: string) => {
+export default function Options() {
   const router = useRouter();
-  const setIsSignUp = useStore((state) => state.setIsSignUp);
-  const isSignUp = useStore((state) => state.isSignUp);
+
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+  });
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
-    <SafeAreaView>
-      <View style={tw`py-16`}>
+      <>
+        <View style={tw`py-32`}>
         <View style={styles.header}>
             <Pressable
-              onPress={() => {
-                  router.navigate("/auth")
-                  setIsSignUp(!isSignUp);
-
-                  console.log("isSignUp", isSignUp);
-                }
-              } 
+                onPress={() => router.dismissAll()}
             >
-              <CaretLeft size={32} color="black" style={styles.caretLeft} />
+                <CaretLeft size={32} color="black" style={styles.caretLeft} />
             </Pressable>            
-            <Text style={styles.title}>Let's get started</Text>
+            <Text style={styles.title}>Continue with</Text>
         </View>
-        <View style={tw`flex flex-col justify-center items-center`}>
-          <Pressable
+        <View style={tw`flex flex-col justify-center items-center`}> 
+            <Pressable
             style={styles.pressable}
-            onPress={() => router.navigate("/auth/SignUp")}
-          >
+            onPress={() => router.navigate("/(auth)/Login")}
+            >
             <Envelope size={32} color="black" style={styles.icon} />
             <Text style={styles.text}>Email</Text>
-          </Pressable>
-          <GoogleAuthProvider />
-          <View style={tw`py-2`}>
+            </Pressable>
+            <GoogleAuthProvider />
+            <FacebookAuthProvider />
+            <AppleAuthProvider />
+            <View style={tw`py-2`}>
             <Text style={tw`text-xl font-semibold`}>
-              Already have an account?{" "}
-              <Text
+                Need an account?{" "}
+                <Link
                 style={tw`text-blue-500`}
-                onPress={() => router.navigate("/auth/LoginOptions")}>
-                Log in
-              </Text>
+                href="/(auth)/SignUpOptions">
+                Sign up
+                </Link>
             </Text>
-          </View>
+            </View>
         </View>
-      </View>
-    </SafeAreaView>
+        </View>
+    </>
   );
-};
+}
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: "Poppins_500Medium",
-    textAlign: "center",
+    textAlign: "start",
+    justifyContent: "center",
     color: "black",
   },
   header: {
     flexDirection: "row",
     justifyContent: "start",
     alignItems: "start",
-    marginVertical: 40,
+    marginVertical: 20,
   },
   text: {
     fontSize: 24,
@@ -96,8 +102,6 @@ const styles = StyleSheet.create({
   caretLeft: {
     alignItems: "center",
     justifyContent: "center",
-    marginHorizontal: 38,
+    marginHorizontal: 44,
   },
 });
-
-export default Options;
