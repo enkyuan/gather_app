@@ -6,6 +6,7 @@
 
 import HeaderColors from '@/constants/HeaderColors';
 import { Ionicons } from '@expo/vector-icons';
+import { MapPin, BellSimple , CalendarDots } from "phosphor-react-native";
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
@@ -41,14 +42,16 @@ const Header = () => {
           </Pressable>
         </Link>
         <View style={styles.location}>
-          <Ionicons style={styles.pinIcon} name={'navigate'} size={24} color={HeaderColors.dark} />
+          <MapPin style={styles.pinIcon} size={24} weight="fill" />
           <TextInput style={styles.input} placeholder="UT-Dallas" placeholderTextColor={HeaderColors.dark} />
         </View>
+        <Link href={'/(protected)/account/notifications/'} asChild>
+          <Pressable style={styles.circle}>
+            <BellSimple size={24} weight="fill" />
+          </Pressable>
+        </Link>
         <View style={styles.circle}>
-          <Ionicons name={'notifications'} size={20} color={HeaderColors.dark} />
-        </View>
-        <View style={styles.circle}>
-          <Ionicons name={'calendar'} size={20} color={HeaderColors.dark} />
+          <CalendarDots size={24} weight="fill" />
         </View>
       </View>
     </BlurView>
@@ -71,10 +74,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     backgroundColor: HeaderColors.lightGray,
-    borderRadius: 30,
+    borderRadius: 24,
   },
   pinIcon: {
-    padding: 8,
+    padding: 12,
   },
   input: {
     flex: 1,
@@ -83,12 +86,12 @@ const styles = StyleSheet.create({
     paddingLeft: 0,
     backgroundColor: HeaderColors.lightGray,
     color: HeaderColors.dark,
-    borderRadius: 30,
+    borderRadius: 24,
   },
   circle: {
     width: 40,
     height: 40,
-    borderRadius: 30,
+    borderRadius: 24,
     backgroundColor: HeaderColors.lightGray,
     justifyContent: 'center',
     alignItems: 'center',

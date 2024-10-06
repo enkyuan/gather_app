@@ -14,7 +14,7 @@ export default function SplitButton() {
       <Pressable
         style={tw`bg-gray-300 py-6 w-48 h-20 rounded-full`}
         onPress={() => {
-            router.push("/(auth)/(onboarding)/SignUpOptions")
+            router.push("/(auth)/(onboarding)/registration_options/")
             setIsSignUp(!isSignUp);
 
             console.log("isSignUp", isSignUp);
@@ -26,7 +26,7 @@ export default function SplitButton() {
         <Pressable
           style={tw`bg-blue-300 py-6 w-40 h-20 rounded-full`}
           onPress={() => {
-              router.push("/(auth)/(onboarding)/LoginOptions")
+              router.push("/(auth)/(onboarding)/login_options/")
             }
           }
         >

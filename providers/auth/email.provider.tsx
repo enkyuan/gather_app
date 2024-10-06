@@ -70,7 +70,7 @@ const EmailAuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/(auth)/(onboarding)/Orientation");
+        router.navigate("/(auth)/(onboarding)/orientation/");
       } catch (error: any) {
         toast.error(error.message.toString(), { 
           onAutoClose: () => console.log('Auto-closed!'),
@@ -114,13 +114,13 @@ const EmailAuthProvider = () => {
           description: "If you forgot your password, click the button below to reset it.",
           action: {
             label: "Reset password",
-            onClick: () => router.navigate("/(auth)/ResetPassword"),
+            onClick: () => router.navigate("/(auth)/reset_password/"),
           },
           onAutoClose: () => console.log('Auto-closed!'),
           onDismiss: () => console.log('Manually dismissed!'),
           richColors: false
         });
-        router.navigate("/(auth)/Login");
+        router.navigate("/(auth)/login/");
       }
     }
   }

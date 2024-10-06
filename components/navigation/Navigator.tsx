@@ -4,11 +4,11 @@
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
-import Intro from "@/app/(auth)/(onboarding)/Intro";
+import Intro from "@/app/(auth)/(onboarding)/intro/";
 import Timeline from "@/app/(protected)/";
-import SignUp from "@/app/(auth)/SignUp";
+import SignUp from "@/app/(auth)/register/";
 import Auth from "@/app/(auth)/";
-import Login from "@/app/(auth)/Login";
+import Login from "@/app/(auth)/login/";
 
 const Navigator = () => {
   const Stack = createNativeStackNavigator();

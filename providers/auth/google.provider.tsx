@@ -86,13 +86,13 @@ export default function GoogleAuthProvider() {
             console.log("access token", token);
             
             try {
-                // await pb.collection("users").create(data);
-                if (isSignUp === true) {
-                router.navigate("/(auth)/(onboarding)/Intro");
-                }
-                else {
-                router.navigate("/(events)/");
-                }
+              // await pb.collection("users").create(data);
+              if (isSignUp === true) {
+                router.navigate("/(auth)/(onboarding)/");
+              }
+              else {
+                router.navigate("/(protected)/");
+              }
             } catch (error) {
                 alert("There was an error authenticating with Google. Please try again.");
                 console.log(error.message);

@@ -33,7 +33,7 @@ export default function SignUp() {
         onChangeText={(text) => setEmail(text)}
       />
       <Text style={tw`text-xl mb-78 font-semibold`}>
-        <Link href="/auth" style={tw`text-blue-500`}>
+        <Link href="/(auth)/" style={tw`text-blue-500`}>
           {" "}
           Take me home{" "}
         </Link>

@@ -36,7 +36,7 @@ export default function Options() {
         <View style={tw`flex flex-col justify-center items-center`}> 
             <Pressable
             style={styles.pressable}
-            onPress={() => router.navigate("/(auth)/Login")}
+            onPress={() => router.navigate("/(auth)/login/")}
             >
             <Envelope size={32} color="black" style={styles.icon} />
             <Text style={styles.text}>Email</Text>
