@@ -1,8 +1,6 @@
 // TODO: replace textinput with dropdown selection (or nothing at all, leave as view)
 // TODO: ensure that the university reflected in view is dynamic & fetches from user information
-// FIXME: header route needs to be changed to /(authenticated)/(modals)/account
 // FIXME: migrate authenticated routes into a group and put in business logic
-// FIXME: migrate ionicons to their respective phosphor icons (modify styling if necessary)
 
 import HeaderColors from '@/constants/HeaderColors';
 import { Ionicons } from '@expo/vector-icons';
@@ -45,14 +43,16 @@ const Header = () => {
           <MapPin style={styles.pinIcon} size={24} weight="fill" />
           <TextInput style={styles.input} placeholder="UT-Dallas" placeholderTextColor={HeaderColors.dark} />
         </View>
-        <Link href={'/(protected)/account/notifications/'} asChild>
+        <Link href={'/(protected)/events/messages/'} asChild>
           <Pressable style={styles.circle}>
             <BellSimple size={24} weight="fill" />
           </Pressable>
         </Link>
-        <View style={styles.circle}>
-          <CalendarDots size={24} weight="fill" />
-        </View>
+        <Link href={'/(protected)/events/lineup/'} asChild>
+          <Pressable style={styles.circle}>
+            <CalendarDots size={24} weight="fill" />
+          </Pressable>
+        </Link>
       </View>
     </BlurView>
   );

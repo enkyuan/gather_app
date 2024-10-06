@@ -47,7 +47,8 @@ export default function RootLayout() {
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack screenOptions={{ 
             backgroundColor: '#fffff',
-            headerShown: false
+            headerShown: false,
+            gestureEnabled: false
           }} />
           <Toaster 
             richColors={true}
