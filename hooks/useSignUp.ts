@@ -1,8 +1,8 @@
 import { create } from 'zustand';
 
-const useStore = create(set => ({
+const useSignUp = create(set => ({
   isSignUp: false,
   setIsSignUp: (value: boolean) => set({ isSignUp: value }),
 }));
 
-export default useStore;
+export default useSignUp;

@@ -6,12 +6,12 @@ import tw from "twrnc";
 import { useRouter, Link } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import GoogleAuthProvider from "@/providers/auth/google.provider";
-import useStore from "@/hooks/useStore";
+import useSignUp from "@/hooks/useSignUp";
 
 const Options = (selection: string) => {
   const router = useRouter();
-  const setIsSignUp = useStore((state) => state.setIsSignUp);
-  const isSignUp = useStore((state) => state.isSignUp);
+  const setIsSignUp = useSignUp((state) => state.setIsSignUp);
+  const isSignUp = useSignUp((state) => state.isSignUp);
 
   return (
     <View style={tw`py-28`}>

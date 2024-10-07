@@ -10,10 +10,11 @@ import pb from "@/pb.config";
 import { useRouter } from "expo-router";
 import { toast } from 'sonner-native';
 
+import useAuth from '@/hooks/useAuth'
+
 const EmailAuthProvider = () => {
   const router = useRouter();
-  
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;;
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
   async function isValidUsername(username: string) {
     const collection = "users";
@@ -104,7 +105,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("(protected)/");
+      router.navigate("/(protected)/");
       return authData;
     } catch (error: any) {
       toast.error(error.message);
@@ -120,7 +121,7 @@ const EmailAuthProvider = () => {
           onDismiss: () => console.log('Manually dismissed!'),
           richColors: false
         });
-        router.navigate("/(auth)/login/");
+        router.navigate("/login/");
       }
     }
   }

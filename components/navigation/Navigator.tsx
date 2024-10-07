@@ -9,16 +9,15 @@ import { HeaderBackButton } from '@react-navigation/elements';
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 
 import Auth from "@/app/(auth)/";
-import SignUp from "@/app/(auth)/register/";
-import Login from "@/app/(auth)/login/";
+import SignUp from "@/app/register/";
+import Login from "@/app/login/";
 import Intro from "@/app/(auth)/(onboarding)/intro/";
 import Timeline from "@/app/(protected)/";
-import Account from "@/app/(protected)/account/[uid]";
+import Account from "@/app/(protected)/account/";
 import Messages from "@/app/(protected)/events/messages/"
 import Lineup from "@/app/(protected)/events/lineup/"
 
 const Navigator = () => {
-  const router = useRouter();
   const Stack = createNativeStackNavigator();
 
   return (
@@ -37,6 +36,10 @@ const Navigator = () => {
           component={Login}
         />
         <Stack.Screen
+          name="Register"
+          component={SignUp}
+        />
+        <Stack.Screen
           name="SignUp"
           component={SignUp}
         />
@@ -51,37 +54,14 @@ const Navigator = () => {
         <Stack.Screen
           name="Account"
           component={Account}
-          options={{
-            headerLeft: (props) => (
-              <HeaderBackButton
-                {...props}
-                onPress={() => {
-                  router.dismiss()
-                }}
-              />
-            ),
-          }}
         />
         <Stack.Screen 
           name="Messages"
           component={Messages}
-          options={{
-            headerLeft: (props) => (
-              <HeaderBackButton
-                {...props}
-                onPress={() => {
-                  router.dismiss()
-                }}
-              />
-            ),
-          }} 
         />
         <Stack.Screen 
           name="Events Dash"
           component={Lineup}
-          options={{
-            headerBackTitle: 'Back',
-          }}
         />
       </Stack.Group>
     </Stack.Navigator>

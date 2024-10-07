@@ -48,7 +48,7 @@ export default function RootLayout() {
           <Stack screenOptions={{ 
             backgroundColor: '#fffff',
             headerShown: false,
-            gestureEnabled: false
+            gestureEnable: false
           }} />
           <Toaster 
             richColors={true}

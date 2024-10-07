@@ -26,7 +26,7 @@ const Header = () => {
             backgroundColor: 'transparent',
           },
         ]}>
-        <Link href={'/(protected)/account/[uid]'} asChild>
+        <Link href={'/(protected)/account/lol'} asChild>
           <Pressable
             style={{
               width: 40,
@@ -78,12 +78,12 @@ const styles = StyleSheet.create({
   },
   pinIcon: {
     padding: 12,
+    margin: 8
   },
   input: {
     flex: 1,
     paddingTop: 12,
     paddingBottom: 12,
-    paddingLeft: 0,
     backgroundColor: HeaderColors.lightGray,
     color: HeaderColors.dark,
     borderRadius: 24,

@@ -5,14 +5,18 @@ import { StyleSheet } from 'react-native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import useAuth from '@/hooks/useAuth';
 
 export default function NotFoundScreen() {
+  const isAuthenticated = useAuth(state => state.isAuthenticated);
+  const redirect = isAuthenticated ? "/(protected)/" : "/";
+  
   return (
     <>
       <Stack.Screen options={{ title: 'Oops!' }} />
       <ThemedView style={styles.container}>
         <ThemedText type="title">404. Oops. Maybe you got lost?</ThemedText>
-        <Link href="/" style={styles.link}>
+        <Link href={redirect} style={styles.link}>
           <ThemedText type="link">Take me home.</ThemedText>
         </Link>
       </ThemedView>

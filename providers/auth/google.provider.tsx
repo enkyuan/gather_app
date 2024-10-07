@@ -10,7 +10,7 @@ import * as Google from 'expo-auth-session/providers/google';
 import * as WebBrowser from 'expo-web-browser';
 import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
 import { useRouter } from 'expo-router';
-import useStore from '@/hooks/useStore';
+import useSignUp from "@/hooks/useSignUp";
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import tw from 'twrnc';
 import pb from '@/pb.config';
@@ -19,7 +19,7 @@ WebBrowser.maybeCompleteAuthSession();
 
 export default function GoogleAuthProvider() {
   const router = useRouter();
-  const isSignUp = useStore(state => state.isSignUp);
+  const isSignUp = useSignUp(state => state.isSignUp);
   const [userInfo, setUserInfo] = useState(null);
   
   const config = {
