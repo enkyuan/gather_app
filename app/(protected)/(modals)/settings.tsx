@@ -5,11 +5,11 @@ import { Text, View, StyleSheet } from "react-native";
 
 export default function Settings() {
   return (
-    <SafeAreaView>
+    <>
       <View>
-        <Text style={styles.title}>Settings</Text>
+        <Text style={styles.title}></Text>
       </View>
-    </SafeAreaView>
+    </>
   );
 }
 

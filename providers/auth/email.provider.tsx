@@ -71,7 +71,7 @@ const EmailAuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/(auth)/(onboarding)/orientation/");
+        router.navigate("/(auth)/intro/");
       } catch (error: any) {
         toast.error(error.message.toString(), { 
           onAutoClose: () => console.log('Auto-closed!'),
@@ -105,7 +105,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/(protected)/");
+      router.navigate("/(protected)/timeline");
       return authData;
     } catch (error: any) {
       toast.error(error.message);
@@ -128,7 +128,7 @@ const EmailAuthProvider = () => {
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("/(auth)/");
+    router.navigate("/");
   }
 
   async function forgotPassword(email: string) {

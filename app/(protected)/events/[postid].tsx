@@ -1,15 +1,15 @@
-// TODO: notification preferences page, i.e., app icon, dark/light mode, etc.
+// TODO: single post (indexed by id) containing upcoming events, details, etc.
 
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet } from "react-native";
 
-export default function Notifications() {
+export default function Post() {
   return (
-    <SafeAreaView>
+    <>
       <View>
-        <Text style={styles.title}>Messages</Text>
+        <Text style={styles.title}>Dash</Text>
       </View>
-    </SafeAreaView>
+    </>
   );
 }
 

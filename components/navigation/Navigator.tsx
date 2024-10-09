@@ -1,6 +1,6 @@
 import Theme from '@/constants/Theme'
 
-import { useFonts, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Stack, useRouter } from 'expo-router';
@@ -13,8 +13,7 @@ const Navigator = () => {
 
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,
-    Poppins_600SemiBold,
-    Poppins_700Bold,
+    Poppins_600SemiBold
   });
 
   useEffect(() => {
@@ -72,6 +71,71 @@ const Navigator = () => {
         name="signup"
         options={{ headerShown: false }}
       />
+      <Stack.Screen
+        name="(auth)/intro"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="(protected)/timeline"
+        options={{ 
+          headerShown: false, 
+          gestureEnabled: false
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/account"
+        options={{ 
+          headerShown: true, 
+          presentation: 'modal',
+          title: 'Account',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/notifications"
+        options={{
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Notifications',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/events/dash"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Events',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Group>
+        <Stack.Screen
+          name="(protected)/(modals)/settings"
+          options={{ 
+            headerShown: true,
+            presentation: 'modal'
+          }}
+        />
+      </Stack.Group>
     </Stack>
   )
 }

@@ -7,16 +7,13 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import useAuth from '@/hooks/useAuth';
 
-export default function NotFoundScreen() {
-  const isAuthenticated = useAuth(state => state.isAuthenticated);
-  const redirect = isAuthenticated ? "/(protected)/" : "/";
-  
+export default function NotFoundScreen() { 
   return (
     <>
-      <Stack.Screen options={{ title: '' }} />
+      <Stack.Screen options={{ headerShown: false }} />
       <ThemedView style={styles.container}>
         <ThemedText type="title">404. Oops. Maybe you got lost?</ThemedText>
-        <Link href={redirect} style={styles.link}>
+        <Link href="/" style={styles.link}>
           <ThemedText type="link">Take me home.</ThemedText>
         </Link>
       </ThemedView>

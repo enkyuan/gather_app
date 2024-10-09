@@ -88,7 +88,7 @@ export default function GoogleAuthProvider() {
             try {
               // await pb.collection("users").create(data);
               if (isSignUp === true) {
-                router.navigate("/(auth)/(onboarding)/");
+                router.navigate("/(auth)/intro/");
               }
               else {
                 router.navigate("/(protected)/");

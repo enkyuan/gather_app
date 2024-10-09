@@ -4,7 +4,6 @@
 import tw from "twrnc";
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
-// import { Image } from "expo-image";
 import SplitButton from "@/components/navigation/SplitButton";
 import { SafeAreaView } from "react-native-safe-area-context";
 
