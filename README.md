@@ -23,7 +23,7 @@ reimplementation of Gather's mobile app in Expo & React Native
   <a href="https://stripe.com/"><img src="https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white" alt="Stripe" /></a>
 </>
 
-## tested using
+## tested with
 <p id="badges" align="start">
   <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
 </>
