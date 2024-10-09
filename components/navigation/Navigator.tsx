@@ -30,7 +30,7 @@ const Navigator = () => {
   return (
     <Stack 
       screenOptions={{ 
-        backgroundColor: '#fffff'
+        backgroundColor: Theme.background
     }}>
       <Stack.Screen
         name="index"
