@@ -10,7 +10,7 @@ import FacebookAuthProvider from "@/providers/auth/facebook.provider";
 import AppleAuthProvider from "@/providers/auth/apple.provider";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-export default function Options() {
+export default function LoginOptions() {
   const router = useRouter();
 
   let [fontsLoaded] = useFonts({
@@ -24,22 +24,17 @@ export default function Options() {
 
   return (
       <>
-        <View style={tw`py-32`}>
-        <View style={styles.header}>
-            <Pressable
-                onPress={() => router.dismissAll()}
-            >
-                <CaretLeft size={32} color="black" style={styles.caretLeft} />
-            </Pressable>            
+        <View style={tw`py-8`}>
+          <View style={tw`my-8`}>
             <Text style={styles.title}>Continue with</Text>
-        </View>
-        <View style={tw`flex flex-col justify-center items-center`}> 
+          </View>
+          <View style={tw`flex flex-col justify-center items-center`}> 
             <Pressable
             style={styles.pressable}
-            onPress={() => router.navigate("/(auth)/login/")}
+            onPress={() => router.navigate("/login/")}
             >
-            <Envelope size={32} color="black" style={styles.icon} />
-            <Text style={styles.text}>Email</Text>
+              <Envelope size={32} color="black" style={styles.icon} />
+              <Text style={styles.text}>Email</Text>
             </Pressable>
             <GoogleAuthProvider />
             <FacebookAuthProvider />
@@ -49,12 +44,12 @@ export default function Options() {
                 Need an account?{" "}
                 <Link
                 style={tw`text-blue-500`}
-                href="/(auth)/SignUpOptions">
+                href="/signup_options/">
                 Sign up
                 </Link>
             </Text>
             </View>
-        </View>
+          </View>
         </View>
     </>
   );
@@ -64,15 +59,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 24,
     fontFamily: "Poppins_500Medium",
-    textAlign: "start",
+    textAlign: "center",
     justifyContent: "center",
     color: "black",
-  },
-  header: {
-    flexDirection: "row",
-    justifyContent: "start",
-    alignItems: "start",
-    marginVertical: 20,
   },
   text: {
     fontSize: 24,
@@ -93,15 +82,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     marginHorizontal: 32,
-  },
-  image: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 30,
-  },
-  caretLeft: {
-    alignItems: "center",
-    justifyContent: "center",
-    marginHorizontal: 44,
-  },
+  }
 });

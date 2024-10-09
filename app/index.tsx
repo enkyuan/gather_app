@@ -3,8 +3,10 @@
 import React from "react";
 import Navigator from '@/components/navigation/Navigator';
 
+import Auth from "@/app/(auth)/";
+
 export default function App() {
   return (
-    <Navigator />
+    <Auth />
   );
 }

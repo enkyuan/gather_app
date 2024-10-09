@@ -22,7 +22,7 @@ export default function Login() {
   // const [username, setUsername] = useState("");
 
   return (
-    <View style={tw`flex flex-col justify-center items-center py-16`}>
+    <View style={tw`flex flex-col justify-center items-center py-28`}>
       <View style={tw`flex-row justify-center items-center gap-4 py-16`}>
         <Text style={styles.title}>Welcome back</Text>
       </View>
@@ -48,9 +48,9 @@ export default function Login() {
         autoCorrect
         onChangeText={(text) => setPassword(text)}
       />
-      <Text style={tw`text-xl mb-80 font-semibold`}>
+      <Text style={tw`text-xl mb-76 font-semibold`}>
         New?
-        <Link href={"/(auth)/register/"} style={tw`text-blue-500`}>
+        <Link href={"/signup/"} style={tw`text-blue-500`}>
           {" "}
           Register{" "}
         </Link>

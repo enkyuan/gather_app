@@ -12,44 +12,23 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 import { Toaster } from 'sonner-native';
 import { useEffect } from 'react';
 import { useColorScheme } from '@/hooks/useColorScheme'
-import { Slot } from 'expo-router';
-import { Stack } from 'expo-router/stack'; 
+import { Stack } from 'expo-router'; 
 import 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
 
-import Navigator from "@/components/navigation/Navigator";
+import Navigator from '@/components/navigation/Navigator'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function RootLayout() {
-  const colorScheme = useColorScheme();
-  
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-    Poppins_700Bold,
-  });
-
-  useEffect(() => {
-    if (fontsLoaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [fontsLoaded]);
-
-  if (!fontsLoaded) {
-    return null;
-  }
+const RootLayout = () => {
+  const colorScheme = useColorScheme(); 
 
   return (
     <SafeAreaProvider>
       <GestureHandlerRootView>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-          <Stack screenOptions={{ 
-            backgroundColor: '#fffff',
-            headerShown: false,
-            gestureEnable: false
-          }} />
+          <Navigator />
           <Toaster 
             richColors={true}
           /> 
@@ -58,3 +37,5 @@ export default function RootLayout() {
     </SafeAreaProvider>
   );
 }
+
+export default RootLayout;

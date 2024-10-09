@@ -13,7 +13,7 @@ export default function NotFoundScreen() {
   
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
+      <Stack.Screen options={{ title: '' }} />
       <ThemedView style={styles.container}>
         <ThemedText type="title">404. Oops. Maybe you got lost?</ThemedText>
         <Link href={redirect} style={styles.link}>

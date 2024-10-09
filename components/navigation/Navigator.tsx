@@ -1,71 +1,81 @@
-// TODO: find a use for this file
-// TODO: authenticated routes that redirects to protected routes (already mentioned elsewhere)
-// FIXME: header must be shown for some of the screens in the app to handle stack pop
-// FIXME: add custom back button to handle stack dismiss (pop route)
+import Theme from '@/constants/Theme'
 
-import React from "react";
-import { useRouter } from "expo-router";
-import { HeaderBackButton } from '@react-navigation/elements';
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { useFonts, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
+import * as SplashScreen from 'expo-splash-screen';
+import { useEffect } from 'react';
+import { Stack, useRouter } from 'expo-router';
+import { Pressable, ActivityIndicator } from 'react-native';
 
-import Auth from "@/app/(auth)/";
-import SignUp from "@/app/register/";
-import Login from "@/app/login/";
-import Intro from "@/app/(auth)/(onboarding)/intro/";
-import Timeline from "@/app/(protected)/";
-import Account from "@/app/(protected)/account/";
-import Messages from "@/app/(protected)/events/messages/"
-import Lineup from "@/app/(protected)/events/lineup/"
+import { CaretLeft } from "phosphor-react-native";
 
 const Navigator = () => {
-  const Stack = createNativeStackNavigator();
+  const router = useRouter();
+
+  let [fontsLoaded] = useFonts({
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+  useEffect(() => {
+    if (fontsLoaded) {
+      SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
 
   return (
-    <Stack.Navigator initialRouteName="Auth">
-      <Stack.Group screenOptions={{ 
-        backgroundColor: '#fffff',
-        headerShown: false,
-        gestureEnabled: false
-      }}>
-        <Stack.Screen
-          name="Auth"
-          component={Auth}
-        />
-        <Stack.Screen
-          name="SignIn"
-          component={Login}
-        />
-        <Stack.Screen
-          name="Register"
-          component={SignUp}
-        />
-        <Stack.Screen
-          name="SignUp"
-          component={SignUp}
-        />
-        <Stack.Screen
-          name="Intro"
-          component={Intro}
-        />
-        <Stack.Screen
-          name="Timeline"
-          component={Timeline}
-        />
-        <Stack.Screen
-          name="Account"
-          component={Account}
-        />
-        <Stack.Screen 
-          name="Messages"
-          component={Messages}
-        />
-        <Stack.Screen 
-          name="Events Dash"
-          component={Lineup}
-        />
-      </Stack.Group>
-    </Stack.Navigator>
-  );
+    <Stack 
+      screenOptions={{ 
+        backgroundColor: '#fffff'
+    }}>
+      <Stack.Screen
+        name="index"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="login_options"
+        options={{           
+          title: '',
+          headerBackTitle: '',
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+          headerLeft: () => (
+            <Pressable onPress={router.back}>
+              <CaretLeft size={32} color="black" />
+            </Pressable>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="signup_options"
+        options={{ 
+          title: '',
+          headerBackTitle: '',
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+          headerLeft: () => (
+            <Pressable onPress={router.back}>
+              <CaretLeft size={32} color="black" />
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="login"
+        options={{ headerShown: false }}
+      />
+      <Stack.Screen
+        name="signup"
+        options={{ headerShown: false }}
+      />
+    </Stack>
+  )
 }
 
 export default Navigator;
+
+
