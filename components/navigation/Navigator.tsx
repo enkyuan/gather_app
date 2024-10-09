@@ -1,3 +1,6 @@
+// TODO: add role-based routing
+// FIXME: protected routes must operate under after using isAuth hook
+
 import Theme from '@/constants/Theme'
 
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
@@ -83,6 +86,21 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
+        name="(protected)/(modals)/settings"
+        options={{ 
+          headerShown: true, 
+          presentation: 'modal',
+          title: 'Account',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
         name="(protected)/(modals)/account"
         options={{ 
           headerShown: true, 
@@ -117,7 +135,7 @@ const Navigator = () => {
         options={{ 
           headerShown: true,
           presentation: 'modal',
-          title: 'Events',
+          title: 'Your Events',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -127,15 +145,6 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
         }}
       />
-      <Stack.Group>
-        <Stack.Screen
-          name="(protected)/(modals)/settings"
-          options={{ 
-            headerShown: true,
-            presentation: 'modal'
-          }}
-        />
-      </Stack.Group>
     </Stack>
   )
 }

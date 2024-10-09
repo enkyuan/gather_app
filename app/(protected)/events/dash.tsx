@@ -7,7 +7,8 @@ export default function Dash() {
   return (
     <>
       <View>
-        <Text style={styles.title}></Text>
+        <Text style={styles.title}>
+        </Text>
       </View>
     </>
   );

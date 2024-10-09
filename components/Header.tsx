@@ -38,7 +38,7 @@ const Header = () => {
             backgroundColor: 'transparent',
           },
         ]}>
-        <Link href={'/(protected)/account/'} asChild>
+        <Link href={'/(protected)/settings/'} asChild>
           <Pressable
             style={{
               width: 40,
