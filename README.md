@@ -12,7 +12,7 @@ reimplementation of Gather's mobile app in Expo & React Native
   <a href="https://www.apple.com/ios/ios-17/"><img src="https://img.shields.io/badge/iOS-000000?style=for-the-badge&logo=ios&logoColor=white" /></a>
 </>
 
-## built with
+## built using
 <p id="badges" align="start">
   <a href="https://bun.sh/"><img src="https://img.shields.io/badge/Bun-%23000000.svg?style=for-the-badge&logo=bun&logoColor=white" /></a>
   <a href="https://www.typescriptlang.org/"><img src="https://img.shields.io/badge/typescript-%23007ACC.svg?style=for-the-badge&logo=typescript&logoColor=white" /></a>
