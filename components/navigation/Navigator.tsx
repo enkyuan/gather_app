@@ -176,7 +176,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/events/dash"
+        name="(protected)/(modals)/dash"
         options={{ 
           headerShown: true,
           presentation: 'modal',
@@ -191,7 +191,7 @@ const Navigator = () => {
         }}
       />
     </Stack>
-  )
+  );
 }
 
 export default Navigator;

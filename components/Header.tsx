@@ -62,7 +62,7 @@ const Header = () => {
             <BellSimple size={24} weight="fill" />
           </Pressable>
         </Link>
-        <Link href={'/(protected)/events/dash/'} asChild>
+        <Link href={'/(protected)/(modals)/dash/'} asChild>
           <Pressable style={styles.circle}>
             <Ticket size={24} weight="fill" />
           </Pressable>

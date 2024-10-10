@@ -7,7 +7,7 @@ export default function Post() {
   return (
     <>
       <View>
-        <Text style={styles.title}>Dash</Text>
+        <Text style={styles.title}>Post</Text>
       </View>
     </>
   );
