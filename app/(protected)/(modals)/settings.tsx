@@ -1,6 +1,7 @@
 // TODO: make styling consistent with rest of the app
 // FIXME: replace image & fillers with dynamic data
 // FIXME: migrate feather icons to phoshpor
+// FIXME: apply gravatar icons as fallback instead of using gather wordmark
 // FIXME: drop shadow error--something related to improper calculations
 
 import React, { useState } from 'react';
@@ -14,9 +15,14 @@ import {
   Switch,
   Image,
 } from 'react-native';
+import { useRouter } from 'expo-router';
+
 import FeatherIcon from 'react-native-vector-icons/Feather';
+import EmailAuthProvider from '@/providers/auth/email.provider';
 
 export default function Settings() {
+  const router = useRouter();
+  const emailAuthProvider = EmailAuthProvider();
 
   const [form, setForm] = useState({
     emailNotifications: true,
@@ -32,16 +38,10 @@ export default function Settings() {
           <View style={styles.sectionBody}>
             <TouchableOpacity
               onPress={() => {
-                // handle onPress
+                router.navigate("/(protected)/(modals)/profile");
               }}
               style={styles.profile}>
-              <Image
-                alt=""
-                source={{
-                  uri: 'https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2.5&w=256&h=256&q=80',
-                }}
-                style={styles.profileAvatar} />
-
+              <Image source={require("@/assets/images/wordmark.jpg")} style={styles.profileAvatar} />
               <View style={styles.profileBody}>
                 <Text style={styles.profileName}>John Doe</Text>
 
@@ -61,35 +61,24 @@ export default function Settings() {
 
           <View style={styles.sectionBody}>
             <View style={[styles.rowWrapper, styles.rowFirst]}>
-              <TouchableOpacity
-                onPress={() => {
-                  // handle onPress
-                }}
-                style={styles.row}>
-                <Text style={styles.rowLabel}>Language</Text>
-
-                <View style={styles.rowSpacer} />
-
-                <Text style={styles.rowValue}>English</Text>
-
-                <FeatherIcon
-                  color="#bcbcbc"
-                  name="chevron-right"
-                  size={20} />
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.rowWrapper}>
-              <TouchableOpacity
-                onPress={() => {
-                  // handle onPress
-                }}
-                style={styles.row}>
+              <View style={styles.row}>
                 <Text style={styles.rowLabel}>Location</Text>
 
                 <View style={styles.rowSpacer} />
 
                 <Text style={styles.rowValue}>Richardson, TX</Text>
+              </View>
+            </View>
+
+            <View style={styles.rowWrapper}>
+              <TouchableOpacity
+                onPress={() => {
+                  router.navigate("(protected)/(modals)/integrations"); 
+                }}
+                style={styles.row}>
+                <Text style={styles.rowLabel}>Integrations</Text>
+
+                <View style={styles.rowSpacer} />
 
                 <FeatherIcon
                   color="#bcbcbc"
@@ -99,28 +88,37 @@ export default function Settings() {
             </View>
 
             <View style={styles.rowWrapper}>
-              <View style={styles.row}>
+              <TouchableOpacity
+                onPress={() => {
+                  router.navigate("/(protected)/(modals)/appearance");
+                }}
+                style={styles.row}>
                 <Text style={styles.rowLabel}>Appearance</Text>
 
                 <View style={styles.rowSpacer} />
+
                 <FeatherIcon
-                  color="#bcbcbc"
-                  name="chevron-right"
-                  size={20} />
-              </View>
+                    color="#bcbcbc"
+                    name="chevron-right"
+                    size={20} />
+              </TouchableOpacity>
             </View>
 
             <View style={[styles.rowWrapper, styles.rowLast]}>
-              <View style={styles.row}>
+             <TouchableOpacity
+                onPress={() => {
+                  router.navigate("/(protected)/(modals)/notifications");
+                }}
+                style={styles.row}>
                 <Text style={styles.rowLabel}>Notification Preferences</Text>
 
                 <View style={styles.rowSpacer} />
 
                 <FeatherIcon
-                  color="#bcbcbc"
-                  name="chevron-right"
-                  size={20} /> 
-              </View>
+                    color="#bcbcbc"
+                    name="chevron-right"
+                    size={20} />
+              </TouchableOpacity> 
             </View>
           </View>
         </View>
@@ -169,7 +167,7 @@ export default function Settings() {
                   // handle onPress
                 }}
                 style={styles.row}>
-                <Text style={styles.rowLabel}>Rate Us</Text>
+                <Text style={styles.rowLabel}>Give Us a Rating</Text>
 
                 <View style={styles.rowSpacer} />
 
@@ -186,7 +184,7 @@ export default function Settings() {
                   // handle onPress
                 }}
                 style={styles.row}>
-                <Text style={styles.rowLabel}>Terms and Privacy Policy</Text>
+                <Text style={styles.rowLabel}>Privacy Policy</Text>
 
                 <View style={styles.rowSpacer} />
 
@@ -210,7 +208,7 @@ export default function Settings() {
               ]}>
               <TouchableOpacity
                 onPress={() => {
-                  // handle onPress
+                   emailAuthProvider.handleSignOut();
                 }}
                 style={styles.row}>
                 <Text style={[styles.rowLabel, styles.rowLabelLogout]}>

@@ -51,7 +51,7 @@ export default function Login() {
         />
         <Text style={tw`text-xl mb-76 font-semibold`}>
           New?
-          <Link href={"/signup/"} style={tw`text-blue-500`}>
+          <Link href={"/signup_options"} style={tw`text-blue-500`}>
             {" "}
             Register{" "}
           </Link>

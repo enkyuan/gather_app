@@ -61,7 +61,7 @@ export default function SignUp() {
             />
             <Text style={tw`text-xl mb-56 font-semibold`}>
               Have an account?
-              <Link href="/login/" style={tw`text-blue-500`}>
+              <Link href="/login_options" style={tw`text-blue-500`}>
                 {" "}
                 Login{" "}
               </Link>

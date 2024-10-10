@@ -86,11 +86,11 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/(modals)/settings"
+        name="(protected)/(modals)/appearance"
         options={{ 
           headerShown: true, 
           presentation: 'modal',
-          title: 'Account',
+          title: 'Appearance',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -101,11 +101,26 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/(modals)/account"
-        options={{ 
-          headerShown: true, 
+        name="(protected)/(modals)/inbox"
+        options={{
+          headerShown: true,
           presentation: 'modal',
-          title: 'Account',
+          title: 'Inbox',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/integrations"
+        options={{
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Integrations',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -117,10 +132,40 @@ const Navigator = () => {
       />
       <Stack.Screen
         name="(protected)/(modals)/notifications"
-        options={{
-          headerShown: true,
+        options={{ 
+          headerShown: true, 
           presentation: 'modal',
           title: 'Notifications',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/profile"
+        options={{ 
+          headerShown: true, 
+          presentation: 'modal',
+          title: 'My Profile',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: 'Poppins_600SemiBold',
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.background },
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/settings"
+        options={{ 
+          headerShown: true, 
+          presentation: 'modal',
+          title: 'Account',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',

@@ -57,7 +57,7 @@ const Header = () => {
             UT Dallas
           </Text>
         </View>
-        <Link href={'/(protected)/(modals)/notifications/'} asChild>
+        <Link href={'/(protected)/(modals)/inbox/'} asChild>
           <Pressable style={styles.circle}>
             <BellSimple size={24} weight="fill" />
           </Pressable>
