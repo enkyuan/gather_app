@@ -44,7 +44,7 @@ export default function Settings() {
                   router.navigate("/(protected)/(modals)/profile");
                 }}
                 style={styles.profile}>
-                <Image source={require("@/assets/images/wordmark.jpg")} style={styles.profileAvatar} />
+                <Image source={require("@/assets/images/wordmark.png")} style={styles.profileAvatar} />
                 <View style={styles.profileBody}>
                   <Text style={styles.profileName}>John Doe</Text>
 
@@ -113,7 +113,7 @@ export default function Settings() {
                     router.navigate("/(protected)/(modals)/notifications");
                   }}
                   style={styles.row}>
-                  <Text style={styles.rowLabel}>Notification Preferences</Text>
+                  <Text style={styles.rowLabel}>Notifications</Text>
 
                   <View style={styles.rowSpacer} />
 
@@ -251,7 +251,6 @@ const styles = StyleSheet.create({
     flexBasis: 0,
     textAlign: 'center',
   },
-  /** Content */
   content: {
     paddingHorizontal: 16,
   },
@@ -262,7 +261,6 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#a69f9f',
   },
-  /** Section */
   section: {
     paddingVertical: 12,
   },
@@ -286,7 +284,6 @@ const styles = StyleSheet.create({
     shadowRadius: 1.41,
     elevation: 2,
   },
-  /** Profile */
   profile: {
     padding: 12,
     backgroundColor: '#fff',

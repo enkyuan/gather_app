@@ -5,6 +5,9 @@
 // TEST: if username, password auth is valid
 // FIXME: replace action button on toast with custom styling
 // FIXME: email handling with pocketbase & stmp configuration
+// FIXME: add error handling for error: "Failed to create record"
+// FIXME: automatic db sanitization for storage & testing purposes
+// FIXME: ensure user account is not created until after completion of onboarding process
 
 import pb from "@/pb.config";
 import { useRouter } from "expo-router";
@@ -71,7 +74,7 @@ const EmailAuthProvider = () => {
     if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
       try {
         await pb.collection("users").create(data);
-        router.navigate("/(auth)/intro/");
+        router.navigate("/(auth)/forms/");
       } catch (error: any) {
         toast.error(error.message.toString(), { 
           onAutoClose: () => console.log('Auto-closed!'),

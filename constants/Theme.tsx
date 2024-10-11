@@ -1,9 +1,9 @@
 // FIXME: replace primaryMuted color with darker shade of primary
 
 export default {
-    primary: '#60A5FA',
+    primary: '#93C5FD',
     primaryMuted: '#256AE6',
-    background: '#F5F5F5',
+    background: '#FFFFFF',
     dark: '#141518',
     gray: '#626D77',
     lightGray: '#D8DCE2', 

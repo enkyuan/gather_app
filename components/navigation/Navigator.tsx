@@ -44,7 +44,6 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -58,7 +57,6 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -76,7 +74,17 @@ const Navigator = () => {
       />
       <Stack.Screen
         name="(auth)/intro"
-        options={{ headerShown: false }}
+        options={{ 
+          headerShown: false,
+          gestureEnabled: false
+        }}
+      />
+      <Stack.Screen
+        name="(auth)/forms"
+        options={{ 
+            headerShown: false,
+            gestureEnabled: false
+        }}
       />
       <Stack.Screen
         name="(protected)/timeline"

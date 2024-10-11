@@ -1,5 +1,6 @@
 // TODO: image placeholder for loading issues, etc.
 // FIXME: migrate to expo-image for better performance
+// FIXME: replace png assets with jpeg counterparts
 
 import tw from "twrnc";
 import React from "react";
@@ -11,7 +12,7 @@ export default function Auth() {
   return (
     <View style={tw`items-center py-12`}>
       <View style={tw`flex-row gap-2 items-center py-24`}>
-        <Image source={require("@/assets/images/wordmark.png")} />
+        <Image source={require("@/assets/images/wordmark.png")} style={styles.image} />
         <Text style={styles.title}>Gather</Text>
       </View>
       <Image source={require("@/assets/images/onboarding/iconspill.png")} />
@@ -29,4 +30,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  image: {
+    width: 32,
+    height: 32
+  }
 });

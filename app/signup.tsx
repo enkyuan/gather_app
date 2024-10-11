@@ -9,6 +9,7 @@ import {
   Text,
   TextInput,
   View,
+  SafeAreaView,
   StyleSheet,
 } from "react-native";
 import { Link } from "expo-router";
@@ -24,8 +25,8 @@ export default function SignUp() {
     const [passwordConfirm, setPasswordConfirm] = useState("");
 
     return (
-        <View style={tw`flex flex-col justify-center items-center py-28`}>
-            <View style={tw`flex-row justify-between items-center gap-4 my-16`}>
+        <SafeAreaView style={tw`flex flex-col justify-center items-center`}>
+            <View style={tw`flex-row justify-between items-center gap-4 mt-24 mb-8`}>
                 <Text style={styles.title}>Create account</Text>
             </View>
             <TextInput
@@ -81,7 +82,7 @@ export default function SignUp() {
               Continue
               </Text>
             </Pressable>
-        </View>
+        </SafeAreaView>
     );
 }
 
@@ -92,22 +93,22 @@ const styles = StyleSheet.create({
     textAlign: "center",
     color: "black",
   },
+  text: {
+    fontSize: 12,
+    fontWeight: "semibold",
+    color: "black",
+    textAlign: "center",
+    paddingVertical: 2,
+  },
   textInput: {
     fontSize: 20,
     borderRadius: 8,
     fontWeight: "semibold",
     backgroundColor: "#e5e7eb",
     color: "black",
-    width: "94%",
+    width: "92%",
     height: "10%",
     paddingLeft: "8%",
     marginVertical: 8,
   },
-  text: {
-    fontSize: 14,
-    fontWeight: "semibold",
-    color: "black",
-    textAlign: "center",
-    paddingVertical: 2,
-  }
 });

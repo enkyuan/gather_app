@@ -10,6 +10,7 @@ import {
   TextInput,
   Pressable,
   StyleSheet,
+  SafeAreaView
 } from "react-native";
 import tw from "twrnc";
 import { Link } from "expo-router";
@@ -23,8 +24,8 @@ export default function Login() {
 
   return (
     <>
-      <View style={tw`flex flex-col justify-center items-center py-28`}>
-        <View style={tw`flex-row justify-center items-center gap-4 py-16`}>
+      <SafeAreaView style={tw`flex flex-col justify-center items-center`}>
+        <View style={tw`flex-row justify-center items-center gap-4 mt-52 mb-16`}>
           <Text style={styles.title}>Welcome back</Text>
         </View>
         <TextInput
@@ -49,7 +50,7 @@ export default function Login() {
           autoCorrect
           onChangeText={(text) => setPassword(text)}
         />
-        <Text style={tw`text-xl mb-76 font-semibold`}>
+        <Text style={tw`text-xl font-semibold`}>
           New?
           <Link href={"/signup_options"} style={tw`text-blue-500`}>
             {" "}
@@ -62,12 +63,13 @@ export default function Login() {
             h-20
             justify-center
             items-center
-            rounded-full`}
+            rounded-full
+            my-68`}
           onPress={() => emailAuthProvider.handleSignIn(email, password)}
         >
           <Text style={styles.text}>Continue</Text>
         </Pressable>
-      </View>
+      </SafeAreaView>
     </>
   );
 }
@@ -91,8 +93,8 @@ const styles = StyleSheet.create({
     fontWeight: "semibold",
     backgroundColor: "#e5e7eb",
     color: "black",
-    width: "94%",
-    height: "10%",
+    width: "92%",
+    height: "8%",
     paddingLeft: "8%",
     marginVertical: 8,
   }
