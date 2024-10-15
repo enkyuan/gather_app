@@ -8,7 +8,7 @@ import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-f
 import data from '@/components/onboarding/data.ts';
 import { SelectList } from 'react-native-dropdown-select-list';
 
-export default function SchoolSelection() { 
+export default function RoleSelection() { 
   const [selected, setSelected] = useState('');
   
   let [fontsLoaded] = useFonts({
@@ -23,16 +23,16 @@ export default function SchoolSelection() {
   return (
     <>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`mt-56 mx-4`}>
+        <View style={tw`mt-56`}>
           <Text style={styles.title}>
-            Which School do you currently attend?
+            What do you plan on using Gather for?
           </Text>
         </View>
 
         <View style={tw`items-center`}>
           <View style={tw`my-8`}>
             <Text style={styles.text}>
-              (Contact us if it's not an option)
+              Select your role below:
             </Text>
           </View>          
           <SelectList
@@ -72,4 +72,3 @@ const styles = StyleSheet.create({
     alignItems: "center",
   }
 });
-

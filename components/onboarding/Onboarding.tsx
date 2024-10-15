@@ -14,9 +14,9 @@ const Onboarding = () => {
 
   const { width, height } = useWindowDimensions();
   const scrollX = useRef(new Animated.Value(0)).current;
-  const animatedCurrent = useRef(Animated.divide(scrollX, width)).current;
 
-  const onPress = () => {}
+  const scrollRef = useRef<ScrollView>(null);
+  const animatedCurrent = useRef(Animated.divide(scrollX, width)).current;
 
   return (
     <View style={styles.root}>
@@ -38,7 +38,7 @@ const Onboarding = () => {
         <View style={styles.pageIndicator}>
           <PageIndicator size={indicatorSize} dashSize={indicatorSize * 2} count={pages.length} current={animatedCurrent} />  
         </View>
-        <Button /> 
+        <Button index={animatedCurrent} scrollRef={scrollRef} /> 
       </View>
     </View>
   );
