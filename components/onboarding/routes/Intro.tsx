@@ -16,16 +16,18 @@ export default function Intro() {
 
   return (
     <>
-      <View style={tw`px-8`}>
-        <Text style={styles.title}>We're so glad you could make it!</Text>
-      </View>
-      <Image 
-        source={require("@/assets/images/onboarding/welcome.png")} 
-        style={styles.image}/>
-      <View style={tw`px-4`}>
-        <Text style={styles.text}>
-          Complete the next steps to get the best experience on Gather =)
-        </Text>
+      <View>
+        <View style={tw`px-8`}>
+          <Text style={styles.title}>We're so glad you could make it!</Text>
+        </View>
+        <Image 
+          source={require("@/assets/images/onboarding/welcome.png")} 
+          style={styles.image}/>
+        <View style={tw`px-4`}>
+          <Text style={styles.text}>
+            Complete the next steps to get the best experience on Gather =)
+          </Text>
+        </View>
       </View>
     </>
   );

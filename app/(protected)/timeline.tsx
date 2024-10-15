@@ -7,9 +7,11 @@ import Header from '@/components/Header'
 
 export default function Timeline() {
   return (
-    <View>
-      <Header />
-    </View>
+    <>
+      <View>
+        <Header />
+      </View>
+    </>
   );
 }
 

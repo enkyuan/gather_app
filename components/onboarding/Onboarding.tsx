@@ -6,14 +6,8 @@ import { PageIndicator } from 'react-native-page-indicator';
 import tw from 'twrnc';
 import { CaretRight } from "phosphor-react-native"; 
 
-
-import Intro from '@/components/onboarding/routes/Intro';
-import FullName from '@/components/onboarding/routes/FullName';
-import RoleSelection from '@/components/onboarding/routes/RoleSelection';
-import SchoolSelection from '@/components/onboarding/routes/SchoolSelection';
+import { pages } from '@/components/onboarding/pages';
 import Button from '@/components/onboarding/Button';
-
-const pages = [<Intro />, <FullName />, <RoleSelection />, <SchoolSelection />];
 
 const Onboarding = () => {
   const indicatorSize = 12;
@@ -44,9 +38,7 @@ const Onboarding = () => {
         <View style={styles.pageIndicator}>
           <PageIndicator size={indicatorSize} dashSize={indicatorSize * 2} count={pages.length} current={animatedCurrent} />  
         </View>
-        <TouchableOpacity style={styles.btn} onPress={onPress}>
-          <CaretRight size={32} color="white" />
-        </TouchableOpacity>  
+        <Button /> 
       </View>
     </View>
   );

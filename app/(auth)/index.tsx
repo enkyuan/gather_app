@@ -10,16 +10,18 @@ import { SafeAreaView } from "react-native-safe-area-context";
 
 export default function Auth() {
   return (
-    <View style={tw`items-center py-12`}>
-      <View style={tw`flex-row gap-2 items-center py-24`}>
-        <Image source={require("@/assets/images/wordmark.png")} style={styles.image} />
-        <Text style={styles.title}>Gather</Text>
+    <>
+      <View style={tw`items-center py-12`}>
+        <View style={tw`flex-row gap-2 items-center py-24`}>
+          <Image source={require("@/assets/images/wordmark.png")} style={styles.image} />
+          <Text style={styles.title}>Gather</Text>
+        </View>
+        <Image source={require("@/assets/images/onboarding/iconspill.png")} />
+        <View style={tw`py-36`}>
+          <SplitButton />
+        </View>
       </View>
-      <Image source={require("@/assets/images/onboarding/iconspill.png")} />
-      <View style={tw`py-36`}>
-        <SplitButton />
-      </View>
-    </View>
+    </>
   );
 }
 
