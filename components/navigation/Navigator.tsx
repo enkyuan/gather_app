@@ -7,7 +7,7 @@ import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-f
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import { Stack, useRouter } from 'expo-router';
-import { Pressable, ActivityIndicator } from 'react-native';
+import { Pressable, ActivityIndicator, StyleSheet, Text } from 'react-native';
 
 import { CaretLeft, X } from "phosphor-react-native";
 
@@ -108,7 +108,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -128,7 +130,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -148,7 +152,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -168,7 +174,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -188,7 +196,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text> 
             </Pressable>
           ), 
         }}
@@ -208,7 +218,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -228,7 +240,9 @@ const Navigator = () => {
           headerStyle: { backgroundColor: Theme.background },
           headerRight: () => (
             <Pressable onPress={router.back}>
-              <X size={32} weight="bold" color={Theme.primary} />
+              <Text style={styles.text}>
+                Done
+              </Text>
             </Pressable>
           ), 
         }}
@@ -239,4 +253,11 @@ const Navigator = () => {
 
 export default Navigator;
 
+const styles = StyleSheet.create({
+  text: {
+      fontFamily: "Poppins_600SemiBold",
+      color: Theme.primaryMuted,
+      fontSize: 16,
+  },
+});
 

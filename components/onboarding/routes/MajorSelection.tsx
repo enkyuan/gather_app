@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, Pressable, StyleSheet } from "react-native";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-import { majors } from '@/components/onboarding/majors.ts';
+import { majors } from '@/components/onboarding/data/majors.ts';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 export default function MajorSelection() { 

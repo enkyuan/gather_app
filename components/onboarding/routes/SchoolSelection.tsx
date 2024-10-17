@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, Pressable, StyleSheet } from "react-native";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-import { schools } from '@/components/onboarding/schools.ts';
+import { schools } from '@/components/onboarding/data/schools.ts';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 export default function SchoolSelection() { 

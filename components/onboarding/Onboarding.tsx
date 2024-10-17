@@ -4,10 +4,10 @@ import React, { useRef, useState, useCallback } from 'react';
 import { Animated, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { PageIndicator } from 'react-native-page-indicator';
 import tw from 'twrnc';
-import { CaretRight } from "phosphor-react-native"; 
 
+import { CaretRight } from "phosphor-react-native"; 
 import { pages } from '@/components/onboarding/pages';
-import Button from '@/components/onboarding/Button';
+import Button from '@/components/onboarding/animated/Button';
 
 const Onboarding = () => {
   indicatorSize = 12;

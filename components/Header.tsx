@@ -35,20 +35,12 @@ const Header = () => {
             height: 60,
             gap: 10,
             paddingHorizontal: 20,
-            backgroundColor: 'transparent',
           },
         ]}>
         <Link href={'/(protected)/settings/'} asChild>
           <Pressable
-            style={{
-              width: 40,
-              height: 40,
-              borderRadius: 20,
-              backgroundColor: Theme.lightGray,
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}>
-            <User size={24} weight="fill" />
+            style={styles.circle}>
+            <User size={24} weight="fill" color={Theme.background} />
           </Pressable>
         </Link>
         <View style={styles.location}>
@@ -59,12 +51,12 @@ const Header = () => {
         </View>
         <Link href={'/(protected)/(modals)/inbox/'} asChild>
           <Pressable style={styles.circle}>
-            <BellSimple size={24} weight="fill" />
+            <BellSimple size={24} weight="fill" color={Theme.background} />
           </Pressable>
         </Link>
         <Link href={'/(protected)/(modals)/dash/'} asChild>
           <Pressable style={styles.circle}>
-            <Ticket size={24} weight="fill" />
+            <Ticket size={24} weight="fill" color={Theme.background} />
           </Pressable>
         </Link>
       </View>
@@ -74,6 +66,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: Theme.mutedDark,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -86,11 +79,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'start',
     alignItems: 'center',
-    backgroundColor: Theme.lightGray,
+    backgroundColor: Theme.mutedGray,
     borderRadius: 24,
   },
   text: {
-    color: Theme.dark,
+    color: Theme.background,
     fontSize: 16,
     fontFamily: "Poppins_600SemiBold",
     paddingHorizontal: 4
@@ -102,7 +95,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 24,
-    backgroundColor: Theme.lightGray,
+    backgroundColor: Theme.mutedGray,
     justifyContent: 'center',
     alignItems: 'center',
   },

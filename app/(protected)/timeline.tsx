@@ -3,7 +3,8 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet } from "react-native";
 
-import Header from '@/components/Header'
+import Header from '@/components/Header';
+import Carousel from '@/components/carousel/Carousel';
 
 export default function Timeline() {
   return (
@@ -11,6 +12,7 @@ export default function Timeline() {
       <View>
         <Header />
       </View>
+      <Carousel />
     </>
   );
 }

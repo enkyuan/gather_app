@@ -4,6 +4,8 @@
 // FIXME: handling of stack pushes are glitchy
 // FIXME: ensure that users can not use native gestures to return to auth routes
 
+import Theme from '@/constants/Theme';
+
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 import * as SplashScreen from 'expo-splash-screen';
