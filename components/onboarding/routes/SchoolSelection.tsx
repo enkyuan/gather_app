@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, Pressable, StyleSheet } from "react-native";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-import data from '@/components/onboarding/data.ts';
+import { schools } from '@/components/onboarding/schools.ts';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 export default function SchoolSelection() { 
@@ -23,7 +23,7 @@ export default function SchoolSelection() {
   return (
     <>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`mt-56 mx-4`}>
+        <View style={tw`mx-4`}>
           <Text style={styles.title}>
             Which School do you currently attend?
           </Text>
@@ -37,7 +37,7 @@ export default function SchoolSelection() {
           </View>          
           <SelectList
             setSelected={(val) => setSelected(val)} 
-            data={data} 
+            data={schools} 
             save="value"
             search={false}
             boxStyles={styles.selectBox}
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#e5e7eb",
     color: "black",
     width: "84%",
-    height: "40%",
     alignItems: "center",
   }
 });

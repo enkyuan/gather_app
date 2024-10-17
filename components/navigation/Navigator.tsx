@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { Stack, useRouter } from 'expo-router';
 import { Pressable, ActivityIndicator } from 'react-native';
 
-import { CaretLeft } from "phosphor-react-native";
+import { CaretLeft, X } from "phosphor-react-native";
 
 const Navigator = () => {
   const router = useRouter();
@@ -106,6 +106,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -121,6 +126,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -136,6 +146,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -151,6 +166,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -166,6 +186,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -181,6 +206,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
       <Stack.Screen
@@ -196,6 +226,11 @@ const Navigator = () => {
           },
           headerShadowVisible: false,
           headerStyle: { backgroundColor: Theme.background },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <X size={32} weight="bold" color={Theme.primary} />
+            </Pressable>
+          ), 
         }}
       />
     </Stack>

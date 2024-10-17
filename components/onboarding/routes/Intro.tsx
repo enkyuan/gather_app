@@ -23,9 +23,9 @@ export default function Intro() {
         <Image 
           source={require("@/assets/images/onboarding/welcome.png")} 
           style={styles.image}/>
-        <View style={tw`px-4`}>
+        <View style={tw`px-8`}>
           <Text style={styles.text}>
-            Complete the next steps to get the best experience on Gather =)
+            Complete the next steps to get the best experience on Gather
           </Text>
         </View>
       </View>

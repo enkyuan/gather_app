@@ -51,7 +51,7 @@ export default function Notifications() {
             </Text>
 
             <Text style={styles.emptyDescription}>
-              Once you get some in-app notifications, they'll be waiting for you here =)
+              Once you get some in-app notifications, they will be waiting for you here =)
             </Text>
           </View>
         </View>
@@ -88,6 +88,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#8c9197',
     textAlign: 'center',
+    marginHorizontal: 16
   },
   blank: {
     flexDirection: 'row',

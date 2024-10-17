@@ -5,7 +5,7 @@ import React, { useState } from "react";
 import { SafeAreaView, View, Text, Pressable, StyleSheet } from "react-native";
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
-import data from '@/components/onboarding/data.ts';
+import { roles } from '@/components/onboarding/roles.ts';
 import { SelectList } from 'react-native-dropdown-select-list';
 
 export default function RoleSelection() { 
@@ -23,7 +23,7 @@ export default function RoleSelection() {
   return (
     <>
       <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`mt-56`}>
+        <View style={tw`mx-4`}>
           <Text style={styles.title}>
             What do you plan on using Gather for?
           </Text>
@@ -37,7 +37,7 @@ export default function RoleSelection() {
           </View>          
           <SelectList
             setSelected={(val) => setSelected(val)} 
-            data={data} 
+            data={roles} 
             save="value"
             search={false}
             boxStyles={styles.selectBox}
@@ -68,7 +68,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#e5e7eb",
     color: "black",
     width: "84%",
-    height: "40%",
     alignItems: "center",
   }
 });

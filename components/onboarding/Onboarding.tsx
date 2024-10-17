@@ -1,6 +1,6 @@
 import Theme from '@/constants/Theme';
 
-import React, { useRef } from 'react';
+import React, { useRef, useState, useCallback } from 'react';
 import { Animated, StyleSheet, Text, TouchableOpacity, View, useWindowDimensions } from 'react-native';
 import { PageIndicator } from 'react-native-page-indicator';
 import tw from 'twrnc';
@@ -10,7 +10,7 @@ import { pages } from '@/components/onboarding/pages';
 import Button from '@/components/onboarding/Button';
 
 const Onboarding = () => {
-  const indicatorSize = 12;
+  indicatorSize = 12;
 
   const { width, height } = useWindowDimensions();
   const scrollX = useRef(new Animated.Value(0)).current;
@@ -18,12 +18,26 @@ const Onboarding = () => {
   const scrollRef = useRef<ScrollView>(null);
   const animatedCurrent = useRef(Animated.divide(scrollX, width)).current;
 
+  const [current, setCurrent] = useState(0);
+
+  const handleScrollEnd = useCallback(
+    (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+      const index = Math.round(event.nativeEvent.contentOffset.x / width);
+      if (index !== current) {
+        setCurrent(index);
+      }
+    },
+    [width, current],
+  );
+
   return (
     <View style={styles.root}>
       <Animated.ScrollView
+        ref={scrollRef}
         horizontal={true}
         pagingEnabled={true}
         showsHorizontalScrollIndicator={false}
+        onMomentumScrollEnd={handleScrollEnd}
         onScroll={Animated.event([{ nativeEvent: { contentOffset: { x: scrollX } } }], {
           useNativeDriver: true,
         })}
@@ -38,7 +52,7 @@ const Onboarding = () => {
         <View style={styles.pageIndicator}>
           <PageIndicator size={indicatorSize} dashSize={indicatorSize * 2} count={pages.length} current={animatedCurrent} />  
         </View>
-        <Button index={animatedCurrent} scrollRef={scrollRef} /> 
+        <Button index={current} scrollRef={scrollRef} /> 
       </View>
     </View>
   );
@@ -74,8 +88,8 @@ const styles = StyleSheet.create({
   footer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginVertical: 32,
-    gap: 200
+    marginVertical: 40,
+    gap: 160
   }
 });
 

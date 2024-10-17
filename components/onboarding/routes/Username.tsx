@@ -1,4 +1,4 @@
-// TODO: add full name field to sign-up page
+// TODO: add name field to sign-up page
 
 import tw from "twrnc";
 import React, { useState } from "react";
