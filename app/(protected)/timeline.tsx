@@ -1,7 +1,7 @@
 // TODO: timeline page
 
 import { SafeAreaView } from "react-native-safe-area-context";
-import { Text, View, StyleSheet } from "react-native";
+import { Text, View, StyleSheet, ScrollView } from "react-native";
 
 import Header from '@/components/Header';
 import Carousel from '@/components/carousel/Carousel';
@@ -9,10 +9,10 @@ import Carousel from '@/components/carousel/Carousel';
 export default function Timeline() {
   return (
     <>
-      <View>
-        <Header />
-      </View>
-      <Carousel />
+      <ScrollView>
+        <Carousel />
+      </ScrollView>
+      <Header />
     </>
   );
 }

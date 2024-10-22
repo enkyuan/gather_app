@@ -15,7 +15,7 @@ import { Link } from 'expo-router';
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 
 const Header = () => {
-  const { top } = useSafeAreaInsets();
+  const { top, bottom } = useSafeAreaInsets();
 
   let [fontsLoaded] = useFonts({
     Poppins_500Medium,
@@ -27,7 +27,7 @@ const Header = () => {
   } 
 
   return (
-    <BlurView intensity={40} tint={'extraLight'} style={{ paddingTop: top }}>
+    <BlurView intensity={40} tint={'extraLight'} style={{ paddingBottom: bottom }}>
       <View
         style={[
           styles.container,

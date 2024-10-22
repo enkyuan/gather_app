@@ -16,9 +16,9 @@ import { SystemBars } from "react-native-edge-to-edge";
 import { events } from '@/components/carousel/events';
 import BackImage from '@/components/carousel/animated/BackImage';
 import RenderItem from '@/components/carousel/animated/RenderItem';
-import Gradient from '@/components/carousel/animated/Gradient';
-import Preview from '@/components/carousel/animated/Preview';
-import Share from '@/components/carousel/animated/Share';
+import Gradient from '@/components/carousel/primitives/Gradient';
+import Preview from '@/components/carousel/primitives/Preview';
+import Share from '@/components/carousel/primitives/Share';
 import TextInfo from '@/components/carousel/animated/TextInfo';
 import Pagination from '@/components/carousel/animated/Pagination';
 
