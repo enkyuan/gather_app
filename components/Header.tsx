@@ -40,7 +40,7 @@ const Header = () => {
         <Link href={'/(protected)/settings/'} asChild>
           <Pressable
             style={styles.circle}>
-            <User size={24} weight="fill" color={Theme.background} />
+            <User size={24} weight="fill" color={Theme.dark} />
           </Pressable>
         </Link>
         <View style={styles.location}>
@@ -51,12 +51,12 @@ const Header = () => {
         </View>
         <Link href={'/(protected)/(modals)/inbox/'} asChild>
           <Pressable style={styles.circle}>
-            <BellSimple size={24} weight="fill" color={Theme.background} />
+            <BellSimple size={24} weight="fill" color={Theme.dark} />
           </Pressable>
         </Link>
         <Link href={'/(protected)/(modals)/dash/'} asChild>
           <Pressable style={styles.circle}>
-            <Ticket size={24} weight="fill" color={Theme.background} />
+            <Ticket size={24} weight="fill" color={Theme.dark} />
           </Pressable>
         </Link>
       </View>
@@ -66,7 +66,7 @@ const Header = () => {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Theme.mutedDark,
+    backgroundColor: 'transparent',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -79,11 +79,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'start',
     alignItems: 'center',
-    backgroundColor: Theme.mutedGray,
+    backgroundColor: Theme.lightGray,
     borderRadius: 24,
   },
   text: {
-    color: Theme.background,
+    color: Theme.dark,
     fontSize: 16,
     fontFamily: "Poppins_600SemiBold",
     paddingHorizontal: 4
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 24,
-    backgroundColor: Theme.mutedGray,
+    backgroundColor: Theme.lightGray,
     justifyContent: 'center',
     alignItems: 'center',
   },

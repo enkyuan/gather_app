@@ -28,4 +28,17 @@ reimplementation of Gather's mobile app in Expo & React Native
   <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
 </>
 
+## hosted on
+<p id="badges" align="start">
+  <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" /></a>
+</>
+
+## usage
+
+```bash
+git clone https://github.com/gather-connect/mobile_platform.git
+bun i
+bun run start
+```
+
 

@@ -1,0 +1,8 @@
+services:
+    pocketbase:
+        image: ddpb
+        restart: unless-stopped
+        ports:
+            - 8090:8090
+        volumes:
+            - "./ddpb:/pb/pb_data"

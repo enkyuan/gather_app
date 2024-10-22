@@ -13,7 +13,8 @@ import pb from "@/pb.config";
 import { useRouter } from "expo-router";
 import { toast } from 'sonner-native';
 
-import useAuth from '@/hooks/useAuth'
+import useAuth from '@/hooks/useAuth';
+import { userRegistrationData } from "@/types/auth.types";
 
 const EmailAuthProvider = () => {
   const router = useRouter();
@@ -63,17 +64,11 @@ const EmailAuthProvider = () => {
     return true;
   }
 
-  async function handleSignUp(email: string, password: string, passwordConfirm: string) {
+  async function handleSignUp(userData: userRegistrationData): Promise<void> {
     // const match = nameRegex.exec(email);
-    const data = {
-      email: email,
-      password: password,
-      passwordConfirm: passwordConfirm,
-    };
-
-    if (isValidEmail(email) && isValidPassword(password, passwordConfirm)) {
+    if (isValidEmail(userData.email) && isValidPassword(userData.password, userData.passwordConfirm)) {
       try {
-        await pb.collection("users").create(data);
+        await pb.collection("users").create(userData);
         router.navigate("/(auth)/forms/");
       } catch (error: any) {
         toast.error(error.message.toString(), { 

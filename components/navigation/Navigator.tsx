@@ -32,7 +32,7 @@ const Navigator = () => {
   return (
     <Stack 
       screenOptions={{ 
-        backgroundColor: Theme.background
+        backgroundColor: 'transparent'
     }}>
       <Stack.Screen
         name="index"
@@ -44,6 +44,7 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -57,6 +58,7 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -105,7 +107,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -127,7 +129,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -149,7 +151,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -171,7 +173,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -193,7 +195,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -215,7 +217,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -237,7 +239,7 @@ const Navigator = () => {
             fontFamily: 'Poppins_600SemiBold',
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.background },
+          headerStyle: { backgroundColor: Theme.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>

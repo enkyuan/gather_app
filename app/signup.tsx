@@ -15,7 +15,6 @@ import {
 import { Link } from "expo-router";
 import EmailAuthProvider from "@/providers/auth/email.provider";
 import tw from "twrnc";
-import BouncyCheckbox from "react-native-bouncy-checkbox";
 
 export default function SignUp() {
     const emailAuthProvider = EmailAuthProvider();
@@ -23,12 +22,32 @@ export default function SignUp() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passwordConfirm, setPasswordConfirm] = useState("");
+    const [alias, setAlias] = useState("");
+    
+    const userSignUp = () => {
+      const userData = {
+        alias,
+        email,
+        password,
+        passwordConfirm,
+      };
+      emailAuthProvider.handleSignUp(userData);
+    };
 
     return (
         <SafeAreaView style={tw`flex flex-col justify-center items-center`}>
-            <View style={tw`flex-row justify-between items-center gap-4 mt-24 mb-8`}>
+            <View style={tw`flex-row justify-between items-center gap-4 my-16`}>
                 <Text style={styles.title}>Create account</Text>
             </View>
+            <TextInput
+              style={styles.textInput}
+              placeholder="Username"
+              value={alias}
+              placeholderTextColor="gray"
+              autoCapitalize="none"
+              autoCorrect={false}
+              onChangeText={(text) => setAlias(text)}
+            />
             <TextInput
               style={styles.textInput}
               placeholder="Email"
@@ -60,7 +79,7 @@ export default function SignUp() {
               autoCorrect={false}
               onChangeText={(text) => setPasswordConfirm(text)}
             />
-            <Text style={tw`text-xl mb-56 font-semibold`}>
+            <Text style={tw`text-xl mb-32 font-semibold`}>
               Have an account?
               <Link href="/login_options" style={tw`text-blue-500`}>
                 {" "}
@@ -74,9 +93,7 @@ export default function SignUp() {
               justify-center
               items-center
               rounded-full`}
-              onPress={() =>
-              emailAuthProvider.handleSignUp(email, password, passwordConfirm)
-              }
+              onPress={() => userSignUp()}
             >
               <Text style={tw`text-white text-center text-2xl font-bold`}>
               Continue

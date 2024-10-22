@@ -1,4 +1,7 @@
 /* eslint-disable react-native/no-inline-styles */
+
+// FIXME: color scheme needs to be gray for light mode
+
 import { StyleSheet, View, ViewToken, useWindowDimensions } from 'react-native';
 import React, { useEffect, useRef, useState } from 'react';
 import Animated, {
