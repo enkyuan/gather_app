@@ -1,4 +1,4 @@
-import Theme from '@/constants/Theme';
+import { Theme } from '@/constants/Theme';
 
 import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
 import React from 'react';
@@ -9,7 +9,7 @@ const Preview = () => {
   return (
     <TouchableOpacity style={styles.container}>
       <Text style={styles.text}>Preview</Text>
-      <ArrowUpRight size={20} weight="bold" color={Theme.background}/>
+      <ArrowUpRight size={20} weight="bold" color={Theme.background.white}/>
     </TouchableOpacity>
   );
 };
@@ -18,7 +18,7 @@ export default Preview;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: Theme.primary,
+    backgroundColor: Theme.primary.blue,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,

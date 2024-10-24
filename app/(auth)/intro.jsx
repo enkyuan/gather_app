@@ -1,8 +1,7 @@
 // TODO: add image placeholder for loading issues, etc. 
 // TODO: migrate to expo-image for better performance
 // FIXME: replace onboarding pages prop with data.ts file
-// FIXME: migrate route to bottom sheet in app after completion of onboarding
-
+// FIXME: migrate route to bottom sheet modal in app after completion of onboarding
 
 import tw from "twrnc";
 import React from "react";

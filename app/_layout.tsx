@@ -11,13 +11,13 @@ import { useFonts, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } fro
 import * as SplashScreen from 'expo-splash-screen';
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { SafeAreaProvider } from "react-native-safe-area-context";
-import { Toaster } from 'sonner-native';
 import { useEffect } from 'react';
-import { useColorScheme } from '@/hooks/useColorScheme'
 import { Stack } from 'expo-router'; 
 import 'react-native-reanimated';
 import { StatusBar } from 'expo-status-bar';
 
+import { Toaster } from 'sonner-native';
+import { useColorScheme } from '@/hooks/useColorScheme';
 import Navigator from '@/components/navigation/Navigator'
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

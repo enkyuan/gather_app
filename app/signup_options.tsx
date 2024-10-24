@@ -1,4 +1,4 @@
-// TODO: add 3rd-party auth options
+// FIXME: styling for auth buttons (height needs to be consistent)
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";

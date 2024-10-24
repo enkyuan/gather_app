@@ -1,11 +1,12 @@
 // TODO: facebook & apple oauth
+// FIXME: styling for auth buttons (height needs to be consistent)
+
+import { Theme } from '@/constants/Theme';
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter, Link, Stack } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
-import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
-import Theme from '@/constants/Theme'
 import tw from "twrnc";
 
 import GoogleAuthProvider from "@/providers/auth/google.provider";
@@ -15,21 +16,10 @@ import AppleAuthProvider from "@/providers/auth/apple.provider";
 export default function LoginOptions() {
   const router = useRouter();
 
-  let [fontsLoaded] = useFonts({
-    Poppins_500Medium,
-    Poppins_600SemiBold,
-  });
-
-  if (!fontsLoaded) {
-    return null;
-  }
-
   return (
     <>
-      <View style={tw`py-8`}>
-        <View style={tw`my-8`}>
-          <Text style={styles.title}>Continue with</Text>
-        </View>
+      <View style={styles.container}>
+        <Text style={styles.title}>Continue with</Text>
         <View style={tw`flex flex-col justify-center items-center`}> 
           <Pressable
             style={styles.pressable}
@@ -58,23 +48,29 @@ export default function LoginOptions() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    paddingVertical: "12%",
+  },  
   title: {
     fontSize: 24,
-    fontFamily: "Poppins_500Medium",
+    fontFamily: Theme.fonts.medium,
     textAlign: "center",
     justifyContent: "center",
+    marginVertical: "4%",
+    lineHeight: 32,
     color: "black",
   },
   text: {
     fontSize: 24,
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: Theme.fonts.semibold,
     color: "black",
   },
   pressable: {
-    backgroundColor: "white",
+    backgroundColor: Theme.background.white,
     marginVertical: 8,
     width: "92%",
-    height: 88,
+    height: "18%",
     alignItems: "center",
     borderRadius: 8,
     borderWidth: 1,

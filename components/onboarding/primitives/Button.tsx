@@ -1,8 +1,7 @@
 // TODO: animated view for button--replaces caret with wording after last step is complete
 // TODO: error handling for empty fields (no option selected)
 
-
-import Theme from '@/constants/Theme';
+import { Theme } from '@/constants/Theme';
 
 import React, { useRef } from 'react';
 import { Animated, TouchableOpacity, useWindowDimensions, ScrollView, StyleSheet } from 'react-native';
@@ -41,7 +40,7 @@ export default Button;
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: Theme.primary, 
+    backgroundColor: Theme.primary.blue,
     justifyContent: 'center',
     alignItems: 'center', 
     borderRadius: 9999,

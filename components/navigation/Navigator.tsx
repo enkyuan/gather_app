@@ -1,7 +1,7 @@
 // TODO: add role-based routing
 // FIXME: protected routes must operate under after using isAuth hook
 
-import Theme from '@/constants/Theme'
+import { Theme } from '@/constants/Theme';
 
 import { useFonts, Poppins_500Medium, Poppins_600SemiBold } from "@expo-google-fonts/poppins";
 import * as SplashScreen from 'expo-splash-screen';
@@ -32,7 +32,7 @@ const Navigator = () => {
   return (
     <Stack 
       screenOptions={{ 
-        backgroundColor: 'transparent'
+        backgroundColor: Theme.background.light,
     }}>
       <Stack.Screen
         name="index"
@@ -44,7 +44,7 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -58,7 +58,7 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
               <CaretLeft size={32} color="black" />
@@ -89,6 +89,20 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
+        name="(auth)/index"
+        options={{ 
+            headerShown: false,
+            gestureEnabled: false
+        }}
+      />
+      <Stack.Screen
+        name="(auth)/reset_password"
+        options={{ 
+            headerShown: false,
+            gestureEnabled: false
+        }}
+      />
+      <Stack.Screen
         name="(protected)/timeline"
         options={{ 
           headerShown: false, 
@@ -104,10 +118,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -126,10 +140,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -148,10 +162,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -170,10 +184,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -192,10 +206,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -214,10 +228,10 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -236,10 +250,98 @@ const Navigator = () => {
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
-            fontFamily: 'Poppins_600SemiBold',
+            fontFamily: Theme.fonts.semibold,
           },
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.mutedLightGray },
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/events/this_week"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'This Week',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/events/parties"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Parties',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/events/nightlife"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Nightlife',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/events/socials"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Socials',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerRight: () => (
             <Pressable onPress={router.back}>
               <Text style={styles.text}>
@@ -258,7 +360,7 @@ export default Navigator;
 const styles = StyleSheet.create({
   text: {
       fontFamily: "Poppins_600SemiBold",
-      color: Theme.primaryMuted,
+      color: Theme.primary.mutedBlue,
       fontSize: 16,
   },
 });

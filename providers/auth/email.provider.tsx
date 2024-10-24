@@ -1,12 +1,13 @@
 // TODO: email OTP verification
 // TODO: phone auth w sinch sms
 // TODO: configure SMTP w pocketbase & onesignal
-// TODO: add react router authenticated flow (render routes if authToken is valid)
+// TODO: add authenticated flow (render routes if authToken is valid)
 // TEST: if username, password auth is valid
 // FIXME: replace action button on toast with custom styling
 // FIXME: email handling with pocketbase & stmp configuration
 // FIXME: add error handling for error: "Failed to create record"
 // FIXME: automatic db sanitization for storage & testing purposes
+// FIXME: unhandled promise during user registration--issue with writing alias to db
 // FIXME: ensure user account is not created until after completion of onboarding process
 
 import pb from "@/pb.config";
