@@ -6,12 +6,14 @@ import { Text, View, StyleSheet, ScrollView } from "react-native";
 import Header from '@/components/Header';
 import Carousel from '@/components/carousel/Carousel';
 import CardView from '@/components/timeline/CardView';
+import CategoryView from '@/components/timeline/CategoryView';
 
 export default function Timeline() {
   return (
     <>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel />
+        <CategoryView />
         <CardView />
       </ScrollView>
       <Header />

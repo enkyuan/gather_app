@@ -236,13 +236,6 @@ const styles = StyleSheet.create({
     flexShrink: 1,
     flexBasis: 0,
   },
-  title: {
-    paddingHorizontal: 24,
-    fontSize: 32,
-    fontWeight: '700',
-    color: '#1d1d1d',
-    marginBottom: 12,
-  },
   list: {
     marginBottom: 24,
   },
@@ -253,14 +246,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   listTitle: {
-    fontSize: 18,
-    fontWeight: '600',
-    lineHeight: 22,
+    fontSize: 20,
+    fontFamily: Theme.fonts.semibold,
+    lineHeight: 24,
     color: '#121a26',
   },
   listAction: {
-    fontSize: 14,
-    fontWeight: '500',
+    fontSize: 16,
+    fontFamily: Theme.fonts.medium,
     lineHeight: 20,
     color: '#778599',
   },
@@ -278,7 +271,7 @@ const styles = StyleSheet.create({
     shadowColor: '#90a0ca',
     shadowOffset: {
       width: 0,
-      height: 4,
+      height: 2,
     },
     shadowOpacity: 0.2,
     shadowRadius: 4,
@@ -301,7 +294,7 @@ const styles = StyleSheet.create({
   },
   cardTitle: {
     fontSize: 15,
-    fontWeight: '600',
+    fontFamily: Theme.fonts.semibold,
     lineHeight: 18,
     color: '#121a26',
     marginBottom: 4,
@@ -320,7 +313,7 @@ const styles = StyleSheet.create({
   },
   cardFooterText: {
     fontSize: 13,
-    fontWeight: '500',
+    fontFamily: Theme.fonts.medium,
     lineHeight: 18,
     color: '#778599',
   },

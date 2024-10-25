@@ -1,7 +1,10 @@
 // TODO: adjust styling of text input to match pressables on options pag
 // TODO: add checkbox for terms of service
 // FIXME: remove alias field & move to onboarding process
-// FIXME: replace TOS url with actual terms
+// FIXME: replace styling with percentage-based values
+// FIXME: replace TOS url with deep link to TOS page
+
+import { Theme } from "@/constants/Theme";
 
 import React, { useState } from "react";
 import {
@@ -106,13 +109,13 @@ export default function SignUp() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontFamily: Theme.fonts.medium,
     textAlign: "center",
     color: "black",
   },
   text: {
     fontSize: 12,
-    fontWeight: "semibold",
+    fontFamily: Theme.fonts.semibold,
     color: "black",
     textAlign: "center",
     paddingVertical: 2,

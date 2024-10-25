@@ -1,4 +1,7 @@
 // FIXME: styling for auth buttons (height needs to be consistent)
+// FIXME: replace styling with percentage-based values
+
+import { Theme } from "@/constants/Theme";
 
 import { View, Text, StyleSheet, Pressable } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
@@ -47,13 +50,13 @@ export default function SignUpOptions() {
 const styles = StyleSheet.create({
   title: {
     fontSize: 24,
-    fontFamily: "Poppins_500Medium",
+    fontFamily: Theme.fonts.medium,
     textAlign: "center",
     color: "black",
   },  
   text: {
     fontSize: 24,
-    fontFamily: "Poppins_600SemiBold",
+    fontFamily: Theme.fonts.semibold,
     color: "black",
   },
   pressable: {

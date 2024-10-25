@@ -1,6 +1,9 @@
 // TODO: adjust styling of text input to match pressables on options page
 // TODO: add checkbox for terms of service
 // TODO: use setUsername hook for alt auth method
+// FIXME: replace stylesheet with nativewind
+
+import { Theme } from "@/constants/Theme";
 
 import React from "react";
 import { useState } from "react";
@@ -24,8 +27,8 @@ export default function Login() {
 
   return (
     <>
-      <SafeAreaView style={tw`flex flex-col justify-center items-center`}>
-        <View style={tw`flex-row justify-center items-center gap-4 mt-52 mb-16`}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.textContainer}>
           <Text style={styles.title}>Welcome back</Text>
         </View>
         <TextInput
@@ -58,13 +61,7 @@ export default function Login() {
           </Link>
         </Text>
         <Pressable
-          style={tw`bg-blue-300
-            w-92
-            h-20
-            justify-center
-            items-center
-            rounded-full
-            my-68`}
+          style={styles.btn}
           onPress={() => emailAuthProvider.handleSignIn(email, password)}
         >
           <Text style={styles.text}>Continue</Text>
@@ -75,17 +72,27 @@ export default function Login() {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "column",
+    justifyContent: "center",
+    alignItems: "center",
+    marginVertical: "60%",
+  },
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontFamily: Theme.fonts.medium,
     textAlign: "center",
     color: "black",
   },
   text: {
     fontSize: 24,
-    fontWeight: "bold",
+    fontFamily: Theme.fonts.semibold,
     textAlign: "center",
-    color: "white",
+    color: Theme.background.white,
+  },
+  textContainer: {
+    flexDirection: "column",
+    marginVertical: "26%",
   },
   textInput: {
     fontSize: 20,
@@ -94,8 +101,17 @@ const styles = StyleSheet.create({
     backgroundColor: "#e5e7eb",
     color: "black",
     width: "92%",
-    height: "8%",
+    height: "12%",
     paddingLeft: "8%",
-    marginVertical: 8,
+    marginVertical: "2%",
+  }, 
+  btn: {
+    backgroundColor: Theme.primary.blue,
+    width: "92%",
+    height: "16%",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 9999,
+    marginVertical: "60%",
   }
 });

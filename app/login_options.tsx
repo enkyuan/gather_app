@@ -1,5 +1,6 @@
 // TODO: facebook & apple oauth
 // FIXME: styling for auth buttons (height needs to be consistent)
+// FIXME: replace stylesheet with nativewind
 
 import { Theme } from '@/constants/Theme';
 
@@ -51,14 +52,14 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
     paddingVertical: "12%",
+    justifyContent: "center",
   },  
   title: {
     fontSize: 24,
     fontFamily: Theme.fonts.medium,
-    textAlign: "center",
-    justifyContent: "center",
     marginVertical: "4%",
     lineHeight: 32,
+    textAlign: "center",
     color: "black",
   },
   text: {
