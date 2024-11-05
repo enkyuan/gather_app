@@ -37,7 +37,9 @@ reimplementation of Gather's mobile app in Expo & React Native
 
 ```bash
 git clone https://github.com/gather-connect/mobile_platform.git
+cd mobile_platform
 bun i
+docker compose up -d
 bun run start
 ```
 
