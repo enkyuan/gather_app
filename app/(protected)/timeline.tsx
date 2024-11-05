@@ -7,6 +7,7 @@ import Header from '@/components/Header';
 import Carousel from '@/components/carousel/Carousel';
 import CardView from '@/components/timeline/CardView';
 import CategoryView from '@/components/timeline/CategoryView';
+// import StickyView from '@/components/timeline/StickyView';
 
 export default function Timeline() {
   return (

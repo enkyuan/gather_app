@@ -7,6 +7,7 @@
 import { Theme } from "@/constants/Theme";
 
 import React, { useState } from "react";
+import tw from "twrnc";
 import {
   Pressable,
   Text,
@@ -16,8 +17,9 @@ import {
   StyleSheet,
 } from "react-native";
 import { Link } from "expo-router";
+
 import EmailAuthProvider from "@/providers/auth/email.provider";
-import tw from "twrnc";
+import Button from "@/components/ui/Button";
 
 export default function SignUp() {
     const emailAuthProvider = EmailAuthProvider();
@@ -89,19 +91,11 @@ export default function SignUp() {
                 Login{" "}
               </Link>
             </Text>                    
-            <Pressable
-              style={tw`bg-blue-300
-              w-92
-              h-20
-              justify-center
-              items-center
-              rounded-full`}
-              onPress={() => userSignUp()}
-            >
-              <Text style={tw`text-white text-center text-2xl font-bold`}>
-              Continue
-              </Text>
-            </Pressable>
+            <Button
+              text="Signup"
+              onPress={() => {
+                emailAuthProvider.handleSignUp(email, password);
+              }} /> 
         </SafeAreaView>
     );
 }

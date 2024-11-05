@@ -17,7 +17,9 @@ import {
 } from "react-native";
 import tw from "twrnc";
 import { Link } from "expo-router";
+
 import EmailAuthProvider from "@/providers/auth/email.provider";
+import Button from "@/components/ui/Button";
 
 export default function Login() {
   const emailAuthProvider = EmailAuthProvider();
@@ -60,12 +62,11 @@ export default function Login() {
             Register{" "}
           </Link>
         </Text>
-        <Pressable
-          style={styles.btn}
-          onPress={() => emailAuthProvider.handleSignIn(email, password)}
-        >
-          <Text style={styles.text}>Continue</Text>
-        </Pressable>
+        <Button
+          text="Login"
+          onPress={() => {
+            emailAuthProvider.handleSignIn(email, password);
+          }} />
       </SafeAreaView>
     </>
   );
