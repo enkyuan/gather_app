@@ -2,7 +2,7 @@ import { StyleSheet, View } from 'react-native';
 import React from 'react';
 
 import { events } from '../events';
-import Indicator from '@/components/carousel/primitives/Indicator';
+import Indicator from '@/components/carousel/ui/Indicator';
 
 type Props = {
   paginationIndex: number;

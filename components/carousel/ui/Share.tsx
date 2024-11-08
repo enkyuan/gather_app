@@ -1,19 +1,17 @@
 import { Theme } from '@/constants/Theme';
 
-import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import React from 'react';
-
+import * as Sharing from 'expo-sharing';
+import { Image, StyleSheet, TouchableOpacity } from 'react-native';
 import { Export } from 'phosphor-react-native';
 
-const Share = () => {
+export default function Share() {
   return (
     <TouchableOpacity style={styles.container}>
       <Export size={20} weight="bold" color={Theme.background.white} />
     </TouchableOpacity>
   );
 };
-
-export default Share;
 
 const styles = StyleSheet.create({
   container: {

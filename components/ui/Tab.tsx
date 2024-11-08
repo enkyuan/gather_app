@@ -14,8 +14,8 @@ import {
 } from 'react-native';
 import FeatherIcon from 'react-native-vector-icons/Feather';
 
-const CARD_WIDTH = Math.min(Dimensions.get('screen').width * 0.4, 160);
-const CARD_HEIGHT = Math.min(Dimensions.get('screen').height * 0.1, 60);
+const TAB_WIDTH = Math.min(Dimensions.get('screen').width * 0.4, 160);
+const TAB_HEIGHT = Math.min(Dimensions.get('screen').height * 0.1, 60);
 
 interface CardProps {
   label: string;
@@ -29,9 +29,8 @@ export default function Tab({ title, icon, color, onPress }) {
     <TouchableOpacity
       onPress={onPress}
     >
-      <View style={styles.tab}>
+      <View style={[styles.tab]}>
         <FeatherIcon
-          color="#000"
           name={icon}
           size={20}
         />
@@ -45,14 +44,14 @@ export default function Tab({ title, icon, color, onPress }) {
 
 const styles = StyleSheet.create({
   tab: {
-    gap: 8,
-    width: CARD_WIDTH,
-    height: CARD_HEIGHT,
+    gap: 16,
+    width: TAB_WIDTH,
+    height: TAB_HEIGHT,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: Theme.background.white,
     flexDirection: 'row',
     borderRadius: 9999,
-    backgroundColor: '#fff',
     marginHorizontal: 8,
   },
   tabLabel: {
@@ -60,6 +59,5 @@ const styles = StyleSheet.create({
     fontFamily: Theme.fonts.semibold,
     textAlign: 'center',
     lineHeight: 20,
-    color: '#121a26',
   }
 });

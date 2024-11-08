@@ -136,7 +136,7 @@ const Navigator = () => {
         options={{
           headerShown: true,
           presentation: 'modal',
-          title: 'Archived Posts',
+          title: 'Archive',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -246,7 +246,7 @@ const Navigator = () => {
         options={{ 
           headerShown: true,
           presentation: 'modal',
-          title: 'Scan QR Code',
+          title: 'Scan QR',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',

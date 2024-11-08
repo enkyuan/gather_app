@@ -11,7 +11,7 @@ import { User, Plus, BellSimple, CardsThree, Ticket, Scan } from "phosphor-react
 import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { BlurView } from 'expo-blur';
+import { BlurView } from "expo-blur";
 import { Link } from 'expo-router';
 import tw from 'twrnc';
 
@@ -19,7 +19,9 @@ export default function Footer() {
   const { bottom } = useSafeAreaInsets();
 
   return (
-    <BlurView intensity={20} tint={'extraLight'} style={{ paddingBottom: bottom }}>
+    <BlurView 
+      style={[styles.blur], { paddingBottom: bottom }}
+      intensity={10}>
       <View style={styles.container}>         
         <View style={styles.btnArray}>
           <Link href={'/(protected)/settings/'} asChild>
@@ -56,6 +58,9 @@ export default function Footer() {
 };
 
 const styles = StyleSheet.create({
+  blur: {
+    backgroundColor: "rgba(0, 0, 0, 0.35)",
+  },
   container: {
     gap: 80,
     height: 80,

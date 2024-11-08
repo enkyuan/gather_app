@@ -33,9 +33,10 @@ export default function Tabs() {
             contentContainerStyle={styles.listContent}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            {categories.map(({ icon, category }, index) => (
+            {categories.map(({ icon, color, category }, index) => (
               <Tab
                 title={category}
+                color={color}
                 icon={icon}
                 onPress={() => console.log('Card pressed')}
               />

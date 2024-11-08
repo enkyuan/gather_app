@@ -3,7 +3,7 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 
-import Footer from '@/components/Footer';
+import Footer from '@/components/navigation/Footer';
 import Carousel from '@/components/carousel/Carousel';
 import Tabs from '@/components/timeline/Tabs';
 import CardView from '@/components/timeline/CardView';

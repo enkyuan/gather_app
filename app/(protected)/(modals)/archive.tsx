@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     color: '#8c9197',
     textAlign: 'center',
-    marginHorizontal: 48
+    marginHorizontal: "8%"
   },
   blank: {
     flexDirection: 'row',

@@ -9,7 +9,7 @@ import { CaretRight } from 'phosphor-react-native';
 import { pages } from '@/components/onboarding/pages';
 import Button from '@/components/onboarding/primitives/Button';
 
-const Onboarding = () => {
+export default function Onboarding() {
   indicatorSize = 12;
 
   const { width, height } = useWindowDimensions();
@@ -92,5 +92,3 @@ const styles = StyleSheet.create({
     gap: 160
   }
 });
-
-export default Onboarding;
