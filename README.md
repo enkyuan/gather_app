@@ -1,4 +1,4 @@
-# (re)gather
+# gather
 
 [//]: # (TODO: document all of this code prior to completion)
 
