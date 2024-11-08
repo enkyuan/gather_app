@@ -3,39 +3,39 @@
 export const categories = [
   {
     icon: 'figma',
-    category: 'Full Time',
+    category: 'Lorem',
   },
   {
     icon: 'github',
-    category: 'Full Time',
+    category: 'Lorem', 
   },
   {
     icon: 'twitter',
-    category: 'Full Time',
+    category: 'Lorem', 
   },
   {
     icon: 'figma',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
   {
     icon: 'github',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
   {
     icon: 'twitter',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
   {
     icon: 'figma',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
   {
     icon: 'github',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
   {
     icon: 'twitter',
-    category: 'Full Time',
+    category: 'Lorem',  
   },
 ];
 

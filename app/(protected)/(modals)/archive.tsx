@@ -1,6 +1,8 @@
 // TODO: replace styling to match rest of app
 // FIXME: migrate app icons from feather to phosphor
 
+import { Theme } from '@/constants/Theme';
+
 import React from 'react';
 import {
   StyleSheet,
@@ -16,7 +18,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 export default function Notifications() {
   return (
     <>
-      <View style={{ flex: 1, backgroundColor: '#fff' }}>
+      <View style={{ flex: 1, backgroundColor: Theme.background.white }}>
         <View style={styles.container}>
           <View style={styles.empty}>
             <View style={styles.blank}>
@@ -51,7 +53,7 @@ export default function Notifications() {
             </Text>
 
             <Text style={styles.emptyDescription}>
-              Once you get some in-app notifications, they will be waiting for you here =)
+              Once you post some verified events, they will be waiting for you here
             </Text>
           </View>
         </View>
@@ -84,11 +86,11 @@ const styles = StyleSheet.create({
   },
   emptyDescription: {
     fontSize: 16,
-    lineHeight: 24,
+    lineHeight: 20,
     fontWeight: '500',
     color: '#8c9197',
     textAlign: 'center',
-    marginHorizontal: 16
+    marginHorizontal: 48
   },
   blank: {
     flexDirection: 'row',

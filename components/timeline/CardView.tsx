@@ -17,10 +17,9 @@ import {
 import FeatherIcon from 'react-native-vector-icons/Feather';
 import { useRouter } from 'expo-router';
 
-import { primary } from './data/primary';
-import { secondary } from './data/secondary';
-
-const CARD_WIDTH = Math.min(Dimensions.get('screen').width * 0.75, 400);
+import Card from '@/components/ui/Card';
+import { primary } from '@/components/timeline/data/primary';
+import { secondary } from '@/components/timeline/data/secondary';
 
 export default function CardView() {
   const router = useRouter();
@@ -44,35 +43,14 @@ export default function CardView() {
             contentContainerStyle={styles.listContent}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            {primary.map(({ icon, label, company, jobType, years }, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  // handle onPress
-                }}>
-                <View style={styles.card}>
-                  <View style={styles.cardTop}>
-                    <View style={styles.cardIcon}>
-                      <FeatherIcon
-                        color="#000"
-                        name={icon}
-                        size={24} />
-                    </View>
-
-                    <View style={styles.cardBody}>
-                      <Text style={styles.cardTitle}>{label}</Text>
-
-                      <Text style={styles.cardSubtitle}>{company}</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.cardFooterText}>{jobType}</Text>
-
-                    <Text style={styles.cardFooterText}>{years}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
+            {primary.map(({ image, title, category, date }, index) => (
+              <Card
+                title={title}
+                image={image}
+                category={category}
+                date={date}
+                onPress={() => console.log('Card pressed')}
+              />
             ))}
           </ScrollView>
         </View>
@@ -93,35 +71,14 @@ export default function CardView() {
             contentContainerStyle={styles.listContent}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            {secondary.map(({ icon, label, company, jobType, years }, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  // handle onPress
-                }}>
-                <View style={styles.card}>
-                  <View style={styles.cardTop}>
-                    <View style={styles.cardIcon}>
-                      <FeatherIcon
-                        color="#000"
-                        name={icon}
-                        size={24} />
-                    </View>
-
-                    <View style={styles.cardBody}>
-                      <Text style={styles.cardTitle}>{label}</Text>
-
-                      <Text style={styles.cardSubtitle}>{company}</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.cardFooterText}>{jobType}</Text>
-
-                    <Text style={styles.cardFooterText}>{years}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
+            {secondary.map(({ image, title, category, date }, index) => (
+              <Card
+                title={title}
+                image={image}
+                category={category}
+                date={date}
+                onPress={() => console.log('Card pressed')}
+              />
             ))}
           </ScrollView>
         </View>
@@ -142,35 +99,14 @@ export default function CardView() {
             contentContainerStyle={styles.listContent}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            {primary.map(({ icon, label, company, jobType, years }, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  // handle onPress
-                }}>
-                <View style={styles.card}>
-                  <View style={styles.cardTop}>
-                    <View style={styles.cardIcon}>
-                      <FeatherIcon
-                        color="#000"
-                        name={icon}
-                        size={24} />
-                    </View>
-
-                    <View style={styles.cardBody}>
-                      <Text style={styles.cardTitle}>{label}</Text>
-
-                      <Text style={styles.cardSubtitle}>{company}</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.cardFooterText}>{jobType}</Text>
-
-                    <Text style={styles.cardFooterText}>{years}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
+            {primary.map(({ image, title, category, date }, index) => (
+              <Card
+                title={title}
+                image={image}
+                category={category}
+                date={date}
+                onPress={() => console.log('Card pressed')}
+              />
             ))}
           </ScrollView>
         </View>
@@ -191,35 +127,14 @@ export default function CardView() {
             contentContainerStyle={styles.listContent}
             horizontal={true}
             showsHorizontalScrollIndicator={false}>
-            {secondary.map(({ icon, label, company, jobType, years }, index) => (
-              <TouchableOpacity
-                key={index}
-                onPress={() => {
-                  // handle onPress
-                }}>
-                <View style={styles.card}>
-                  <View style={styles.cardTop}>
-                    <View style={styles.cardIcon}>
-                      <FeatherIcon
-                        color="#000"
-                        name={icon}
-                        size={24} />
-                    </View>
-
-                    <View style={styles.cardBody}>
-                      <Text style={styles.cardTitle}>{label}</Text>
-
-                      <Text style={styles.cardSubtitle}>{company}</Text>
-                    </View>
-                  </View>
-
-                  <View style={styles.cardFooter}>
-                    <Text style={styles.cardFooterText}>{jobType}</Text>
-
-                    <Text style={styles.cardFooterText}>{years}</Text>
-                  </View>
-                </View>
-              </TouchableOpacity>
+            {secondary.map(({ image, title, category, date }, index) => (
+              <Card
+                title={title}
+                image={image}
+                category={category}
+                date={date}
+                onPress={() => console.log('Card pressed')}
+              />
             ))}
           </ScrollView>
         </View>
@@ -230,14 +145,11 @@ export default function CardView() {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 24,
+    paddingVertical: "8%",
     paddingHorizontal: 0,
     flexGrow: 1,
     flexShrink: 1,
     flexBasis: 0,
-  },
-  list: {
-    marginBottom: 24,
   },
   listHeader: {
     flexDirection: 'row',
@@ -258,55 +170,7 @@ const styles = StyleSheet.create({
     color: '#778599',
   },
   listContent: {
-    paddingVertical: 12,
-    paddingHorizontal: 18,
-  },
-  card: {
-    width: CARD_WIDTH,
-    paddingVertical: 16,
-    paddingHorizontal: 20,
-    borderRadius: 12,
-    backgroundColor: '#fff',
-    marginHorizontal: 6,
-  },
-  cardTop: {
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  cardIcon: {
-    width: 44,
-    height: 44,
-    borderRadius: 9999,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#eff1f5',
-  },
-  cardBody: {
-    paddingLeft: 12,
-  },
-  cardTitle: {
-    fontSize: 15,
-    fontFamily: Theme.fonts.semibold,
-    lineHeight: 18,
-    color: '#121a26',
-    marginBottom: 4,
-  },
-  cardSubtitle: {
-    fontSize: 14,
-    fontWeight: '500',
-    lineHeight: 18,
-    color: '#778599',
-  },
-  cardFooter: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
-    marginTop: 18,
-  },
-  cardFooterText: {
-    fontSize: 13,
-    fontFamily: Theme.fonts.medium,
-    lineHeight: 18,
-    color: '#778599',
+    paddingVertical: "4%",
+    paddingHorizontal: "2%",
   },
 });

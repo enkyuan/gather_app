@@ -1,16 +1,22 @@
 export const secondary = [
   {
-    icon: 'code',
-    label: 'TypeScript',
-    company: '8 endorsements',
-    jobType: '2 experiences',
-    years: 'GitHub & Figma',
+    image: 'figma',
+    title: 'Lorem Ipsum',
+    category: 'Lorem Ipsum',
+    date: '2019-2023',
   },
   {
-    icon: 'git-merge',
-    label: 'Git',
-    company: '3 endorsements',
-    jobType: '1 experience',
-    years: 'GitHub',
+    image: 'github',
+    title: 'Lorem Ipsum',
+    category: 'Lorem Ipsum',
+    date: '2017-2019',
+  },
+  {
+    image: 'twitter',
+    title: 'Lorem Ipsum',
+    category: 'Lorem Ipsum',
+    date: '2015-2017',
   },
 ];
+
+

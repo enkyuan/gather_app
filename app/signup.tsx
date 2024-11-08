@@ -94,7 +94,7 @@ export default function SignUp() {
             <Button
               text="Signup"
               onPress={() => {
-                emailAuthProvider.handleSignUp(email, password);
+                userSignUp();
               }} /> 
         </SafeAreaView>
     );

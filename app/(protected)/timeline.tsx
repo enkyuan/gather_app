@@ -3,10 +3,10 @@
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Text, View, StyleSheet, ScrollView } from "react-native";
 
-import Header from '@/components/Header';
+import Footer from '@/components/Footer';
 import Carousel from '@/components/carousel/Carousel';
+import Tabs from '@/components/timeline/Tabs';
 import CardView from '@/components/timeline/CardView';
-import CategoryView from '@/components/timeline/CategoryView';
 // import StickyView from '@/components/timeline/StickyView';
 
 export default function Timeline() {
@@ -14,10 +14,10 @@ export default function Timeline() {
     <>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Carousel />
-        <CategoryView />
+        <Tabs />
         <CardView />
       </ScrollView>
-      <Header />
+      <Footer />
     </>
   );
 }

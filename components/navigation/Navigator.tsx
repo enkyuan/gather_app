@@ -132,11 +132,11 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/(modals)/inbox"
+        name="(protected)/(modals)/archive"
         options={{
           headerShown: true,
           presentation: 'modal',
-          title: 'Inbox',
+          title: 'Archived Posts',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -159,28 +159,6 @@ const Navigator = () => {
           headerShown: true,
           presentation: 'modal',
           title: 'Integrations',
-          headerTitleStyle: {
-            fontSize: 20,
-            color: 'black',
-            fontFamily: Theme.fonts.semibold,
-          },
-          headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
-          headerRight: () => (
-            <Pressable onPress={router.back}>
-              <Text style={styles.text}>
-                Done
-              </Text>
-            </Pressable>
-          ), 
-        }}
-      />
-      <Stack.Screen
-        name="(protected)/(modals)/notifications"
-        options={{ 
-          headerShown: true, 
-          presentation: 'modal',
-          title: 'Notifications',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',
@@ -247,6 +225,50 @@ const Navigator = () => {
           headerShown: true,
           presentation: 'modal',
           title: 'Your Events',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/verify"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'Scan QR Code',
+          headerTitleStyle: {
+            fontSize: 20,
+            color: 'black',
+            fontFamily: Theme.fonts.semibold,
+          },
+          headerShadowVisible: false,
+          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
+          headerRight: () => (
+            <Pressable onPress={router.back}>
+              <Text style={styles.text}>
+                Done
+              </Text>
+            </Pressable>
+          ), 
+        }}
+      />
+      <Stack.Screen
+        name="(protected)/(modals)/new_event"
+        options={{ 
+          headerShown: true,
+          presentation: 'modal',
+          title: 'New Event',
           headerTitleStyle: {
             fontSize: 20,
             color: 'black',

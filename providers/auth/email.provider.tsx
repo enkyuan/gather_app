@@ -15,7 +15,7 @@ import { useRouter } from "expo-router";
 import { toast } from 'sonner-native';
 
 import useAuth from '@/hooks/useAuth';
-import { userRegistrationData } from "@/types/auth.types";
+import { userRegistrationData } from "@/types/auth";
 
 const EmailAuthProvider = () => {
   const router = useRouter();

@@ -7,13 +7,12 @@ import { SafeAreaView, View, ViewStyle, Text, Pressable, StyleSheet } from "reac
 interface ButtonProps {
   text: string;
   onPress: () => void;
-  margin: ViewStyle["margin"];
 }
 
-export default function Button({ text, onPress, margin }: ButtonProps) {
+export default function Button({ text, onPress }: ButtonProps) {
   return (
     <Pressable
-      style={[styles.btn, { margin }]}
+      style={styles.btn}
       onPress={onPress}
     >
       <Text style={styles.text}>{text}</Text>
@@ -23,9 +22,9 @@ export default function Button({ text, onPress, margin }: ButtonProps) {
 
 const styles = StyleSheet.create({
   btn: {
-    backgroundColor: Theme.primary.blue,
     width: "92%",
     height: "14%",
+    backgroundColor: Theme.primary.blue,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 9999,

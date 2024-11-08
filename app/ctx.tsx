@@ -1,5 +1,5 @@
 import { useContext, createContext, type PropsWithChildren } from 'react';
-import { useStorageState } from './useStorageState';
+import { useStorageState } from '@/hooks/useStorageState';
 
 import EmailAuthProvider from '@/providers/auth/email.provider';
 
