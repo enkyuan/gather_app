@@ -43,4 +43,42 @@ docker compose up -d
 bun run start
 ```
 
+## file tree
 
+**for app dir only**
+
+```bash
+.
+├── (auth)
+│   ├── forms.tsx
+│   ├── index.tsx
+│   ├── intro.jsx
+│   └── reset_password.tsx
+├── (protected)
+│   ├── (modals)
+│   │   ├── appearance.tsx
+│   │   ├── archive.tsx
+│   │   ├── dash.tsx
+│   │   ├── integrations.tsx
+│   │   ├── new_event.tsx
+│   │   ├── profile.tsx
+│   │   ├── settings.tsx
+│   │   └── verify.tsx
+│   ├── events
+│   │   ├── [postid].tsx
+│   │   ├── nightlife.tsx
+│   │   ├── parties.tsx
+│   │   ├── socials.tsx
+│   │   └── this_week.tsx
+│   └── timeline.tsx
+├── +not-found.tsx
+├── _layout.tsx
+├── ctx.tsx
+├── index.tsx
+├── login.tsx
+├── login_options.tsx
+├── signup.tsx
+└── signup_options.tsx
+
+5 directories, 26 files
+```
