@@ -2,49 +2,49 @@
 
 export const categories = [
   {
-    icon: 'figma',
+    icon: require('@/assets/icons/food.svg'),
     color: '#90E0EF',
-    category: 'Lorem',
+    category: 'Free Food',
   },
   {
-    icon: 'github',
+    icon: require('@/assets/icons/sigma.svg'),
     color: '#EFD3D7',
-    category: 'Lorem', 
+    category: 'Greek Life', 
   },
   {
-    icon: 'twitter',
+    icon: require('@/assets/icons/backpack.svg'),
     color: '#E76F51',
-    category: 'Lorem', 
+    category: 'Campus', 
   },
   {
-    icon: 'figma',
+    icon: require('@/assets/icons/cycle.svg'),
     color: '#81B29A',
-    category: 'Lorem',  
+    category: 'Recreation',  
   },
   {
-    icon: 'github',
+    icon: require('@/assets/icons/cheers.svg'),
     color: '#F2CC8F',
-    category: 'Lorem',  
+    category: 'Night Life',  
   },
   {
-    icon: 'twitter',
+    icon: require('@/assets/icons/globe.svg'),
     color: '#9F86C0',
-    category: 'Lorem',  
+    category: 'Cutural',  
   },
   {
-    icon: 'figma',
+    icon: require('@/assets/icons/football.svg'),
     color: '#C9184A',
-    category: 'Lorem',  
+    category: 'Sports',  
   },
   {
-    icon: 'github',
+    icon: require('@/assets/icons/vinyl.svg'),
     color: '#FDF0D5',
-    category: 'Lorem',  
+    category: 'Music',  
   },
   {
-    icon: 'twitter',
+    icon: require('@/assets/icons/disco.svg'),
     color: '#A2D2FF',
-    category: 'Lorem',  
+    category: 'Parties',  
   },
 ];
 

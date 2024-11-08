@@ -16,11 +16,9 @@ import { Link } from 'expo-router';
 import tw from 'twrnc';
 
 export default function Footer() {
-  const { bottom } = useSafeAreaInsets();
-
   return (
     <BlurView 
-      style={[styles.blur], { paddingBottom: bottom }}
+      style={[styles.blur], { paddingBottom: "4%" }}
       intensity={10}>
       <View style={styles.container}>         
         <View style={styles.btnArray}>
@@ -62,8 +60,8 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.35)",
   },
   container: {
-    gap: 80,
-    height: 80,
+    gap: 60,
+    height: 96,
     backgroundColor: Theme.background.light,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -73,7 +71,7 @@ const styles = StyleSheet.create({
   btnArray: {
     gap: 20,
     paddingHorizontal: 20,
-    paddingVertical: 20,
+    paddingVertical: 24,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
@@ -91,8 +89,8 @@ const styles = StyleSheet.create({
     height: 24,
   },
   circle: {
-    width: 60,
-    height: 60,
+    width: 68,
+    height: 68,
     borderRadius: 9999,
     backgroundColor: Theme.primary.blue,
     justifyContent: 'center',

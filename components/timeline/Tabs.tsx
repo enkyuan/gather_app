@@ -18,7 +18,7 @@ import FeatherIcon from 'react-native-vector-icons/Feather';
 import { useRouter } from 'expo-router';
 
 import Tab from '@/components/ui/Tab';
-import { categories } from './data/categories';
+import { categories } from '@/components/timeline/data/categories';
 
 const CARD_WIDTH = Math.min(Dimensions.get('screen').width * 0.25, 200);
 

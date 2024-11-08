@@ -16,13 +16,13 @@ import { SystemBars } from "react-native-edge-to-edge";
 import { events } from '@/components/carousel/events';
 import BackImage from '@/components/carousel/animated/BackImage';
 import RenderItem from '@/components/carousel/animated/RenderItem';
-import Gradient from '@/components/carousel/primitives/Gradient';
-import Preview from '@/components/carousel/primitives/Preview';
-import Share from '@/components/carousel/primitives/Share';
+import Gradient from '@/components/carousel/ui/Gradient';
+import Preview from '@/components/carousel/ui/Preview';
+import Share from '@/components/carousel/ui/Share';
 import TextInfo from '@/components/carousel/animated/TextInfo';
 import Pagination from '@/components/carousel/animated/Pagination';
 
-const Carousel = () => {
+export default function Carousel() {
   const x = useSharedValue(0);
   const [data, setData] = useState(events);
   const {width} = useWindowDimensions();
@@ -138,8 +138,6 @@ const Carousel = () => {
     </View>
   );
 };
-
-export default Carousel;
 
 const styles = StyleSheet.create({
   container: {

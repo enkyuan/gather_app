@@ -30,10 +30,7 @@ const Navigator = () => {
   }
 
   return (
-    <Stack 
-      screenOptions={{ 
-        backgroundColor: Theme.background.light,
-    }}>
+    <Stack>
       <Stack.Screen
         name="index"
         options={{ headerShown: false }}
