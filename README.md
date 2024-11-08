@@ -4,7 +4,7 @@
 
 ## about
 
-reimplementation of Gather's mobile app in Expo & React Native
+reimplementation of Gather's mobile app in Expo
 
 ## available on
 <p id="badges" align="start">
