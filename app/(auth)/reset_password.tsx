@@ -7,11 +7,12 @@ import {
   TextInput,
   View,
   StyleSheet,
+  SafeAreaView,
 } from "react-native";
 import { Link } from "expo-router";
 import tw from "twrnc";
 
-import EmailAuthProvider from "@/providers/auth/email.provider";
+import EmailAuthProvider from "@/services/auth/email";
 
 export default function ResetPassword() {
   const emailAuthProvider = EmailAuthProvider();
@@ -19,39 +20,41 @@ export default function ResetPassword() {
 
   return (
     <>
-      <View style={tw`flex flex-col justify-center items-center`}>
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>Forgot Password?</Text>
-          <Text style={styles.text}>
-            Enter your email and we'll send you a link to reset your password
+      <SafeAreaView style={tw`flex-1`}>
+        <View style={tw`flex flex-col justify-center items-center`}>
+          <View style={styles.textContainer}>
+            <Text style={styles.title}>Forgot Password?</Text>
+            <Text style={styles.text}>
+              Enter your email and we'll send you a link to reset your password
+            </Text>
+          </View>
+          <TextInput
+            style={styles.textInput}
+            placeholder="Email"
+            value={email}
+            placeholderTextColor="gray"
+            autoCapitalize="none"
+            autoCorrect={false}
+            onChangeText={(text) => setEmail(text)}
+          />
+          <Text style={tw`text-xl mb-68 font-semibold`}>
+            <Link href="/(auth)/" style={tw`text-blue-500`}>
+              {" "}
+              Take me home{" "}
+            </Link>
           </Text>
+          <TouchableOpacity
+            style={styles.btn}
+            onPress={() =>
+              emailAuthProvider.forgotPassword(email)
+            }
+          >
+            <Text style={tw`text-white text-center text-2xl font-bold`}>
+              Reset password
+            </Text>
+          </TouchableOpacity>
         </View>
-        <TextInput
-          style={styles.textInput}
-          placeholder="Email"
-          value={email}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setEmail(text)}
-        />
-        <Text style={tw`text-xl mb-68 font-semibold`}>
-          <Link href="/(auth)/" style={tw`text-blue-500`}>
-            {" "}
-            Take me home{" "}
-          </Link>
-        </Text>
-        <TouchableOpacity
-          style={styles.btn}
-          onPress={() =>
-            emailAuthProvider.forgotPassword(email)
-          }
-        >
-          <Text style={tw`text-white text-center text-2xl font-bold`}>
-            Reset password
-          </Text>
-        </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </>
   );
 }

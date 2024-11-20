@@ -1,7 +1,7 @@
 import { useContext, createContext, type PropsWithChildren } from 'react';
 import { useStorageState } from '@/hooks/useStorageState';
 
-import EmailAuthProvider from '@/providers/auth/email.provider';
+import EmailAuthProvider from '@/services/auth/email';
 
 const AuthContext = createContext<{
   signIn: () => void;

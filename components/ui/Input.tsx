@@ -6,7 +6,7 @@ interface InputProps extends TextInputProps {
   onChangeText: (text: string) => void;
 }
 
-export default function CustomTextInput ({ value, onChangeText, ...rest }) {
+export default function Input ({ value, onChangeText, ...rest }) {
   return (
     <TextInput
       style={styles.textInput}

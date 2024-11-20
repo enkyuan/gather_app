@@ -6,23 +6,43 @@ import { Theme } from "@/constants/Theme";
 
 import tw from "twrnc";
 import React from "react";
+import { useRouter } from "expo-router";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import SplitButton from "@/components/navigation/SplitButton";
+import Button from "@/components/ui/Button";
+import useSignUp from "@/hooks/useSignUp";
 
 export default function Auth() {
+  const router = useRouter();
+  const setIsSignUp = useSignUp(state => state.setIsSignUp);
+  const isSignUp = useSignUp(state => state.isSignUp); 
+
   return (
     <>
-      <SafeAreaView>
+      <SafeAreaView style={tw`flex-1`}>
         <View style={styles.container}>
           <View style={styles.textContainer}>
-            <Image source={require("@/assets/images/wordmark.png")} style={styles.image} />
+            <Image source={require("@/assets/icons/main/icon.png")} style={styles.icon} />
             <Text style={styles.title}>Gather</Text>
           </View>
-          <Image source={require("@/assets/images/onboarding/iconspill.png")} style={styles.imageContainer} />
-          <View style={styles.btnContainer}>
-            <SplitButton />
+          <Image source={require("@/assets/images/onboarding/iconspill.png")} style={styles.image} />
+          <View style={styles.footer}>
+            <Button
+              text="Sign Up"
+              viewStyles={styles.signup}
+              textStyles={styles.text}
+              onPress={() => { 
+                router.push("/signup_options/")
+                setIsSignUp(!isSignUp);
+              }}
+            />
+            <Button
+              text="Login"
+              viewStyles={styles.login}
+              textStyles={styles.text}
+              onPress={() => router.push("/login_options/")}
+            />
           </View>
         </View>
       </SafeAreaView>
@@ -40,7 +60,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     marginVertical: "12%",
-    gap: 8,
+    gap: 2,
   },
   title: {
     fontSize: 32,
@@ -48,14 +68,40 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
   },
+  text: {
+    fontSize: 24,
+    fontWeight: "bold",
+    textAlign: "center",
+    alignSelf: "center",
+    lineHeight: 44,
+    color: "white",
+  },
+  icon: {
+    width: 48,
+    height: 48,
+  },
   image: {
-    width: 36,
-    height: 36,
+    marginVertical: "16%",  
   },
-  imageContainer: {
-    marginVertical: "16%",
+  signup: {
+    backgroundColor: Theme.secondary.lightGray,
+    width: "52%",
+    height: "46%",
+    borderRadius: 999,
+    justifyContent: 'center',
+    alignItems: 'center', 
   },
-  btnContainer: {
+  login: {
+    backgroundColor: Theme.primary.blue,
+    width: "40%",
+    height: "46%",
+    borderRadius: 999,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  footer: {
+    flexDirection: "row",
     marginVertical: "16%",
+    gap: 8
   }
 });

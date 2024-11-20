@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     fontFamily: Theme.fonts.semibold,
     lineHeight: 20,
     color: '#121a26',
-    marginBottom: "2%",
+    marginBottom: "4%",
   },
   cardSubtitle: {
     fontSize: 12,

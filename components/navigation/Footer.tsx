@@ -5,17 +5,37 @@
 
 import { Theme } from '@/constants/Theme';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { User, Plus, BellSimple, CardsThree, Ticket, Scan } from "phosphor-react-native";
-import { View, Text, StyleSheet, Pressable, Image } from 'react-native';
+import { View, Button, Text, StyleSheet, Pressable, Image } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { CameraView, CameraType, useCameraPermissions } from 'expo-camera';
 import { BlurView } from "expo-blur";
 import { Link } from 'expo-router';
+import { ArrowUpRight } from 'phosphor-react-native';
+import { toast } from 'sonner-native';
 import tw from 'twrnc';
 
 export default function Footer() {
+  const [facing, setFacing] = useState<CameraType>('back');
+  const [permission, requestPermission] = useCameraPermissions();
+
+  useEffect(() => {
+    // Request camera permission when the component mounts
+    requestPermission();
+  }, []);
+
+  const handleCameraPermission = async () => {
+      const permission = await Camera.requestPermissionsAsync();
+      setCameraPermission(permission);
+  }
+
+  function toggleCameraFacing() {
+    setFacing(current => (current === 'back' ? 'front' : 'back'));
+  }
+
   return (
     <BlurView 
       style={[styles.blur], { paddingBottom: "4%" }}
@@ -29,7 +49,7 @@ export default function Footer() {
           </Link>
           <Link href={'/(protected)/(modals)/archive/'} asChild>
             <Pressable>
-              <CardsThree size={24} weight="bold"  color={Theme.background.white} />
+              <CardsThree size={24} weight="bold" color={Theme.background.white} />
             </Pressable>
           </Link>
           <Link href={'/(protected)/(modals)/dash/'} asChild>
@@ -39,11 +59,9 @@ export default function Footer() {
           </Link>
         </View>
         <View style={tw`flex-row gap-4`}>
-        <Link href={'/(protected)/(modals)/verify/'} asChild>
           <Pressable style={styles.circle}>
             <Scan size={24} weight="bold" color={Theme.background.white} />
           </Pressable>
-        </Link>
         <Link href={'/(protected)/(modals)/new_event/'} asChild>
           <Pressable style={styles.circle}>
             <Plus size={24} weight="bold" color={Theme.background.white} />
@@ -67,6 +85,24 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     paddingHorizontal: "4%",
+  },
+  btn: {
+    gap: 12,
+    width: "84%",
+    height: "84%",
+    paddingHorizontal: "12%",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'row',
+    backgroundColor: Theme.primary.lakeBlue,
+    borderRadius: 9999,
+  },
+  btnText: {
+    color: Theme.primary.mutedBlue,
+    fontSize: 16,
+    fontFamily: Theme.fonts.semibold,
+    textAlign: 'center',
+    justifyContent: 'center',
   },
   btnArray: {
     gap: 20,

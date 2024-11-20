@@ -104,7 +104,7 @@ const EmailAuthProvider = () => {
           .authWithPassword(user.email, password);
       }
 
-      router.navigate("/(protected)/timeline");
+      router.navigate("/(protected)/");
       return authData;
     } catch (error: any) {
       toast.error(error.message);
@@ -127,7 +127,7 @@ const EmailAuthProvider = () => {
 
   async function handleSignOut() {
     pb.authStore.clear();
-    router.navigate("/");
+    router.dismissAll();
   }
 
   async function forgotPassword(email: string) {

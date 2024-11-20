@@ -1,8 +1,7 @@
-// TODO: adjust styling of text input to match pressables on options pag
+// TODO: adjust styling of text input to match pressables on options page
 // TODO: add checkbox for terms of service
-// FIXME: remove alias field & move to onboarding process
 // FIXME: replace styling with percentage-based values
-// FIXME: replace TOS url with deep link to TOS page
+// FIXME: replace ToS url with deep link to TOS page
 
 import { Theme } from "@/constants/Theme";
 
@@ -18,7 +17,7 @@ import {
 } from "react-native";
 import { Link } from "expo-router";
 
-import EmailAuthProvider from "@/providers/auth/email.provider";
+import EmailAuthProvider from "@/services/auth/email";
 import Button from "@/components/ui/Button";
 
 export default function SignUp() {

@@ -4,13 +4,12 @@
     "slug": "gather_v2",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/icon.png",
+    "icon": "./assets/icons/main/icon.png",
     "scheme": "myapp",
     "userInterfaceStyle": "light",
     "splash": {
-      "image": "./assets/images/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "image": "./assets/icons/main/splash.png",
+      "backgroundColor": "transparent"
     },
     "ios": {
         "supportsTablet": false,
@@ -19,18 +18,20 @@
             "usesNonExemptEncryption": false
         },
         "infoPlist": {
-        "CFBundleURLTypes": [{
-            "CFBundleURLSchemes": ["com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"]
-        }]
-    }
-      
+            "CFBundleURLTypes": [{
+                "CFBundleURLSchemes": ["com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"]
+            }]
+        }
     },
     "iosStatusBar": {},
     "android": {
         "adaptiveIcon": {
-            "foregroundImage": "./assets/images/adaptive-icon.png",
+            "foregroundImage": "./assets/icons/main/adaptive.png",
             "backgroundColor": "#ffffff"
         },
+        "permissions": [
+            "android.permission.CAMERA"
+        ],
         "package": "com.anonymous.gather_v2"
     },
     "androidStatusBar": {
@@ -40,7 +41,7 @@
     "web": {
         "bundler": "metro",
         "output": "static",
-        "favicon": "./assets/images/favicon.png"
+        "favicon": "./assets/icons/main/favicon.png"
     },
     "packagerOpts": {
       "config": "metro.config.js",
@@ -62,19 +63,19 @@
         ["expo-router"],
         ["expo-secure-store"],
         ["expo-font", {
-                "fonts": [
-                    "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf",
-                    "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
-                    "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf",
-                    "node_modules/@expo-google-fonts/poppins/Poppins_700Bold.ttf"
-                ]
-            }
+            "fonts": [
+                "node_modules/@expo-google-fonts/inter/Inter_900Black.ttf",
+                "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
+                "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf",
+                "node_modules/@expo-google-fonts/poppins/Poppins_700Bold.ttf"
+            ]}
         ],
         ["expo-camera", {
-                "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
-        }],
+            "cameraPermission": "Allow $(PRODUCT_NAME) to access your camera"
+            }
+        ],
         ["@react-native-google-signin/google-signin", {
-                "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
+            "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
             }
         ],
         ["react-native-edge-to-edge"]

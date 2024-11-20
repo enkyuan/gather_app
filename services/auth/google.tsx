@@ -17,7 +17,7 @@ import pb from '@/pb.config';
 
 WebBrowser.maybeCompleteAuthSession();
 
-export default function GoogleAuthProvider() {
+export default function GoogleOAuthProvider() {
   const router = useRouter();
   const isSignUp = useSignUp(state => state.isSignUp);
   const [userInfo, setUserInfo] = useState(null);

@@ -13,13 +13,14 @@ import {
   TextInput,
   Pressable,
   StyleSheet,
-  SafeAreaView
 } from "react-native";
 import tw from "twrnc";
 import { Link } from "expo-router";
+import { SafeAreaView } from "react-native-safe-area-context";
 
-import EmailAuthProvider from "@/providers/auth/email.provider";
+import EmailAuthProvider from "@/services/auth/email";
 import Button from "@/components/ui/Button";
+import Input from "@/components/ui/Input";
 
 export default function Login() {
   const emailAuthProvider = EmailAuthProvider();
@@ -33,15 +34,11 @@ export default function Login() {
         <View style={styles.textContainer}>
           <Text style={styles.title}>Welcome back</Text>
         </View>
-        <TextInput
+        <Input
           style={styles.textInput}
-          maxLength={28}
           placeholder="Username or Email"
           value={email}
-          placeholderTextColor="gray"
-          autoCapitalize="none"
-          autoCorrect={false}
-          onChangeText={(text) => setEmail(text)}
+          onChangeText={(text) => setEmail(text)} 
         />
         <TextInput
           style={styles.textInput}
@@ -74,6 +71,7 @@ export default function Login() {
 
 const styles = StyleSheet.create({
   container: {
+    flex: 1,
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",

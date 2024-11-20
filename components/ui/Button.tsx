@@ -2,29 +2,28 @@ import { Theme } from "@/constants/Theme";
 
 import tw from "twrnc";
 import React from "react";
-import { SafeAreaView, View, ViewStyle, Text, Pressable, StyleSheet } from "react-native";
+import { SafeAreaView, View, ViewStyle, TextStyle, Text, Pressable, StyleSheet } from "react-native";
 
 interface ButtonProps {
+  viewStyles?: ViewStyle;
+  textStyles?: TextStyle;
   text: string;
   onPress: () => void;
 }
 
-export default function Button({ text, onPress }: ButtonProps) {
+export default function Button({ text, onPress, viewStyles, textStyles }: ButtonProps) {
   return (
     <Pressable
-      style={styles.btn}
+      style={[styles.btn, viewStyles]}
       onPress={onPress}
     >
-      <Text style={styles.text}>{text}</Text>
+      <Text style={[styles.text, textStyles]}>{text}</Text>
     </Pressable> 
   );
 }
 
 const styles = StyleSheet.create({
   btn: {
-    width: "92%",
-    height: "14%",
-    backgroundColor: Theme.primary.blue,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: 9999,

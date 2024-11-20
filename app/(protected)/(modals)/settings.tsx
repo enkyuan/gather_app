@@ -20,7 +20,7 @@ import * as Linking from 'expo-linking';
 import { useRouter } from 'expo-router';
 
 import FeatherIcon from 'react-native-vector-icons/Feather';
-import EmailAuthProvider from '@/providers/auth/email.provider';
+import EmailAuthProvider from '@/services/auth/email';
 
 export default function Settings() {
   const router = useRouter();
@@ -44,7 +44,7 @@ export default function Settings() {
                   router.navigate("/(protected)/(modals)/profile");
                 }}
                 style={styles.profile}>
-                <Image source={require("@/assets/images/wordmark.png")} style={styles.profileAvatar} />
+                <Image source={require("@/assets/icons/main/icon.png")} style={styles.profileAvatar} />
                 <View style={styles.profileBody}>
                   <Text style={styles.profileName}>John Doe</Text>
 
@@ -228,7 +228,6 @@ export default function Settings() {
 }
 
 const styles = StyleSheet.create({
-  /** Header */
   header: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -305,7 +304,6 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     color: '#858585',
   },
-  /** Row */
   row: {
     height: 44,
     width: '100%',

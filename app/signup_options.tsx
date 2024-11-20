@@ -8,8 +8,9 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import tw from "twrnc";
 import { useRouter, Link } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
-import GoogleAuthProvider from "@/providers/auth/google.provider";
+
 import useSignUp from "@/hooks/useSignUp";
+import GoogleOAuthProvider from "@/services/auth/google";
 
 export default function SignUpOptions() {
   const router = useRouter();
@@ -30,7 +31,7 @@ export default function SignUpOptions() {
             <Envelope size={32} color="black" style={styles.envelope} />
             <Text style={styles.text}>Email</Text>
           </Pressable>
-          <GoogleAuthProvider />
+          <GoogleOAuthProvider />
           <View style={tw`py-2`}>
             <Text style={tw`text-xl font-semibold`}>
               Already have an account?{" "}

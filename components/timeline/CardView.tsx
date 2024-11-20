@@ -57,7 +57,7 @@ export default function CardView() {
 
         <View style={styles.list}>
           <View style={styles.listHeader}>
-            <Text style={styles.listTitle}>Parties</Text>
+            <Text style={styles.listTitle}>Festivities</Text>
 
             <TouchableOpacity
               onPress={() => {
@@ -85,7 +85,7 @@ export default function CardView() {
 
         <View style={styles.list}>
           <View style={styles.listHeader}>
-            <Text style={styles.listTitle}>Night Life</Text>
+            <Text style={styles.listTitle}>After Hours</Text>
 
             <TouchableOpacity
               onPress={() => {

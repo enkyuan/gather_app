@@ -10,9 +10,10 @@ import { useRouter, Link, Stack } from "expo-router";
 import { Envelope, CaretLeft } from "phosphor-react-native";
 import tw from "twrnc";
 
-import GoogleAuthProvider from "@/providers/auth/google.provider";
-import FacebookAuthProvider from "@/providers/auth/facebook.provider";
-import AppleAuthProvider from "@/providers/auth/apple.provider";
+import Button from "@/components/ui/Button";
+import GoogleOAuthProvider from "@/services/auth/google";
+import FacebookOAuthProvider from "@/services/auth/facebook";
+import AppleOAuthProvider from "@/services/auth/apple";
 
 export default function LoginOptions() {
   const router = useRouter();
@@ -22,16 +23,15 @@ export default function LoginOptions() {
       <View style={styles.container}>
         <Text style={styles.title}>Continue with</Text>
         <View style={tw`flex flex-col justify-center items-center`}> 
-          <Pressable
-            style={styles.pressable}
+          <Button
+            text="Email"
+            textStyles={styles.text}
+            style={styles.btn}
             onPress={() => router.navigate("/login")}
-          >
-            <Envelope size={32} color="black" style={styles.icon} />
-            <Text style={styles.text}>Email</Text>
-          </Pressable>
-          <GoogleAuthProvider />
-          <FacebookAuthProvider />
-          <AppleAuthProvider />
+          />
+          <GoogleOAuthProvider />
+          <FacebookOAuthProvider />
+          <AppleOAuthProvider />
           <View style={tw`py-2`}>
           <Text style={tw`text-xl font-semibold`}>
               Need an account?{" "}
@@ -67,9 +67,9 @@ const styles = StyleSheet.create({
     fontFamily: Theme.fonts.semibold,
     color: "black",
   },
-  pressable: {
+  btn: {
     backgroundColor: Theme.background.white,
-    marginVertical: 8,
+    marginVertical: "4%",
     width: "92%",
     height: "18%",
     alignItems: "center",

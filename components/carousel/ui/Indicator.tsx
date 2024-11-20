@@ -15,15 +15,15 @@ export default function Indicator({index, paginationIndex}: Props) {
 const styles = StyleSheet.create({
   indicator: {
     backgroundColor: 'white',
-    height: 8,
-    width: 16,
+    height: 12,
+    width: 24,
     marginHorizontal: 2,
     borderRadius: 8,
   },
   indicatorOpacity: {
     backgroundColor: 'white',
-    height: 8,
-    width: 8,
+    height: 12,
+    width: 12,
     marginHorizontal: 2,
     borderRadius: 8,
     opacity: 0.5,

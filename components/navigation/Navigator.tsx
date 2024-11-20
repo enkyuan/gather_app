@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 import { Stack, useRouter } from 'expo-router';
 import { Pressable, ActivityIndicator, StyleSheet, Text } from 'react-native';
 
-import { CaretLeft, X } from "phosphor-react-native";
+import { ArrowUpLeft, X } from "phosphor-react-native";
 
 const Navigator = () => {
   const router = useRouter();
@@ -30,7 +30,10 @@ const Navigator = () => {
   }
 
   return (
-    <Stack>
+    <Stack 
+      screenOptions={{
+        contentStyle: { backgroundColor: Theme.background.white },
+      }}>
       <Stack.Screen
         name="index"
         options={{ headerShown: false }}
@@ -41,10 +44,9 @@ const Navigator = () => {
           title: '',
           headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
-              <CaretLeft size={32} color="black" />
+              <ArrowUpLeft size={32} color="black" weight="bold" />
             </Pressable>
           ),
         }}
@@ -53,12 +55,10 @@ const Navigator = () => {
         name="signup_options"
         options={{ 
           title: '',
-          headerBackTitle: '',
           headerShadowVisible: false,
-          headerStyle: { backgroundColor: Theme.secondary.mutedLightGray },
           headerLeft: () => (
             <Pressable onPress={router.back}>
-              <CaretLeft size={32} color="black" />
+              <ArrowUpLeft size={32} color="black" weight="bold" />
             </Pressable>
           ), 
         }}
@@ -100,7 +100,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/timeline"
+        name="(protected)/index"
         options={{ 
           headerShown: false, 
           gestureEnabled: false
@@ -283,7 +283,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/events/this_week"
+        name="(protected)/(events)/this_week"
         options={{ 
           headerShown: true,
           presentation: 'modal',
@@ -305,7 +305,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/events/parties"
+        name="(protected)/(events)/parties"
         options={{ 
           headerShown: true,
           presentation: 'modal',
@@ -327,7 +327,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/events/nightlife"
+        name="(protected)/(events)/nightlife"
         options={{ 
           headerShown: true,
           presentation: 'modal',
@@ -349,7 +349,7 @@ const Navigator = () => {
         }}
       />
       <Stack.Screen
-        name="(protected)/events/socials"
+        name="(protected)/(events)/socials"
         options={{ 
           headerShown: true,
           presentation: 'modal',

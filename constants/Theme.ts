@@ -2,6 +2,7 @@ export const Theme = {
   primary: {
     blue: '#93C5FD',
     mutedBlue: '#449BFC',
+    lakeBlue: '#BDE0FE'
   },
   secondary: {
     red: '#EF4444',
