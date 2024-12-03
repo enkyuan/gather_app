@@ -23,11 +23,6 @@ this is the codebase for the Gather Connect app
   <a href="https://stripe.com/"><img src="https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white" alt="Stripe" /></a>
 </>
 
-## tested with
-<p id="badges" align="start">
-  <a href="https://jestjs.io/"><img src="https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white" /></a>
-</>
-
 ## hosted on
 <p id="badges" align="start">
   <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" /></a>
