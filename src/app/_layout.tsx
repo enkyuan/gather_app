@@ -7,7 +7,7 @@
  */
 
 import { DarkTheme, DefaultTheme, ThemeProvider } from '@react-navigation/native';
-import { useFonts } from 'expo-font';
+import { useFonts, Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold } from "@expo-google-fonts/poppins";
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { StatusBar } from 'expo-status-bar';
@@ -17,11 +17,12 @@ import '../../global.css';
 
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { Navigation } from '@/app/Navigation'; 
 import { Toaster } from 'sonner-native';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { Fonts } from '@/constants/Fonts';
+
+import Navigation from '@/app/Navigation'; 
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -29,10 +30,10 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const colorScheme = useColorScheme();
   const [loaded] = useFonts({
-    Regular: Fonts.regular, 
-    Medium: Fonts.medium,
-    SemiBold: Fonts.semibold,
-    Bold: Fonts.bold,
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold 
   });
 
   useEffect(() => {

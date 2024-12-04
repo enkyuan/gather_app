@@ -1,3 +1,5 @@
+// FIXME: set configuration variables instead of using hardcoded values
+
 module.exports = function(config) {
   return {
     "expo": {
@@ -25,7 +27,13 @@ module.exports = function(config) {
         "favicon": "./src/assets/images/app/favicon.png"
       },
       "plugins": [
-        "expo-router",
+        [
+          "expo-router",
+          {
+            "root": "./src/app",
+            "sitemap": true
+          }
+        ],
         [
           "expo-splash-screen",
           {
@@ -47,7 +55,8 @@ module.exports = function(config) {
           }
         ],
         [
-          "@react-native-google-signin/google-signin", {
+          "@react-native-google-signin/google-signin", 
+          {
             "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
           }
         ],

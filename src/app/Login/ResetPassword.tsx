@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native'
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 
-import { NotFoundScreen } from '@/app/+not-found'
+import { NotFoundScreen } from '@/app/NotFound'
 
 export default function ResetPasswordScreen() {
   const router = useRouter();

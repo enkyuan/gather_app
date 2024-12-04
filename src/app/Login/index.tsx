@@ -7,7 +7,7 @@ import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 import { useNavigate } from '@/hooks/useNavigate'
 
-import { NotFoundScreen } from '@/app/+not-found'
+import { NotFoundScreen } from '@/app/NotFound'
 import { SignupScreen } from '@/app/Signup/'
 
 export default function LoginScreen() {

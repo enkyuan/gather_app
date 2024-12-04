@@ -6,15 +6,15 @@ import { SafeAreaView } from 'react-native'
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 
-import { NotFoundScreen } from '@/app/+not-found'
-
 export default function LoginOptionsScreen() {
+  const router = useRouter();
+
   return (
     <>
-      <Stack.Screen options={{ title: 'Login Options' }} />
+      <Stack.Screen options={{ headerShown: false }} />
       <SafeAreaView>
         <ThemedText type="title">Login Options Screen</ThemedText>
-        <Pressable onPress={() => NotFoundScreen}>
+        <Pressable onPress={() => router.navigate('/NotFound')}>
           <ThemedText type="link">Go to not found screen!</ThemedText>
         </Pressable>
       </SafeAreaView>

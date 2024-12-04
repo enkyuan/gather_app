@@ -27,3 +27,34 @@ this is the codebase for the Gather Connect app
 <p id="badges" align="start">
   <a href="https://www.docker.com/"><img src="https://img.shields.io/badge/docker-%230db7ed.svg?style=for-the-badge&logo=docker&logoColor=white" /></a>
 </>
+
+## contributing
+
+### setup
+
+```
+git clone https://github.com/enkyuan/connect_app.git
+cd connect_app
+bun i
+```
+
+### dependencies
+
+```
+bun expo install <package-name>
+```
+### running
+
+```
+docker compose up -d
+bun run ios
+```
+
+### git
+
+```
+git pull
+git add .
+git commit -m "message"
+git push
+```
