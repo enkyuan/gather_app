@@ -50,6 +50,11 @@ docker compose up -d
 bun run ios
 ```
 
+```
+# tearing down env
+docker compose down
+```
+
 ### git
 
 ```
