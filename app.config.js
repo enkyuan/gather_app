@@ -34,7 +34,24 @@ module.exports = function(config) {
             "resizeMode": "contain",
             "backgroundColor": "#ffffff"
           }
-        ]
+        ],
+        [
+          "expo-font", 
+          {
+            "fonts": [
+              "node_modules/@expo-google-fonts/poppins/Poppins_400Regular.ttf",
+              "node_modules/@expo-google-fonts/poppins/Poppins_500Medium.ttf",
+              "node_modules/@expo-google-fonts/poppins/Poppins_600SemiBold.ttf",
+              "node_modules/@expo-google-fonts/poppins/Poppins_700Bold.ttf"
+            ]
+          }
+        ],
+        [
+          "@react-native-google-signin/google-signin", {
+            "iosUrlScheme": "com.googleusercontent.apps.128786716214-6j1dv2adbcrfhjqa4p2r149eqgr7u5mp"
+          }
+        ],
+        ["react-native-edge-to-edge"],
       ],
       "experiments": {
         "typedRoutes": true

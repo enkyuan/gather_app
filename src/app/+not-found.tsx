@@ -1,3 +1,5 @@
+// FIXME: authenticated link--return to home screen if token is present
+
 import { Link, Stack } from 'expo-router';
 import { StyleSheet } from 'react-native';
 
@@ -7,7 +9,7 @@ import { ThemedView } from '@/components/ThemedView';
 export default function NotFoundScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Oops!' }} />
+      <Stack.Screen options={{ title: 'Not Found' }} />
       <ThemedView style={styles.container}>
         <ThemedText type="title">This screen doesn't exist.</ThemedText>
         <Link href="/" style={styles.link}>

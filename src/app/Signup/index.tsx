@@ -5,19 +5,19 @@ import { SafeAreaView } from 'react-native'
 
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
+import { useNavigate } from '@/hooks/useNavigate'
 
 import { NotFoundScreen } from '@/app/+not-found'
+import { LoginScreen } from '@/app/Login/'
 
-export default function OnboardingScreen() {
-  const router = useRouter();
-
+export default function SignupScreen() {
   return (
     <>
-      <Stack.Screen options={{ title: 'Onboarding' }} />
+      <Stack.Screen options={{ title: 'Signup' }} />
       <SafeAreaView>
-        <ThemedText type="title">Onboarding Screen</ThemedText>
-        <Pressable onPress={() => NotFoundScreen}>
-          <ThemedText type="link">Go to not found screen!</ThemedText>
+        <ThemedText type="title">Signup Screen</ThemedText>
+        <Pressable onPress={() => useNavigate('Login')}>
+          <ThemedText type="link">Go to login screen!</ThemedText>
         </Pressable>
       </SafeAreaView>
     </>

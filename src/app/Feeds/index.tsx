@@ -8,14 +8,14 @@ import { ThemedText } from '@/components/ThemedText'
 
 import { NotFoundScreen } from '@/app/+not-found'
 
-export default function OnboardingScreen() {
+export default function HomeScreen() {
   const router = useRouter();
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Onboarding' }} />
+      <Stack.Screen options={{ title: 'Home' }} />
       <SafeAreaView>
-        <ThemedText type="title">Onboarding Screen</ThemedText>
+        <ThemedText type="title">Home Screen</ThemedText>
         <Pressable onPress={() => NotFoundScreen}>
           <ThemedText type="link">Go to not found screen!</ThemedText>
         </Pressable>
