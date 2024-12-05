@@ -1,7 +1,5 @@
-import { LoginOptionsScreen } from "@/app/Login/Options"
+import LoginOptions from '@/app/Login/Options'
 
-export default function App() {
-  return (
-    <LoginOptionsScreen />
-  );
+export default function App () {
+    return <LoginOptions />
 }

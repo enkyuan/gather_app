@@ -1,3 +1,9 @@
+// TODO: add the following steps to onboarding:
+// a. pick username (verify it's unique)
+// b. select institution
+// c. select year
+// d. select major
+
 import React from 'react'
 import { Pressable } from 'react-native'
 import { Stack, useRouter } from 'expo-router'

@@ -1,6 +1,6 @@
 # Gather Connect App
 
-[//]: # (TODO: document all of this code prior to completion)
+[//]: # (TODO: document all of this code into a wiki prior to deployment)
 
 ## about
 
@@ -42,6 +42,7 @@ bun i
 
 ```
 bun expo install <package-name>
+npx pod-install
 ```
 ### running
 
@@ -50,8 +51,10 @@ docker compose up -d
 bun run ios
 ```
 
+### resetting env
+
 ```
-# tearing down env
+bun run start -c
 docker compose down
 ```
 

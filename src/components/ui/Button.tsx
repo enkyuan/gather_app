@@ -1,60 +1,104 @@
-import { Pressable, type TextProps, StyleSheet } from 'react-native';
+import React from 'react'
+import { TouchableOpacity, Text, TextStyle, View, StyleSheet } from 'react-native'
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { Fonts } from '@/constants/Fonts'
+import { useThemeColor } from '@/hooks/useThemeColor'
 
-export type ButtonProps = {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'title' | 'defaultSemiBold' | 'subtitle' | 'link';
+interface ButtonProps {
+  text?: string;
+  textStyle?: TextStyle;
+  icon?: ReactNode;
+  onPress?: () => void;
+  type?: 'sm' | 'md' | 'lg' | 'xl';
 };
 
-export function ThemedText({
+export function Button({ 
   style,
-  lightColor,
-  darkColor,
+  text,
+  textStyle,
+  icon,
+  onPress,
   type = 'default',
   ...rest
-}: ThemedTextProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
+}: ButtonProps) {
   return (
-    <Text
+    <TouchableOpacity
       style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
-        type === 'title' ? styles.title : undefined,
-        type === 'defaultSemiBold' ? styles.defaultSemiBold : undefined,
-        type === 'subtitle' ? styles.subtitle : undefined,
-        type === 'link' ? styles.link : undefined,
+        type === 'sm' ? styles.sm : undefined,
+        type === 'md' ? styles.md : undefined,
+        type === 'lg' ? styles.lg : undefined,
+        type === 'xl' ? styles.xl : undefined,
+        type === 'full' ? styles.full : undefined,
         style,
       ]}
-      {...rest}
-    />
+      {...rest}>
+      <View>{icon}</View>
+      <Text
+        style={[
+            type === 'sm' ? styles.smText : undefined,
+            type === 'md' ? styles.mdText : undefined,
+            type === 'lg' ? styles.lgText : undefined,
+            type === 'xl' ? styles.xlText : undefined,
+            type === 'full' ? styles.fullText : undefined,
+            style,
+            textStyle
+        ]}
+        {...rest}>
+        {text}
+      </Text>
+    </TouchableOpacity>
   );
 }
 
 const styles = StyleSheet.create({
-  default: {
+  sm: {
+    flexDirection: 'row',
+    height: "40",
+    width: "56%",
+  },
+  smText: {
+    fontSize: 10,
+    lineHeight: 14,
+    fontFamily: Fonts.medium,
+  },
+  md: {
+    flexDirection: 'row',
+    height: "44",
+    width: "68%",
+  },
+  mdText: {
+    fontSize: 12,
+    lineHeight: 20,
+    fontFamily: Fonts.semibold,
+  },
+  lg: {
+    flexDirection: 'row',
+    height: "52",
+    width: "80%",
+  },
+  lgText: {
     fontSize: 16,
     lineHeight: 24,
+    fontFamily: Fonts.semibold,
   },
-  defaultSemiBold: {
-    fontSize: 16,
-    lineHeight: 24,
-    fontWeight: '600',
+  xl: {
+    flexDirection: 'row',
+    height: "60",
+    width: "92%",
   },
-  title: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
-  },
-  subtitle: {
+  xlText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    lineHeight: 28,
+    fontFamily: Fonts.semibold,
   },
-  link: {
-    lineHeight: 30,
+  full: {
+    flexDirection: 'row',
+    height: "60",
+    width: "100%",
+  },
+  fullText: {
     fontSize: 16,
-    color: '#0a7ea4',
+    lineHeight: 24,
+    fontFamily: Fonts.semibold,
   },
 });

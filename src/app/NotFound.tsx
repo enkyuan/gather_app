@@ -1,4 +1,4 @@
-// FIXME: authenticated link--return to home screen if token is present
+// FIXME: authenticated link--return to home or auth screen if token is present
 
 import { Link, Stack } from 'expo-router';
 import { StyleSheet } from 'react-native';
