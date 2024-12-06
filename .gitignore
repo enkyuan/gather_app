@@ -44,3 +44,6 @@ pb/
 # build dirs
 ios/
 android/
+
+# misc
+snippets/

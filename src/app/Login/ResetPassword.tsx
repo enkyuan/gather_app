@@ -1,25 +1,27 @@
 import React from 'react'
-import { Pressable } from 'react-native'
-import { Stack, useRouter } from 'expo-router'
-import { SafeAreaView } from 'react-native'
+import { View, Pressable } from 'react-native'
+import { useNavigation } from '@react-navigation/native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 
-import { NotFoundScreen } from '@/app/NotFound'
+import NotFoundScreen from '@/app/NotFound'
 
 export default function ResetPasswordScreen() {
-  const router = useRouter();
+  const insets = useSafeAreaInsets();
+  const paddingTop = insets.top + 1.6 * insets.top;
+
+  const navigation = useNavigation();
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Reset Password' }} />
-      <SafeAreaView>
+      <View style={{ paddingTop: paddingTop }}>
         <ThemedText type="title">Reset Password Screen</ThemedText>
-        <Pressable onPress={() => NotFoundScreen}>
+        <Pressable onPress={() => navigation.navigate('NotFound')}>
           <ThemedText type="link">Go to not found screen!</ThemedText>
         </Pressable>
-      </SafeAreaView>
+      </View>
     </>
   );
 }

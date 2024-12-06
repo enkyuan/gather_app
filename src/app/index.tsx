@@ -1,5 +1,11 @@
-import LoginOptions from '@/app/Login/Options'
+import { NavigationContainer } from '@react-navigation/native'
+
+import Navigation from '@/app/Navigation'
 
 export default function App () {
-    return <LoginOptions />
+    return (
+      <NavigationContainer>
+        <Navigation />
+      </NavigationContainer>
+    )
 }

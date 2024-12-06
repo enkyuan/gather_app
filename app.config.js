@@ -27,13 +27,7 @@ module.exports = function(config) {
         "favicon": "./src/assets/images/app/favicon.png"
       },
       "plugins": [
-        [
-          "expo-router",
-          {
-            "root": "./src/app",
-            "sitemap": true
-          }
-        ],
+        ["expo-router"],
         [
           "expo-splash-screen",
           {

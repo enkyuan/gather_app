@@ -1,56 +1,90 @@
-// TODO: style input component
+// TODO: add color #E5E7EB to the colors defined in constants/Colors.ts
 
-import { Pressable, StyleSheet } from 'react-native';
+import React from 'react'
+import { TextInput, Text, TextStyle, TextInputProps, View, StyleSheet } from 'react-native'
 
-import { useThemeColor } from '@/hooks/useThemeColor';
+import { Fonts } from '@/constants/Fonts'
+import { useThemeColor } from '@/hooks/useThemeColor'
 
-export type InputProps = {
-  lightColor?: string;
-  darkColor?: string;
-  type?: 'default' | 'md' | 'lg' | 'xl';
+interface InputProps extends TextInputProps {
+  text?: string;
+  textStyle?: TextStyle;
+  onChangeText?: () => void;
+  type?: 'sm' | 'md' | 'lg';
 };
 
-export function InputSelect({
+export function Input({ 
   style,
-  lightColor,
-  darkColor,
-  type = 'default',
+  text,
+  textStyle,
+  onChangeText,
+  type = 'sm',
   ...rest
-}: ButtonProps) {
-  const color = useThemeColor({ light: lightColor, dark: darkColor }, 'text');
-
+}: InputProps) {
   return (
-    <Pressable
+    <TextInput
       style={[
-        { color },
-        type === 'default' ? styles.default : undefined,
+        type === 'sm' ? styles.sm : undefined,
         type === 'md' ? styles.md : undefined,
         type === 'lg' ? styles.lg : undefined,
-        type === 'xl' ? styles.xl : undefined,
         style,
       ]}
-      {...rest}
-    />
+      onChangeText={onChangeText}
+      {...rest}>
+      <Text
+        style={[
+            type === 'sm' ? styles.smText : undefined,
+            type === 'md' ? styles.mdText : undefined,
+            type === 'lg' ? styles.lgText : undefined,
+            style,
+            textStyle
+        ]}
+        {...rest}>
+        {text}
+      </Text>
+    </TextInput>
   );
 }
 
 const styles = StyleSheet.create({
-  default: {
-    fontSize: 16,
-    lineHeight: 24,
+  sm: {
+    flexDirection: 'row',
+    backgroundColor: "#E5E7EB",
+    borderRadius: 8,
+    paddingHorizontal: 16,
+    height: "44",
+    width: "68%",
+  },
+  smText: {
+    fontSize: 12,
+    lineHeight: 20,
+    fontFamily: Fonts.semibold,
   },
   md: {
+    flexDirection: 'row',
+    backgroundColor: "#E5E7EB",
+    borderRadius: 8,
+    paddingHorizontal: 20,
+    height: "52",
+    width: "76%",
+  },
+  mdText: {
     fontSize: 16,
     lineHeight: 24,
-    fontWeight: '600',
+    fontFamily: Fonts.semibold,
   },
   lg: {
-    fontSize: 32,
-    fontWeight: 'bold',
-    lineHeight: 32,
+    flexDirection: 'row',
+    backgroundColor: "#E5E7EB",
+    borderRadius: 8,
+    paddingHorizontal: 20,
+    height: "60",
+    width: "88%",
   },
-  xl: {
+  lgText: {
     fontSize: 20,
-    fontWeight: 'bold',
+    lineHeight: 28,
+    fontFamily: Fonts.semibold,
   },
 });
+

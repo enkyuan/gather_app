@@ -4,7 +4,7 @@ import { useRouter } from 'expo-router'
 import { toast } from 'sonner-native'
 import { FormData } from '@/hooks/types'
 
-import pb from '~/pocketbase.config'
+import pb from '@root/pocketbase.config'
 
 export function useAuth() {
     const router = useRouter();

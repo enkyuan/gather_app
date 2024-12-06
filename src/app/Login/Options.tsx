@@ -1,11 +1,11 @@
 // TODO: add custom colors to tailwind configuration
-// FIXME: convert svg logos to react components
+// FIXME: convert svg images to react components
 
 import React from 'react'
-import { Stack, useRouter } from 'expo-router'
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { Link } from '@react-navigation/native'
+import { useSafeAreaInsets } from 'react-native-safe-area-context'
 import { ImageBackground, View, Image, Text } from 'react-native'
-import { Link } from 'expo-router'
+import { useNavigation } from '@react-navigation/native'
 
 import { Button } from '@/components/ui/Button'
 import { Colors } from '@/constants/Colors'
@@ -14,15 +14,13 @@ import FontAwesome6 from '@expo/vector-icons/FontAwesome6'
 
 export default function LoginOptionsScreen() {
   const insets = useSafeAreaInsets();
-  const router = useRouter();
-
   const paddingTop = insets.top + 1.6 * insets.top;
-  const paddingHorizontal = insets.left + insets.right + 1.6 * (insets.left + insets.right);
+  
+  const navigation = useNavigation();
 
   return (
     <>
-      <Stack.Screen options={{ headerShown: false }} />
-      <View style={{ paddingTop: paddingTop, paddingHorizontal: paddingHorizontal }} className="flex flex-row justify-center items-center">
+      <View style={{ paddingTop: paddingTop }} className="flex flex-row justify-center items-center">
         <ImageBackground 
           source={require('@/assets/images/iconsplash-light.png')} 
           style={{ flex: 1, resizeMode: 'cover', justifyContent: 'center' }}>
@@ -35,31 +33,32 @@ export default function LoginOptionsScreen() {
               <Button 
                 type="full" 
                 text="Sign up" textStyle={{ color: 'white', textAlign: 'center' }} 
-                className="bg-black rounded-full my-2 justify-center items-center" onPress={() => router.push('Login')} 
+                className="bg-black rounded-full my-2 justify-center items-center" 
+                onPress={() => navigation.navigate('Signup')} 
               />
 
               <Button 
                 type="full" text="Continue with Google" textStyle={{ color: 'black', textAlign: 'center' }} 
                 icon={<FontAwesome6 name="google" size={28} color="black" />} 
-                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" onPress={() => router.push('Login')} 
+                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" 
               />
 
               <Button 
                 type="full" text="Continue with Apple" textStyle={{ color: 'black', textAlign: 'center' }} 
                 icon={<FontAwesome6 name="apple" size={36} color="black" />} 
-                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" onPress={() => router.push('Login')} 
+                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" 
               />
 
               <Button 
                 type="full" text="Continue with Facebook" textStyle={{ color: 'black', textAlign: 'center' }} 
                 icon={<FontAwesome6 name="facebook" size={28} color="black" />} 
-                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" onPress={() => router.push('Login')} 
+                className="bg-white pl-[10%] border-1 rounded-full my-2 items-center" 
               />
                 
               <View className="text-nowrap my-4">
                 <ThemedText type="medium">
                   Already have an account?{' '}
-                    <Link href={"Login"} asChild>
+                    <Link screen="Login">
                       <ThemedText type='link'>Log in</ThemedText>
                     </Link>
                 </ThemedText>

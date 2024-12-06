@@ -9,7 +9,7 @@ interface ButtonProps {
   textStyle?: TextStyle;
   icon?: ReactNode;
   onPress?: () => void;
-  type?: 'sm' | 'md' | 'lg' | 'xl';
+  type?: 'sm' | 'md' | 'lg' | 'xl' | 'full';
 };
 
 export function Button({ 
@@ -18,7 +18,7 @@ export function Button({
   textStyle,
   icon,
   onPress,
-  type = 'default',
+  type = 'sm',
   ...rest
 }: ButtonProps) {
   return (
@@ -31,6 +31,7 @@ export function Button({
         type === 'full' ? styles.full : undefined,
         style,
       ]}
+      onPress={onPress}
       {...rest}>
       <View>{icon}</View>
       <Text
