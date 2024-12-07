@@ -1,14 +1,16 @@
-import React from 'react'
+// TODO: password confirm function in useAuth hook
+
+import React, { useState } from 'react'
 import { View, TouchableOpacity } from 'react-native'
 import { useNavigation } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { CaretLeft } from 'phosphor-react-native'
-
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function SignupScreen() {
   const navigation = useNavigation();
@@ -16,6 +18,11 @@ export default function SignupScreen() {
   const insets = useSafeAreaInsets();
   const paddingTop = insets.top + 0.8 * insets.top;
   const paddingBottom = insets.bottom;
+
+  const auth = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordConfirm, setPasswordConfirm] = useState("");
 
   return (
     <>
@@ -39,7 +46,11 @@ export default function SignupScreen() {
           </View>
 
           <View className="items-center my-[2%]">
-            <Input type="lg" placeholder="name@address.com"  />
+            <Input 
+              type="lg" 
+              placeholder="name@address.com"
+              onChangeText={(text) => setEmail(text)}
+            />
           </View>
           
           <View className="mx-[8%]">
@@ -47,7 +58,12 @@ export default function SignupScreen() {
           </View>
 
           <View className="items-center my-[2%]">
-            <Input type="lg" placeholder="your password" />
+            <Input 
+              type="lg" 
+              placeholder="your password"
+              secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
+            />
           </View>
          
           <View className="mx-[8%]">
@@ -55,13 +71,30 @@ export default function SignupScreen() {
           </View>
 
           <View className="items-center my-[2%]">
-            <Input type="lg" placeholder="retype password" />
+            <Input 
+              type="lg" 
+              placeholder="retype password"
+              secureTextEntry={true}
+              onChangeText={(text) => setPasswordConfirm(text)}
+            />
           </View>
           
           <View className="mx-[6%] mt-[32%]" style={{ paddingBottom: paddingBottom }}>
             <Button 
-              type="full" text="Continue" textStyle={{ color: 'white', textAlign: 'center' }}
-              className="bg-black border-1 rounded-full justify-center items-center" 
+              type="full" text="Continue" 
+              textStyle={{ color: 'white', textAlign: 'center' }}
+              className="bg-black border-1 rounded-full justify-center items-center"
+              onPress={() => {
+                const formData = {
+                  email: email,
+                  password: password,
+                  passwordConfirm: passwordConfirm
+                }
+                
+                console.log(formData);
+
+                auth.handleSignUp(formData);
+              }}
             />
           </View> 
         </View>

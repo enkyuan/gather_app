@@ -1,20 +1,19 @@
-// FIXME: authenticated link--return to home or auth screen if token is present
-
-import { Link, Stack } from 'expo-router';
-import { StyleSheet } from 'react-native';
+import { TouchableOpacity, StyleSheet } from 'react-native';
+import { Link, useNavigation } from '@react-navigation/native';
 
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
 export default function NotFoundScreen() {
+  const navigation = useNavigation();
+
   return (
     <>
-      <Stack.Screen options={{ title: 'Not Found' }} />
       <ThemedView style={styles.container}>
         <ThemedText type="title">This screen doesn't exist.</ThemedText>
-        <Link href="/" style={styles.link}>
+        <TouchableOpacity style={styles.link} onPress={() => navigation.pop()}>
           <ThemedText type="link">Go to home screen!</ThemedText>
-        </Link>
+        </TouchableOpacity>
       </ThemedView>
     </>
   );

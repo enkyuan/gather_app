@@ -56,7 +56,7 @@ export default function LoginOptionsScreen() {
               />
                 
               <View className="text-nowrap my-4">
-                <ThemedText type="medium">
+                <ThemedText type="default">
                   Already have an account?{' '}
                     <Link screen="Login">
                       <ThemedText type='link'>Log in</ThemedText>
@@ -65,8 +65,15 @@ export default function LoginOptionsScreen() {
               </View>
 
               <ThemedText 
-                type="regular" 
-                className="text-sm text-wrap text-gray-500 my-8">By signing up, you agree to our terms and privacy policy.
+                type="default" 
+                className="text-sm text-wrap text-gray-500 my-8">By signing up, you agree to our{' '} 
+                <Link screen="Login">
+                  <ThemedText type="link">terms{' '}</ThemedText>
+                </Link> 
+                and{' '}
+                <Link screen="Login">
+                  <ThemedText type="link">privacy policy{' '}</ThemedText>
+                </Link>
               </ThemedText>
             </View>
         </ImageBackground>

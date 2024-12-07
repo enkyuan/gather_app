@@ -50,7 +50,7 @@ export default function RootLayout() {
     <SafeAreaProvider>
       <GestureHandlerRootView>
         <Navigation />
-        <Toaster />
+        <Toaster richColors={true} />
         <StatusBar style="auto" />
       </GestureHandlerRootView>
     </SafeAreaProvider>

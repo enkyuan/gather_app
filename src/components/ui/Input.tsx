@@ -9,7 +9,6 @@ import { useThemeColor } from '@/hooks/useThemeColor'
 interface InputProps extends TextInputProps {
   text?: string;
   textStyle?: TextStyle;
-  onChangeText?: () => void;
   type?: 'sm' | 'md' | 'lg';
 };
 
@@ -17,7 +16,6 @@ export function Input({
   style,
   text,
   textStyle,
-  onChangeText,
   type = 'sm',
   ...rest
 }: InputProps) {
@@ -29,7 +27,8 @@ export function Input({
         type === 'lg' ? styles.lg : undefined,
         style,
       ]}
-      onChangeText={onChangeText}
+      autoCapitalize="none"
+      autoCorrect={false}
       {...rest}>
       <Text
         style={[

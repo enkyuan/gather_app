@@ -1,16 +1,16 @@
 // TODO: add forgot password link
 
-import React from 'react'
+import React, { useState } from 'react'
 import { View, TouchableOpacity } from 'react-native'
-import { useNavigation } from '@react-navigation/native'
+import { useNavigation, Link } from '@react-navigation/native'
 import { useSafeAreaInsets } from 'react-native-safe-area-context'
 
 import { CaretLeft } from 'phosphor-react-native'
-
 import { ThemedView } from '@/components/ThemedView'
 import { ThemedText } from '@/components/ThemedText'
 import { Input } from '@/components/ui/Input'
 import { Button } from '@/components/ui/Button'
+import { useAuth } from '@/hooks/useAuth'
 
 export default function LoginScreen() {
   const navigation = useNavigation();
@@ -18,6 +18,10 @@ export default function LoginScreen() {
   const insets = useSafeAreaInsets();
   const paddingTop = insets.top + 0.8 * insets.top;
   const paddingBottom = insets.bottom;
+
+  const auth = useAuth();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   return (
     <>
@@ -41,7 +45,11 @@ export default function LoginScreen() {
           </View>
 
           <View className="items-center my-[2%]">
-            <Input type="lg" placeholder="name@address.com"  />
+            <Input 
+              type="lg" 
+              placeholder="name@address.com"
+              onChangeText={(text) => setEmail(text)}
+            />
           </View>
           
           <View className="mx-[8%]">
@@ -49,13 +57,38 @@ export default function LoginScreen() {
           </View>
 
           <View className="items-center my-[2%]">
-            <Input type="lg" placeholder="your password" />
+            <Input 
+              type="lg" 
+              placeholder="your password" 
+              secureTextEntry={true}
+              onChangeText={(text) => setPassword(text)}
+            />
+            
+            <View className="mt-[4%]">
+              <ThemedText type="default">
+                Forgot password?{' '}
+                <Link screen="ResetPassword">
+                  <ThemedText type='link'>Reset here</ThemedText>
+                </Link>
+              </ThemedText>
+            </View>
           </View>
+
+
           
-          <View className="mx-[6%] mt-[58%]" style={{ paddingBottom: paddingBottom }}>
+          <View className="mx-[6%] mt-[48%]" style={{ paddingBottom: paddingBottom }}>
             <Button 
-              type="full" text="Continue" textStyle={{ color: 'white', textAlign: 'center' }}
+              type="full" text="Continue" 
+              textStyle={{ color: 'white', textAlign: 'center' }}
               className="bg-black border-1 rounded-full justify-center items-center" 
+              onPress={() => {
+                const formData = {
+                  email: email,
+                  password: password,
+                };
+
+                auth.handleSignIn(formData);
+              }}
             />
           </View> 
         </View>
