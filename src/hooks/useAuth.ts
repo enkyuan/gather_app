@@ -77,7 +77,7 @@ export function useAuth() {
       }
     }
 
-    console.log(data);
+    console.log(formData);
   }
 
   async function handleSignIn(formData: FormData) {
@@ -89,19 +89,12 @@ export function useAuth() {
           .collection("users")
           .authWithPassword(formData.email, formData.password);
       } else {
-        const filter = `username="${input}"`;
-        const records = await pb.collection("users").getList(1, 1, { filter });
+          const filter = `email="${formData.email}"`;
+          const records = await pb.collection("users").getList(1, 1, { filter });
 
         if (records.totalItems === 0) {
           throw new Error("Username or Email is invalid.");
         }
-
-        const user = records.items[0];
-
-        authData = await pb
-          .collection("users")
-          .authWithPassword(user.email, password);
-      }
 
       navigation.navigate("Home");
 

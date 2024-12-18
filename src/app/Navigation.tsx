@@ -14,9 +14,26 @@ import OnboardingScreen from '@/app/Onboarding/'
 import ResetPasswordScreen from '@/app/Login/ResetPassword'
 import SignupScreen from '@/app/Signup/'
 
+import pb from '@root/pocketbase.config'
+import { useState, useEffect } from 'react'
+
 export default function Navigation() {
   const Stack = createNativeStackNavigator();
   const navigation = useNavigation();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+
+
+      if (pb.authStore.isValid) {
+
+      }
+
+
+
+  //check to see if the user is still authenticated
+  useEffect(() => {
+
+  }, []);
 
   return (
     <>
