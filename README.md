@@ -38,11 +38,11 @@ cd connect_app
 bun i
 ```
 
-### dependencies
+### installing dependencies
 
 ```
 bun expo install <package-name>
-npx pod-install
+npx pod-install   # for native modules
 ```
 ### running
 
@@ -51,11 +51,11 @@ docker compose up -d
 bun run ios
 ```
 
-### resetting env
+### resetting
 
 ```
 bun run start -c
-docker compose down
+docker stop connect_app
 ```
 
 ### git
@@ -66,3 +66,11 @@ git add .
 git commit -m "message"
 git push
 ```
+
+### env variables
+
+* variables used in testing are the pocketbase endpoint & merchant id for stripe
+* by default, `http://localhost:8090` is the default url for pocketbase
+* when adding variables, name them according the following convention, i.e.,
+  `EXPO_PUBLIC_VARIABLE_NAME=<value>`
+* use `process.env.EXPO_PUBLIC_VARIABLE_NAME` when reading a variable
